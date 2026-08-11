@@ -1,0 +1,193 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   Nexic Technologies — Design tokens
+   Palette: black / white / orange. Orange is the ONLY accent; it earns
+   attention precisely because nothing else competes for it.
+   ========================================================================== */
+
+@theme {
+  /* Neutrals — warm-shifted so they sit naturally beside the orange */
+  --color-ink: #0a0a0a;
+  --color-ink-soft: #171717;
+  --color-ink-muted: #57534e;
+  --color-paper: #fafaf9;
+  --color-paper-pure: #ffffff;
+  --color-line: #e7e5e4;
+  --color-line-dark: #262626;
+
+  /* Orange — three stops, each with a different job */
+  --color-flare: #ff5a1f; /* fills, graphics, text ON dark (6.1:1 on ink) */
+  --color-flare-ink: #c2410c; /* text ON light surfaces (4.7:1 on paper) */
+  --color-flare-deep: #c24f20; /* surfaces carrying WHITE text (4.7:1) */
+  --color-flare-wash: #fff3ed; /* tint surface */
+
+  /* Typography */
+  --font-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+
+  /* Motion — one rhythm shared by everything */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-soft: cubic-bezier(0.64, 0, 0.78, 0);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-line);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.035em;
+    line-height: 1.02;
+    text-wrap: balance;
+  }
+
+  /* Display sizes take the tighter, block-like treatment. Kept off h3/h4,
+     where extreme tracking hurts more than it helps at small sizes. */
+  h1,
+  .text-section {
+    letter-spacing: -0.055em;
+    line-height: 0.92;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Visible, on-brand focus ring — never removed, only restyled */
+  :focus-visible {
+    outline: 2px solid var(--color-flare);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background-color: var(--color-flare);
+    color: var(--color-ink);
+  }
+}
+
+@layer utilities {
+  /* Consistent page gutter across every section */
+  .shell {
+    width: 100%;
+    max-width: 80rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .shell {
+      padding-inline: 2rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .shell {
+      padding-inline: 2.5rem;
+    }
+  }
+
+  /* Small uppercase label used to title every section */
+  .eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  /* Fluid display type — scales without breakpoint jumps */
+  .text-display {
+    font-size: clamp(2.75rem, 8.5vw, 8rem);
+  }
+
+  .text-section {
+    font-size: clamp(2rem, 5vw, 4rem);
+  }
+
+  /* Tabular figures so stat counters don't jitter as digits change */
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Uppercase micro-label for buttons — editorial, and reads as deliberate
+     at small sizes where sentence case looks accidental. */
+  .btn-label {
+    font-family: var(--font-body);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  /* Masked line reveal: each line sits in an overflow-hidden box and slides
+     up from below its own baseline. */
+  .line-mask {
+    display: block;
+    overflow: hidden;
+    padding-bottom: 0.06em;
+  }
+
+  .marquee-track {
+    animation: marquee 42s linear infinite;
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+/* Respect the user's motion preference everywhere, including the marquee */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .marquee-track {
+    animation: none !important;
+  }
+}

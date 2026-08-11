@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(node --version)",
+      "PowerShell(npm --version)",
+      "PowerShell(Test-Path c:\\\\Users\\\\hp\\\\Desktop\\\\nexictechnologies; \\(Get-ChildItem -Force c:\\\\Users\\\\hp\\\\Desktop\\\\nexictechnologies | Measure-Object\\).Count; Get-Location)",
+      "PowerShell(Get-Command uipro -ErrorAction SilentlyContinue)",
+      "PowerShell(npm view uipro version description repository.url 2>&1)",
+      "PowerShell(npm view motion version description 2>&1)",
+      "PowerShell(npm search uipro --json --no-description 2>&1)",
+      "PowerShell(foreach \\($p in @\\('@uipro/cli','uipro-cli','ui-pro','@ui-pro/cli','uiproai','uipro-ai'\\)\\) { try { $v = npm view $p version 2>$null; if \\($v\\) { \"$p => $v\" } } catch {} })",
+      "PowerShell(npm view uipro-cli bin version 2>&1)",
+      "PowerShell(npm view ui-ux-pro-max-cli bin version 2>&1)",
+      "PowerShell(\"---\")",
+      "PowerShell(uipro init --ai claude 2>&1)",
+      "PowerShell(claude mcp add --transport http 21st https://21st.dev/api/mcp --header \"x-api-key: 21st_sk_a48c8312520a6a5cf87b2722794bf86fb598d7ee704043bb6fb4799616600d73\" 2>&1)",
+      "PowerShell(claude mcp get \"claude.ai Higgsfield MCP\" 2>&1)",
+      "PowerShell(claude mcp list 2>&1)",
+      "PowerShell(claude mcp get 21st 2>&1)",
+      "PowerShell($env:KEY_21ST = \"21st_sk_a48c8312520a6a5cf87b2722794bf86fb598d7ee704043bb6fb4799616600d73\"; node \"C:\\\\Users\\\\hp\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-hp-Desktop-nexictechnologies\\\\144e3066-2ac6-427d-a8d0-2c9affaae081\\\\scratchpad\\\\probe-21st.mjs\" 2>&1 | Out-String)",
+      "PowerShell(node \"C:\\\\Users\\\\hp\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-hp-Desktop-nexictechnologies\\\\144e3066-2ac6-427d-a8d0-2c9affaae081\\\\scratchpad\\\\inspect-config.mjs\" 2>&1)",
+      "PowerShell(claude mcp remove 21st -s local 2>&1)",
+      "PowerShell(node -e \"const fs=require\\('fs'\\),os=require\\('os'\\),p=require\\('path'\\);const j=JSON.parse\\(fs.readFileSync\\(p.join\\(os.homedir\\(\\),'.claude.json'\\),'utf8'\\)\\);console.log\\('top-level mcpServers:',Object.keys\\(j.mcpServers||{}\\)\\);const k='C:/Users/hp/Desktop/nexictechnologies';console.log\\('fwd-slash key mcpServers:',Object.keys\\(\\(j.projects[k]||{}\\).mcpServers||{}\\)\\);\" 2>&1)",
+      "mcp__21st__search",
+      "PowerShell($ff = Get-Command ffmpeg -ErrorAction SilentlyContinue; if \\($ff\\) { Write-Output \"ffmpeg: $\\($ff.Source\\)\"; ffmpeg -version 2>&1 | Select-Object -First 1 } else { Write-Output \"ffmpeg: NOT FOUND\" }; $fp = Get-Command ffprobe -ErrorAction SilentlyContinue; if \\($fp\\) { Write-Output \"ffprobe: $\\($fp.Source\\)\" } else { Write-Output \"ffprobe: NOT FOUND\" })",
+      "PowerShell($ok=$false; for \\($i=0; $i -lt 40; $i++\\) { try { $r = Invoke-WebRequest -Uri \"http://localhost:3000\" -UseBasicParsing -TimeoutSec 20; if \\($r.StatusCode -eq 200\\) { Write-Output \"ready after $i tries\"; $ok=$true; break } } catch { Start-Sleep -Milliseconds 1500 } }; if \\(-not $ok\\) { Write-Output \"NOT READY\" })",
+      "PowerShell($ok=$false; for \\($i=0; $i -lt 40; $i++\\) { try { $r = Invoke-WebRequest -Uri \"http://localhost:3000\" -UseBasicParsing -TimeoutSec 25; if \\($r.StatusCode -eq 200\\) { Write-Output \"ready\"; $ok=$true; break } } catch { Start-Sleep -Milliseconds 1500 } }; if \\(-not $ok\\) { Write-Output \"NOT READY\" }; $sp = \"C:\\\\Users\\\\hp\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-hp-Desktop-nexictechnologies\\\\1a9a0f33-452d-4c78-b21a-8a82756951a8\\\\scratchpad\"; Set-Location $sp; node shot.mjs $sp)"
+    ]
+  }
+}
