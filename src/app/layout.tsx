@@ -46,7 +46,17 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${archivo.variable} ${spaceGrotesk.variable}`}>
-      <body>
+      {/* Browser extensions (Grammarly, ColorZilla, password managers) inject
+          attributes into <body> before React hydrates, which React reports as
+          a mismatch. This suppresses the warning for body's own attributes
+          only — descendants are still checked normally. */}
+      <body suppressHydrationWarning>
+        {/* The scroll reveals inline-style opacity:0 into the SSR HTML, so
+            without JavaScript everything below the hero would never appear.
+            !important is required to beat those inline styles. */}
+        <noscript>
+          <style>{`[data-reveal]{opacity:1 !important;transform:none !important}`}</style>
+        </noscript>
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-ink focus:px-5 focus:py-3 focus:text-sm focus:font-medium focus:text-paper"

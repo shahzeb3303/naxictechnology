@@ -15,6 +15,10 @@ type RevealProps = {
  * Scroll-triggered entrance. Animates transform + opacity only, so it never
  * triggers layout work, and collapses to a plain fade-free render when the
  * user has asked for reduced motion.
+ *
+ * The `data-reveal` hook exists for the <noscript> rule in the layout: the
+ * hidden state is inline-styled into the SSR HTML, so without JavaScript
+ * every revealed section would stay at opacity 0 forever.
  */
 export function Reveal({ children, delay = 0, className, as = "div" }: RevealProps) {
   const reduced = useReducedMotion();
@@ -27,6 +31,7 @@ export function Reveal({ children, delay = 0, className, as = "div" }: RevealPro
 
   return (
     <Component
+      data-reveal=""
       className={className}
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}

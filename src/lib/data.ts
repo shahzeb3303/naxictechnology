@@ -1,7 +1,10 @@
 /**
  * Placeholder content for the Nexic Technologies marketing site.
- * Everything the homepage renders is sourced from here — swap these
- * objects for a CMS query and no component needs to change.
+ *
+ * ASSET SLOTS — every field typed `?: string` is a path into /public that is
+ * intentionally left undefined. Each component renders a designed fallback
+ * when the field is absent, so the page looks finished today and swapping in
+ * real artwork is a one-line change here. See ASSETS.md for the spec.
  */
 
 export const site = {
@@ -22,17 +25,57 @@ export const nav = [
   { label: "Studio", href: "#studio" },
 ] as const;
 
-/** Logo strip — plain wordmarks keep the strip quiet and on-palette. */
-export const clients = [
-  "Northwind",
-  "Lumen Health",
-  "Cargo & Co.",
-  "Meridian Bank",
-  "Fieldstone",
-  "Atlas Robotics",
-  "Vela Energy",
-  "Parcelly",
+/**
+ * One set of numbers, used everywhere. Keep these consistent — a visitor who
+ * reads "350+ projects" here and "68" further down stops trusting both.
+ */
+export const stats = {
+  projects: "350+",
+  clients: "200+",
+  years: "9",
+  engineers: "24",
+  retention: "94%",
+} as const;
+
+/** The four figures shown in the dark band under Process. */
+export const statBlocks = [
+  { value: stats.projects, label: "Projects delivered" },
+  { value: stats.clients, label: "Clients worldwide" },
+  { value: stats.engineers, label: "Engineers on staff" },
+  { value: stats.retention, label: "Clients who return" },
 ] as const;
+
+export type Client = {
+  name: string;
+  /** SVG logo, monochrome, max 160x40. Falls back to a typeset wordmark. */
+  logo?: string;
+};
+
+export const clients: Client[] = [
+  { name: "Northwind" },
+  { name: "Lumen Health" },
+  { name: "Cargo & Co." },
+  { name: "Meridian Bank" },
+  { name: "Fieldstone" },
+  { name: "Atlas Robotics" },
+  { name: "Vela Energy" },
+  { name: "Parcelly" },
+];
+
+export type Badge = {
+  label: string;
+  detail: string;
+  /** Partner/award badge SVG. Falls back to a typeset lockup. */
+  logo?: string;
+};
+
+/** Third-party validation — the substitute for a handshake across borders. */
+export const badges: Badge[] = [
+  { label: "AWS", detail: "Advanced Consulting Partner" },
+  { label: "Google Cloud", detail: "Service Partner" },
+  { label: "Clutch", detail: "4.9 / 5 · 47 reviews" },
+  { label: "ISO 27001", detail: "Certified since 2021" },
+];
 
 export type Service = {
   id: string;
@@ -86,9 +129,11 @@ export type Project = {
   summary: string;
   metric: { value: string; label: string };
   stack: string[];
-  /** Palette of the placeholder artwork — swap for a real image later. */
+  /** Case-study cover, 1600x1000 (16:10). Falls back to generated geometry. */
+  cover?: string;
+  /** Palette of the fallback artwork. */
   tone: "ink" | "flare" | "paper";
-  /** Composition of the placeholder artwork; keep these unique per project. */
+  /** Composition of the fallback artwork; keep unique per project. */
   art: 1 | 2 | 3 | 4;
   featured?: boolean;
 };
@@ -188,11 +233,27 @@ export const process: Stage[] = [
   },
 ];
 
-export const stats = [
-  { value: "68", suffix: "", label: "Products shipped" },
-  { value: "9", suffix: "", label: "Years building" },
-  { value: "24", suffix: "", label: "Engineers on staff" },
-  { value: "94", suffix: "%", label: "Clients who return" },
+export type Person = {
+  id: string;
+  name: string;
+  role: string;
+  /** Portrait, 800x1000 (4:5), neutral background. Falls back to a monogram. */
+  photo?: string;
+};
+
+/** Faces do real work when the client will never visit the office. */
+export const team: Person[] = [
+  { id: "amara", name: "Amara Diallo", role: "Founder & Principal Engineer" },
+  { id: "tomas", name: "Tomás Rivera", role: "Head of Product Engineering" },
+  { id: "sana", name: "Sana Qureshi", role: "Principal Architect" },
+  { id: "elias", name: "Elias Brandt", role: "Design Director" },
+];
+
+/** Where the studio has working-hours overlap — the timezone question. */
+export const coverage = [
+  { region: "Americas", city: "San Francisco", hours: "09:00 – 18:00 PT" },
+  { region: "Europe", city: "Lisbon", hours: "09:00 – 18:00 WET" },
+  { region: "Asia-Pacific", city: "Singapore", hours: "09:00 – 18:00 SGT" },
 ] as const;
 
 export type Testimonial = {
@@ -200,6 +261,10 @@ export type Testimonial = {
   name: string;
   role: string;
   company: string;
+  /** Portrait, 400x400 (1:1). Falls back to a monogram. */
+  photo?: string;
+  /** Client logo, monochrome SVG. Falls back to a typeset wordmark. */
+  logo?: string;
 };
 
 export const testimonials: Testimonial[] = [
@@ -219,11 +284,12 @@ export const testimonials: Testimonial[] = [
   },
 ];
 
-/** Headline scale figures for the banner between the ticker and services. */
-export const scale = {
-  projects: "350+",
-  clients: "200+",
-} as const;
+/**
+ * Three square images (1000x1000) for the media tiles in the WhyChoose
+ * mosaic — team at work, an office shot, a product close-up. Leave entries
+ * undefined and a drawn grid stands in.
+ */
+export const mosaicMedia: (string | undefined)[] = [undefined, undefined, undefined];
 
 export type Reason = {
   id: string;
@@ -251,6 +317,32 @@ export const reasons: Reason[] = [
     id: "support",
     title: "Ongoing Support",
     body: "From incident response to cost tuning, we stay reachable long after the final invoice clears.",
+  },
+];
+
+export type Faq = { q: string; a: string };
+
+/** Answers the objections that stall a first cross-border conversation. */
+export const faqs: Faq[] = [
+  {
+    q: "How do you work across time zones?",
+    a: "We keep at least four hours of overlap with every client. Teams are staffed from the office closest to you, and every decision that matters is written down so nothing depends on catching someone awake.",
+  },
+  {
+    q: "What does a typical engagement cost?",
+    a: "Discovery is a fixed fee, usually between $12k and $20k depending on scope. Build phases run as monthly retainers priced by team size. You get a written estimate before anything starts, and we do not bill for work you have not approved.",
+  },
+  {
+    q: "Who owns the code?",
+    a: "You do, from the first commit. We work in your repository under your licence, and the handover includes runbooks, architecture notes, and a paired walkthrough with your engineers.",
+  },
+  {
+    q: "How quickly can you start?",
+    a: "Discovery usually begins within two to three weeks. We deliberately keep one team unallocated so urgent work does not wait a quarter for a slot.",
+  },
+  {
+    q: "What happens if we want to stop?",
+    a: "Retainers run month to month with 30 days' notice. There is no termination fee and no clause that holds your codebase hostage.",
   },
 ];
 

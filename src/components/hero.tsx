@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
-import { site } from "@/lib/data";
+import { site, stats } from "@/lib/data";
 
 const HEADLINE = ["We build", "software that", "ships."];
 
@@ -43,15 +43,20 @@ export function Hero() {
         style={reduced ? undefined : { y: videoY, scale: videoScale }}
         className="absolute inset-0 -z-20 h-full w-full will-change-transform"
       >
+        {/* The poster is what actually paints first — it makes LCP a 250KB
+            JPEG instead of a 3.3MB video, and it is the whole picture for
+            reduced-motion users, who never see the clip play. */}
         <video
           ref={videoRef}
           className="h-full w-full object-cover"
           src="/hero.mp4"
+          poster="/hero-poster.jpg"
           autoPlay={!reduced}
           muted
           loop
           playsInline
           preload="metadata"
+          aria-hidden="true"
           tabIndex={-1}
         />
       </motion.div>
@@ -108,6 +113,29 @@ export function Hero() {
                 ambitious briefs into systems that survive contact with real
                 users — then hand them over documented, tested, and yours.
               </p>
+            </Masked>
+
+            {/* Scale, stated once and inline. It used to occupy a section of
+                its own between the ticker and services, which pushed the
+                first real content a full screen further down. */}
+            <Masked as="div" delay={0.6} reduced={reduced}>
+              <dl className="mt-8 flex flex-wrap items-baseline gap-x-8 gap-y-3">
+                {[
+                  { v: stats.projects, l: "projects delivered" },
+                  { v: stats.clients, l: "clients worldwide" },
+                  { v: stats.years, l: "years building" },
+                ].map((s) => (
+                  <div key={s.l} className="flex items-baseline gap-2">
+                    <dt className="sr-only">{s.l}</dt>
+                    <dd className="flex items-baseline gap-2">
+                      <span className="tnum font-display text-[1.75rem] leading-none tracking-tight text-paper">
+                        {s.v}
+                      </span>
+                      <span className="text-[0.8125rem] text-paper/60">{s.l}</span>
+                    </dd>
+                  </div>
+                ))}
+              </dl>
             </Masked>
           </div>
 
@@ -172,6 +200,7 @@ function Masked({
   return (
     <Tag className={`line-mask ${className ?? ""}`}>
       <Inner
+        data-reveal=""
         className="block"
         initial={{ y: "110%" }}
         animate={{ y: "0%" }}

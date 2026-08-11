@@ -1,4 +1,4 @@
-import { process, stats } from "@/lib/data";
+import { process, statBlocks } from "@/lib/data";
 import { Reveal } from "./reveal";
 import { SectionHead } from "./section-head";
 
@@ -47,14 +47,13 @@ export function Process() {
 
         {/* Studio numbers */}
         <dl className="mt-20 grid grid-cols-2 gap-x-8 gap-y-12 border-t border-line-dark pt-14 lg:grid-cols-4">
-          {stats.map((stat, i) => (
+          {statBlocks.map((stat, i) => (
             <Reveal key={stat.label} delay={i * 0.06}>
               <div>
                 <dt className="sr-only">{stat.label}</dt>
                 <dd>
                   <span className="tnum block font-display text-[3rem] leading-none tracking-tight text-paper md:text-[4rem]">
                     {stat.value}
-                    <span className="text-flare">{stat.suffix || "."}</span>
                   </span>
                   <span className="mt-3 block text-sm text-paper/55">{stat.label}</span>
                 </dd>

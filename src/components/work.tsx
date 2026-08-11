@@ -1,5 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
-import { projects, type Project } from "@/lib/data";
+import { projects, stats, type Project } from "@/lib/data";
 import { ProjectArt } from "./project-art";
 import { Reveal } from "./reveal";
 import { SectionHead } from "./section-head";
@@ -19,7 +19,17 @@ function ProjectCard({ project, featured }: { project: Project; featured?: boole
           }`}
         >
           <div className="h-full w-full transition-transform duration-700 ease-[var(--ease-out-soft)] group-hover:scale-[1.04]">
-            <ProjectArt project={project} />
+            {project.cover ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={project.cover}
+                alt={`${project.client} — ${project.title}`}
+                className="h-full w-full object-cover"
+                loading="lazy"
+              />
+            ) : (
+              <ProjectArt project={project} />
+            )}
           </div>
 
           {/* Year chip */}
@@ -118,7 +128,7 @@ export function Work() {
               href="#work"
               className="group inline-flex min-h-[52px] cursor-pointer items-center gap-2 rounded-full border border-ink/15 px-7 text-[0.9375rem] font-medium transition-colors duration-200 hover:border-ink hover:bg-ink/[0.03]"
             >
-              View all 68 projects
+              View all {stats.projects} projects
               <ArrowUpRight
                 className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                 aria-hidden="true"
