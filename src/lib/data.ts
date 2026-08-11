@@ -17,12 +17,17 @@ export const site = {
   founded: 2017,
 } as const;
 
+/**
+ * Root-relative on purpose. A bare "#services" resolves against whatever page
+ * you are on, so these would go nowhere from /contact.
+ */
 export const nav = [
-  { label: "Services", href: "#services" },
-  { label: "Why us", href: "#why" },
-  { label: "Work", href: "#work" },
-  { label: "Process", href: "#process" },
-  { label: "Studio", href: "#studio" },
+  { label: "Services", href: "/#services" },
+  { label: "Why us", href: "/#why" },
+  { label: "Work", href: "/#work" },
+  { label: "Process", href: "/#process" },
+  { label: "Studio", href: "/#studio" },
+  { label: "Contact", href: "/contact" },
 ] as const;
 
 /**
@@ -345,6 +350,97 @@ export const faqs: Faq[] = [
     a: "Retainers run month to month with 30 days' notice. There is no termination fee and no clause that holds your codebase hostage.",
   },
 ];
+
+/* ------------------------------------------------------------------ */
+/* Contact page                                                        */
+/* ------------------------------------------------------------------ */
+
+export type Office = {
+  id: string;
+  city: string;
+  country: string;
+  address: string[];
+  phone: string;
+  email: string;
+  hours: string;
+  /** Office photo, 1200x900 (4:3). Falls back to a drawn placeholder. */
+  photo?: string;
+};
+
+export const offices: Office[] = [
+  {
+    id: "sf",
+    city: "San Francisco",
+    country: "United States",
+    address: ["244 Kearny Street, Floor 6", "San Francisco, CA 94108"],
+    phone: "+1 (415) 555-0184",
+    email: "sf@nexic.tech",
+    hours: "09:00 – 18:00 PT",
+  },
+  {
+    id: "lisbon",
+    city: "Lisbon",
+    country: "Portugal",
+    address: ["Rua da Prata 142, 2º", "1100-421 Lisboa"],
+    phone: "+351 21 555 0132",
+    email: "eu@nexic.tech",
+    hours: "09:00 – 18:00 WET",
+  },
+  {
+    id: "singapore",
+    city: "Singapore",
+    country: "Singapore",
+    address: ["71 Robinson Road, #14-01", "Singapore 068895"],
+    phone: "+65 6555 0177",
+    email: "apac@nexic.tech",
+    hours: "09:00 – 18:00 SGT",
+  },
+];
+
+/** Routed inboxes, so enquiries do not all land in one pile. */
+export const contactChannels = [
+  {
+    id: "new-business",
+    label: "New business",
+    detail: "Scoping a project or asking for an estimate.",
+    email: "hello@nexic.tech",
+  },
+  {
+    id: "careers",
+    label: "Careers",
+    detail: "Engineers and designers — we read every one.",
+    email: "jobs@nexic.tech",
+  },
+  {
+    id: "press",
+    label: "Press & speaking",
+    detail: "Interviews, conference talks, and podcasts.",
+    email: "press@nexic.tech",
+  },
+] as const;
+
+export const projectTypes = [
+  "Product engineering",
+  "Mobile application",
+  "AI & automation",
+  "Cloud & platform",
+  "Not sure yet",
+] as const;
+
+export const budgetRanges = [
+  "Under $25k",
+  "$25k – $75k",
+  "$75k – $150k",
+  "$150k+",
+  "Still working it out",
+] as const;
+
+export const timelines = [
+  "As soon as possible",
+  "Within 1–3 months",
+  "Within 3–6 months",
+  "Just exploring",
+] as const;
 
 export const capabilities = [
   "TypeScript",

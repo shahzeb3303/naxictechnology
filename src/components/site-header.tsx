@@ -63,7 +63,7 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-2">
           <a
-            href="#contact"
+            href="/contact"
             className="btn-label hidden cursor-pointer items-center gap-1.5 rounded-full bg-white px-5 py-3 text-ink transition-colors duration-200 hover:bg-ink hover:text-white md:inline-flex"
           >
             Start a project
@@ -102,7 +102,7 @@ export function SiteHeader() {
             </a>
           ))}
           <a
-            href="#contact"
+            href="/contact"
             onClick={() => setOpen(false)}
             className="btn-label mt-5 inline-flex min-h-[52px] items-center justify-center gap-2 rounded-full bg-white px-6 text-ink"
           >
