@@ -1,4 +1,6 @@
 import type { Metadata, Viewport } from "next";
+import { ChatWidget } from "@/components/chat/chat-widget";
+import { OrganizationLd } from "@/components/jsonld";
 import { Archivo, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
@@ -51,6 +53,7 @@ export default function RootLayout({
           a mismatch. This suppresses the warning for body's own attributes
           only — descendants are still checked normally. */}
       <body suppressHydrationWarning>
+        <OrganizationLd />
         {/* The scroll reveals inline-style opacity:0 into the SSR HTML, so
             without JavaScript everything below the hero would never appear.
             !important is required to beat those inline styles. */}
@@ -64,6 +67,9 @@ export default function RootLayout({
           Skip to content
         </a>
         {children}
+        {/* Mounted once here, not per page, so the conversation survives
+            client-side navigation. */}
+        <ChatWidget />
       </body>
     </html>
   );

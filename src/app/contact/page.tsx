@@ -11,7 +11,7 @@ import { process, site } from "@/lib/data";
 export const metadata: Metadata = {
   title: `Contact — ${site.name}`,
   description:
-    "Start a project with Nexic Technologies. Offices in San Francisco, Lisbon, and Singapore. A reply from an engineer within one business day.",
+    "Start a project with Nexic Technologies. Offices in Islamabad and Manchester. A reply from an engineer within one business day.",
 };
 
 export default function ContactPage() {

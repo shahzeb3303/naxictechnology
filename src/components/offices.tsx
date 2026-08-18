@@ -9,11 +9,11 @@ export function Offices() {
       <div className="shell">
         <SectionHead
           eyebrow="Where we are"
-          title="Three offices, one team"
+          title="Two offices, one team"
           lede="Projects are staffed from the office with the most overlap with you — never fewer than four shared working hours a day."
         />
 
-        <ul className="mt-16 grid gap-8 lg:grid-cols-3">
+        <ul className="mt-16 grid gap-8 md:grid-cols-2">
           {offices.map((office, i) => (
             <Reveal as="li" key={office.id} delay={i * 0.07}>
               <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-paper-pure">

@@ -62,7 +62,7 @@ export function Team() {
         <Reveal>
           <div className="mt-20 border-t border-line pt-10">
             <p className="eyebrow text-ink-muted">Working hours</p>
-            <dl className="mt-6 grid gap-8 sm:grid-cols-3">
+            <dl className="mt-6 grid gap-8 sm:grid-cols-2">
               {coverage.map((c) => (
                 <div key={c.region} className="flex items-baseline gap-3">
                   <span

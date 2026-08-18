@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { projects, stats, type Project } from "@/lib/data";
 import { ProjectArt } from "./project-art";
@@ -7,8 +8,8 @@ import { SectionHead } from "./section-head";
 function ProjectCard({ project, featured }: { project: Project; featured?: boolean }) {
   return (
     <article className="group h-full">
-      <a
-        href={`#work-${project.id}`}
+      <Link
+        href={`/work/${project.id}`}
         aria-label={`${project.client} — ${project.title}`}
         className="flex h-full cursor-pointer flex-col"
       >
@@ -86,23 +87,29 @@ function ProjectCard({ project, featured }: { project: Project; featured?: boole
             ))}
           </ul>
         </div>
-      </a>
+      </Link>
     </article>
   );
 }
 
-export function Work() {
+/**
+ * `showHead` is off on /work, where the page hero already carries the
+ * heading — running both would say the same thing twice in a row.
+ */
+export function Work({ showHead = true }: { showHead?: boolean } = {}) {
   const featured = projects.filter((p) => p.featured);
   const rest = projects.filter((p) => !p.featured);
 
   return (
     <section id="work" className="scroll-mt-24 border-t border-line bg-paper-pure py-24 md:py-32">
       <div className="shell">
-        <SectionHead
-          eyebrow="Selected work"
-          title="Our best work"
-          lede="A sample of what we've shipped in the last two years. Each one started as a problem someone had already tried to solve twice."
-        />
+        {showHead && (
+          <SectionHead
+            eyebrow="Selected work"
+            title="Our best work"
+            lede="A sample of what we've shipped in the last two years. Each one started as a problem someone had already tried to solve twice."
+          />
+        )}
 
         {/* Odd cards drop half a step so the columns never read as a table.
             Only above md, where there are actually two columns to offset. */}
@@ -124,8 +131,8 @@ export function Work() {
 
         <Reveal>
           <div className="mt-16 flex justify-center">
-            <a
-              href="#work"
+            <Link
+              href="/work"
               className="group inline-flex min-h-[52px] cursor-pointer items-center gap-2 rounded-full border border-ink/15 px-7 text-[0.9375rem] font-medium transition-colors duration-200 hover:border-ink hover:bg-ink/[0.03]"
             >
               View all {stats.projects} projects
@@ -133,7 +140,7 @@ export function Work() {
                 className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                 aria-hidden="true"
               />
-            </a>
+            </Link>
           </div>
         </Reveal>
       </div>

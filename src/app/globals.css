@@ -151,6 +151,23 @@
     text-transform: uppercase;
   }
 
+  /* Scroll reveal. Driven by a single shared IntersectionObserver in
+     reveal.tsx, which adds .is-visible. Kept in CSS so the animation runs on
+     the compositor rather than through a JS animation loop per element. */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+      opacity 0.55s var(--ease-out-soft),
+      transform 0.55s var(--ease-out-soft);
+    transition-delay: var(--reveal-delay, 0s);
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
   /* Masked line reveal: each line sits in an overflow-hidden box and slides
      up from below its own baseline. */
   .line-mask {
@@ -189,5 +206,12 @@
 
   .marquee-track {
     animation: none !important;
+  }
+
+  /* Reveals land in their final state instead of transitioning */
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 }

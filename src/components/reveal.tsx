@@ -1,44 +1,73 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
-import type { ReactNode } from "react";
+import { useEffect, useRef } from "react";
+import type { CSSProperties, ReactNode } from "react";
 
 type RevealProps = {
   children: ReactNode;
-  /** Stagger position — 0.06s per step matches the studio's motion rhythm. */
+  /** Stagger position in seconds — applied as a CSS transition-delay. */
   delay?: number;
   className?: string;
   as?: "div" | "li" | "section" | "article";
 };
 
 /**
- * Scroll-triggered entrance. Animates transform + opacity only, so it never
- * triggers layout work, and collapses to a plain fade-free render when the
- * user has asked for reduced motion.
+ * Scroll-triggered entrance, done in CSS.
  *
- * The `data-reveal` hook exists for the <noscript> rule in the layout: the
- * hidden state is inline-styled into the SSR HTML, so without JavaScript
- * every revealed section would stay at opacity 0 forever.
+ * This used to render a motion component per element, which meant ~60 animation
+ * instances and ~60 IntersectionObservers on the longer pages. The visual
+ * result is identical, but now the browser runs one shared observer and a
+ * plain CSS transition — the animation never touches the main thread.
+ *
+ * The hidden state and the transition live in globals.css under `.reveal`;
+ * the `data-reveal` attribute is what the <noscript> rule keys off so the
+ * content is still visible with JavaScript disabled.
  */
-export function Reveal({ children, delay = 0, className, as = "div" }: RevealProps) {
-  const reduced = useReducedMotion();
-  const Component = motion[as];
 
-  if (reduced) {
-    const Static = as;
-    return <Static className={className}>{children}</Static>;
-  }
+let observer: IntersectionObserver | null = null;
+
+function getObserver() {
+  if (observer) return observer;
+
+  observer = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        entry.target.classList.add("is-visible");
+        // Reveal once, then stop watching — nothing re-hides on scroll up
+        observer?.unobserve(entry.target);
+      }
+    },
+    { rootMargin: "0px 0px -80px 0px", threshold: 0 }
+  );
+
+  return observer;
+}
+
+export function Reveal({ children, delay = 0, className, as = "div" }: RevealProps) {
+  const ref = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const io = getObserver();
+    io.observe(el);
+    return () => io.unobserve(el);
+  }, []);
+
+  const Tag = as as "div";
 
   return (
-    <Component
+    <Tag
+      ref={ref as React.Ref<HTMLDivElement>}
       data-reveal=""
-      className={className}
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.55, delay, ease: [0.22, 1, 0.36, 1] }}
+      className={className ? `reveal ${className}` : "reveal"}
+      style={
+        delay ? ({ "--reveal-delay": `${delay}s` } as CSSProperties) : undefined
+      }
     >
       {children}
-    </Component>
+    </Tag>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { nav, site } from "@/lib/data";
 import { Wordmark } from "./wordmark";
@@ -37,8 +38,8 @@ export function SiteHeader() {
       }`}
     >
       <div className="shell flex h-[4.5rem] items-center justify-between gap-6">
-        <a
-          href="#main"
+        <Link
+          href="/"
           aria-label={`${site.name} — home`}
           className="flex items-center gap-2.5 rounded-sm"
         >
@@ -46,29 +47,29 @@ export function SiteHeader() {
           <span className="font-display text-[0.95rem] font-semibold tracking-tight text-white">
             {site.name}
           </span>
-        </a>
+        </Link>
 
         <nav aria-label="Primary" className="hidden items-center gap-8 md:flex">
           {nav.map((item) => (
-            <a
+            <Link
               key={item.href}
               href={item.href}
               className="group relative cursor-pointer py-1 text-sm text-white/85 transition-colors duration-200 hover:text-white"
             >
               {item.label}
               <span className="absolute inset-x-0 -bottom-0.5 h-px origin-left scale-x-0 bg-white transition-transform duration-300 group-hover:scale-x-100" />
-            </a>
+            </Link>
           ))}
         </nav>
 
         <div className="flex items-center gap-2">
-          <a
+          <Link
             href="/contact"
             className="btn-label hidden cursor-pointer items-center gap-1.5 rounded-full bg-white px-5 py-3 text-ink transition-colors duration-200 hover:bg-ink hover:text-white md:inline-flex"
           >
             Start a project
             <ArrowUpRight className="h-3.5 w-3.5" strokeWidth={2.5} aria-hidden="true" />
-          </a>
+          </Link>
 
           <button
             type="button"
@@ -91,7 +92,7 @@ export function SiteHeader() {
       >
         <nav aria-label="Mobile" className="shell flex flex-col py-4">
           {nav.map((item) => (
-            <a
+            <Link
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
@@ -99,16 +100,16 @@ export function SiteHeader() {
             >
               {item.label}
               <ArrowUpRight className="h-4 w-4 text-white/70" aria-hidden="true" />
-            </a>
+            </Link>
           ))}
-          <a
+          <Link
             href="/contact"
             onClick={() => setOpen(false)}
             className="btn-label mt-5 inline-flex min-h-[52px] items-center justify-center gap-2 rounded-full bg-white px-6 text-ink"
           >
             Start a project
             <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
-          </a>
+          </Link>
         </nav>
       </div>
     </header>

@@ -164,7 +164,7 @@ export function Hero() {
 
             <Masked as="div" delay={0.52} reduced={reduced}>
               <p className="eyebrow text-paper/60">
-                Est. {site.founded} · San Francisco
+                Est. {site.founded} · Islamabad &amp; Manchester
               </p>
             </Masked>
           </div>

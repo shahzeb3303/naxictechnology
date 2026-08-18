@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ArrowUp } from "lucide-react";
 import { nav, site } from "@/lib/data";
 import { Wordmark } from "./wordmark";
@@ -29,7 +30,7 @@ export function SiteFooter() {
               </span>
             </div>
             <p className="mt-5 max-w-[38ch] text-sm leading-relaxed text-paper/60">
-              An independent software studio in San Francisco. We build web
+              An independent software studio in Islamabad and Manchester. We build web
               platforms, mobile apps, and AI products — then hand them over
               properly.
             </p>
@@ -40,12 +41,12 @@ export function SiteFooter() {
             <ul className="mt-5 space-y-2">
               {nav.map((item) => (
                 <li key={item.href}>
-                  <a
+                  <Link
                     href={item.href}
                     className="inline-block cursor-pointer py-1 text-sm text-paper/85 transition-colors duration-200 hover:text-flare"
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
