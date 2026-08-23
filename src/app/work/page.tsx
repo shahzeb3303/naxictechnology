@@ -3,9 +3,9 @@ import { ContactCta } from "@/components/contact-cta";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { Ticker } from "@/components/ticker";
-import { Work } from "@/components/work";
+import { WorkFilter } from "@/components/work-filter";
 import { Reveal } from "@/components/reveal";
-import { site, stats } from "@/lib/data";
+import { projects, site, stats } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: `Work — ${site.name}`,
@@ -69,7 +69,13 @@ export default function WorkPage() {
         </section>
 
         <Ticker />
-        <Work showHead={false} />
+
+        <section className="bg-paper-pure py-20 md:py-24">
+          <div className="shell">
+            <WorkFilter projects={projects} />
+          </div>
+        </section>
+
         <ContactCta />
       </main>
       <SiteFooter />

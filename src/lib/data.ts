@@ -254,6 +254,42 @@ export const services: Service[] = [
   },
 ];
 
+/**
+ * What kind of work this is. Drives the filter on /work and which showcase
+ * block the case study renders.
+ */
+export type Medium = "web" | "app" | "video" | "design" | "marketing";
+
+export const mediumLabels: Record<Medium, string> = {
+  web: "Web",
+  app: "Apps",
+  video: "Video",
+  design: "Design",
+  marketing: "Marketing",
+};
+
+/** One image in a gallery. Dimensions prevent layout shift. */
+export type GalleryItem = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  /** Let a hero piece span two columns. */
+  wide?: boolean;
+};
+
+/** One video. Hosted externally — self-hosting a reel portfolio is fatal. */
+export type VideoItem = {
+  title: string;
+  provider: "stream" | "vimeo" | "youtube" | "instagram";
+  /** Playback ID, video ID, or full URL for instagram. */
+  id: string;
+  poster?: string;
+  aspect: "9/16" | "1/1" | "16/9";
+  duration?: string;
+  client?: string;
+};
+
 export type Project = {
   id: string;
   client: string;
@@ -261,8 +297,13 @@ export type Project = {
   category: string;
   year: string;
   summary: string;
+  medium: Medium;
   metric: { value: string; label: string };
   stack: string[];
+  /** Credit when one person led the work. */
+  lead?: string;
+  gallery?: GalleryItem[];
+  videos?: VideoItem[];
   /** Case-study cover, 1600x1000 (16:10). Falls back to generated geometry. */
   cover?: string;
   /** Palette of the fallback artwork. */
@@ -304,6 +345,7 @@ export const projects: Project[] = [
     year: "2025",
     summary:
       "Eleven days of paperwork compressed into a nine-minute flow. We replaced a mainframe-backed intake process with a document pipeline that verifies identity in real time.",
+    medium: "web",
     metric: { value: "-91%", label: "time to open an account" },
     stack: ["Next.js", "Go", "Postgres", "AWS"],
     tone: "ink",
@@ -342,6 +384,7 @@ export const projects: Project[] = [
     year: "2025",
     summary:
       "A retrieval system over 40 years of care protocols, wrapped in an interface that always shows its sources. Every answer is traceable back to a signed-off document.",
+    medium: "web",
     metric: { value: "4.2M", label: "records indexed" },
     stack: ["Python", "pgvector", "React", "GCP"],
     tone: "flare",
@@ -375,6 +418,7 @@ export const projects: Project[] = [
     year: "2024",
     summary:
       "An offline-first driver app and an operations console sharing one event stream. Drivers keep scanning through dead zones; dispatch sees it the moment signal returns.",
+    medium: "app",
     metric: { value: "1.8s", label: "median sync latency" },
     stack: ["React Native", "Kotlin", "Kafka"],
     tone: "paper",
@@ -412,6 +456,7 @@ export const projects: Project[] = [
     year: "2024",
     summary:
       "A time-series backbone for warehouse robots, with a control room that stays responsive while ingesting a firehose of sensor data from six facilities.",
+    medium: "web",
     metric: { value: "99.98%", label: "uptime across 18 months" },
     stack: ["Rust", "ClickHouse", "Kubernetes"],
     tone: "paper",
@@ -434,6 +479,420 @@ export const projects: Project[] = [
       { value: "99.98%", label: "Uptime, 18 months" },
       { value: "<1s", label: "Control room queries" },
       { value: "6", label: "Facilities live" },
+    ],
+  },
+
+  {
+    id: "restaurant-social",
+    client: "TODO — real client name",
+    title: "A social campaign that sells the dish before the caption does",
+    category: "Food & Beverage · Design",
+    year: "2025",
+    medium: "design",
+    summary:
+      "Seven feed posts for a restaurant brand, built so each reads at thumb-speed: one dish, one promise, and typography that carries the mood before a word is read.",
+    metric: { value: "7", label: "posts in the launch set" },
+    stack: ["Photoshop", "Illustrator", "Instagram"],
+    tone: "ink",
+    art: 2,
+    cover: "/work/restaurant-social/front-resturant.png",
+    industry: "Food & Beverage",
+    expertise: ["Art Direction", "Social Design", "Typography", "Food Retouch"],
+    platform: "Instagram · 1:1 feed",
+    overviewTitle: "One dish, one promise, one second to land it",
+    overview:
+      "A restaurant's feed competes with everything else on the phone, and it loses in the first second or not at all. This set was built around that constraint: a single hero dish per post, a headline that states the offer plainly, and enough dark negative space that the food is the brightest thing on screen.",
+    challenge:
+      "The brief spanned very different moods — a cocktail launch, a weekend brunch, a spicy wings promo, a new teriyaki menu. Treated separately they would have looked like seven brands. Treated identically they would have flattened the difference between a delicate brunch and a flame-grilled promo.",
+    approach:
+      "One structural system, two typographic registers. Everything shares the same dark ground, the same generous margin, and the same rule about a single focal dish. Within that, indulgent items get a script-and-serif pairing with warm amber accents, while the high-energy promos switch to heavy condensed sans with a hard red block. The grid stays constant; only the voice changes.",
+    outcome:
+      "The set holds together as a feed while each post still does its own job. Because the structure is fixed, new posts can be produced from the same template without re-solving the layout every time.",
+    results: [
+      { value: "7", label: "Posts delivered" },
+      { value: "4", label: "Campaign themes" },
+      { value: "1:1", label: "Feed-native format" },
+    ],
+    gallery: [
+      {
+        src: "/work/restaurant-social/resturant-1.png",
+        alt: "Authentic Indian Cuisine \u2014 overhead flat-lay inside a thin amber rule, script set across a torn-edge black panel",
+        width: 807,
+        height: 802,
+        wide: true,
+      },
+      {
+        src: "/work/restaurant-social/resturant-4.png",
+        alt: "Morning Brunch \u2014 daylight table setting, high-contrast serif with a swipe affordance for the carousel",
+        width: 797,
+        height: 800,
+      },
+      {
+        src: "/work/restaurant-social/resturant-2.png",
+        alt: "Special Cocktail Party \u2014 single backlit cocktail on black, script above wide-tracked serif caps",
+        width: 806,
+        height: 807,
+      },
+      {
+        src: "/work/restaurant-social/resturant-3.png",
+        alt: "Spicy Chicken \u2014 heavy condensed sans with a red highlight block over flame and smoke",
+        width: 800,
+        height: 797,
+      },
+      {
+        src: "/work/restaurant-social/resturant-5.png",
+        alt: "New Menu, Chicken Teriyaki \u2014 overhead plate above a dark panel carrying the order line",
+        width: 802,
+        height: 802,
+      },
+      {
+        src: "/work/restaurant-social/resturant-7.png",
+        alt: "Sparkling Citrus Delight \u2014 display serif overlapped by script, warm amber mocktail still life",
+        width: 801,
+        height: 801,
+      },
+      {
+        src: "/work/restaurant-social/resturant-8.png",
+        alt: "Grill Chicken \u2014 bold sans over a red today-special banner on a styled tray shot",
+        width: 806,
+        height: 802,
+      },
+    ],
+  },
+
+  {
+    id: "car-hire-australia",
+    client: "Car Hire Australia",
+    title: "Six posts, six reasons to book — one recognisable feed",
+    category: "Travel & Mobility · Design",
+    year: "2025",
+    medium: "design",
+    summary:
+      "A social set built around occasions rather than vehicles: the airport pickup, the wedding car, the family that needs eight seats. Each post answers a different reason someone reaches for a hire car.",
+    metric: { value: "6", label: "booking occasions covered" },
+    stack: ["Photoshop", "Illustrator", "Instagram"],
+    tone: "flare",
+    art: 3,
+    cover: "/work/car-hire-australia/cover.png",
+    industry: "Travel & Mobility",
+    expertise: ["Art Direction", "Social Design", "Typography", "Campaign Systems"],
+    platform: "Instagram · social feed",
+    overviewTitle: "Sell the occasion, not the vehicle",
+    overview:
+      "Car hire is bought at a moment, not browsed at leisure — a flight lands, a wedding is booked, a family works out that five seats will not do. The set is organised around those moments, so each post can be recognised instantly by someone in exactly that situation.",
+    challenge:
+      "Six posts, six very different jobs. An airport-transfer promo needs urgency; a wedding car needs restraint; a seat-count post is pure information. Left alone they drift into six unrelated visual identities, and the feed stops reading as one brand.",
+    approach:
+      "A fixed frame does the holding: dark automotive photography, headline weight anchored to one corner, and a single amber accent carried through from the cover mark. Within that, the register shifts to suit the moment — condensed caps and a hard call to action for transfers and availability, a lighter script pairing for the occasion pieces. The testimonial post breaks the pattern deliberately, overlaying real client messages so it reads as proof rather than promotion.",
+    outcome:
+      "The set covers the brand's main booking triggers while still scanning as one feed, and the frame is reusable — a new occasion becomes a new post without redesigning the layout.",
+    results: [
+      { value: "6", label: "Posts delivered" },
+      { value: "6", label: "Booking occasions covered" },
+      { value: "1", label: "Reusable campaign frame" },
+    ],
+    gallery: [
+      {
+        src: "/work/car-hire-australia/car-1.png",
+        alt: "On Your Special Day \u2014 evening shot of a black sedan, script over caps for wedding and occasion hire",
+        width: 840,
+        height: 837,
+        wide: true,
+      },
+      {
+        src: "/work/car-hire-australia/car-5.png",
+        alt: "Airport Transfers \u2014 landing-day urgency in condensed caps over a dark forecourt shot",
+        width: 872,
+        height: 857,
+      },
+      {
+        src: "/work/car-hire-australia/car-4.png",
+        alt: "Six, seven and eight seater SUVs \u2014 capacity headline over a silver SUV on an open road",
+        width: 862,
+        height: 852,
+      },
+      {
+        src: "/work/car-hire-australia/car-6.png",
+        alt: "Car Hire Made Easy \u2014 simplicity message over a maroon hatchback",
+        width: 830,
+        height: 821,
+      },
+      {
+        src: "/work/car-hire-australia/car-3.png",
+        alt: "Client testimonials \u2014 real booking messages overlaid as chat bubbles, breaking the campaign frame on purpose",
+        width: 832,
+        height: 832,
+      },
+      {
+        src: "/work/car-hire-australia/car-2.png",
+        alt: "Customer Satisfaction \u2014 dark SUV on an open highway with the amber brand accent",
+        width: 852,
+        height: 816,
+      },
+    ],
+  },
+
+  {
+    id: "package-delivery",
+    client: "1HourShipIt",
+    title: "One promise, seven ways to use it",
+    category: "Logistics · Design",
+    year: "2025",
+    medium: "design",
+    summary:
+      "A courier brand with a single proposition — anything, anywhere in Houston, within the hour. Seven posts that each open a different door to the same promise, and drive the same app install.",
+    metric: { value: "7", label: "demand triggers covered" },
+    stack: ["Photoshop", "Illustrator", "Instagram"],
+    tone: "paper",
+    art: 4,
+    cover: "/work/package-delivery/cover.png",
+    website: { label: "onehourshipit.com", url: "https://onehourshipit.com/" },
+    industry: "Courier & Last-Mile Delivery",
+    expertise: ["Art Direction", "Social Design", "Typography", "Campaign Systems"],
+    platform: "Instagram · social feed",
+    overviewTitle: "Say the same thing seven times without repeating yourself",
+    overview:
+      "1HourShipIt sells one thing: anything you need moved across Houston, delivered inside an hour. That clarity is the brand's strength and the campaign's problem — a single proposition can very easily become seven identical posts that people scroll past after the first.",
+    challenge:
+      "Every post had to carry three fixed elements — the one-hour promise, Houston, and the app download — while still giving a different person a different reason to stop. Groceries, mall runs, flowers, medical supplies and commercial parcels are the same service to the business and completely different errands to the customer.",
+    approach:
+      "The service becomes the variable and everything else stays nailed down. Each post opens on one errand, but the brand furniture never moves: logo top-left, and a footer carrying the URL, both app-store badges, and the social icons. Two grounds alternate to keep the feed from flattening — saturated amber for the grocery and gifting posts, a light concrete texture for the logistics ones. The signature move is the highlight block: any phrase that has to survive being scanned at thumb speed gets set into a solid black or amber box.",
+    outcome:
+      "Seven distinct entry points into one service, each reinforcing the same promise and pointing at the same install. Because the furniture is fixed, a new errand becomes a new post without reopening the layout.",
+    results: [
+      { value: "7", label: "Posts delivered" },
+      { value: "7", label: "Service categories covered" },
+      { value: "1hr", label: "Promise repeated in every post" },
+    ],
+    gallery: [
+      {
+        src: "/work/package-delivery/04.png",
+        alt: "Send and receive all your parcels and packages \u2014 the full service list as a bulleted amber panel beside a courier holding branded boxes",
+        width: 672,
+        height: 672,
+        wide: true,
+      },
+      {
+        src: "/work/package-delivery/03.png",
+        alt: "Need shopping mall items \u2014 order online, receive within one hour; circular cut-out of a shopper with floating reaction bubbles",
+        width: 802,
+        height: 797,
+      },
+      {
+        src: "/work/package-delivery/01.png",
+        alt: "Deliver and receive grocery items in Houston at a given time \u2014 amber ground with a basket of fresh produce on a wooden counter",
+        width: 802,
+        height: 797,
+      },
+      {
+        src: "/work/package-delivery/05.png",
+        alt: "Send flowers and gifts through the app \u2014 split layout, white copy panel against amber with a man offering tulips and a wrapped gift",
+        width: 691,
+        height: 671,
+      },
+      {
+        src: "/work/package-delivery/07.png",
+        alt: "Commercial and residential packages in one hour \u2014 outlined Texas map with location pins on a light concrete ground",
+        width: 671,
+        height: 667,
+      },
+      {
+        src: "/work/package-delivery/06.png",
+        alt: "Sending a commercial parcel \u2014 city skyline illustration behind a hand holding the app sign-in screen",
+        width: 690,
+        height: 677,
+      },
+      {
+        src: "/work/package-delivery/02.png",
+        alt: "Grocery pickup and delivery across Houston \u2014 saturated amber ground with a full grocery spread and a stopwatch mark",
+        width: 797,
+        height: 796,
+      },
+    ],
+  },
+
+  {
+    id: "trusting-hands",
+    client: "Trusting Hands",
+    title: "One app where you can give help or ask for it",
+    category: "Non-profit · Mobile App",
+    year: "2025",
+    medium: "app",
+    summary:
+      "A charity platform covering blood donation, education sponsorship, Shuhada family support and Islamic giving — where every module lets the same person donate or request, rather than sorting users into donors and recipients.",
+    metric: { value: "4", label: "donation streams in one app" },
+    stack: ["Mobile app", "REST API", "Push notifications"],
+    tone: "ink",
+    art: 1,
+    cover: "/work/trusting-hands/cover.jpg",
+    industry: "Non-profit & Community Welfare",
+    expertise: ["Mobile Engineering", "Product Design", "Donation Flows", "Localisation"],
+    platform: "iOS · Android",
+    overviewTitle: "Nobody is only a donor",
+    overview:
+      "Trusting Hands brings four kinds of giving into one app: an urgent blood bank, education sponsorship, financial support for Shuhada families, and general Islamic charity. The organising decision was to refuse the usual split between people who give and people who receive — someone who donates blood in March may need school fees in September, and the app should not make them feel like a different class of user in each case.",
+    challenge:
+      "Four donation streams behave nothing alike. A blood request is an emergency measured in hours and matched on blood group, hospital and city. Education sponsorship is a considered decision made once a term. Zakat, khums and sadaqah are not interchangeable — each has its own rules about who may receive it, so collapsing them into a single donate button would have been religiously wrong as well as unusable. On top of that the audience is not English-first, and many users are not comfortable with long password entry on a phone.",
+    approach:
+      "Every module was given the same three-action shape — request support, see my requests, see all requests — so the second module a user opens is already familiar. Underneath, each stream keeps its own rules: blood carries urgency, blood group, hospital and location and is colour-coded red throughout; education and Shuhada support run on request-and-review; the Islamic giving categories stay separate all the way down rather than being flattened at the point of donation. A single dashboard plots all streams together, and biometric login plus an in-app language switch keep the entry barrier low.",
+    outcome:
+      "Four charitable programmes that previously lived in separate processes now sit behind one login, with urgent blood requests surfacing on the home screen the moment they are raised, and the same person able to move between giving and asking without changing accounts.",
+    results: [
+      { value: "4", label: "Donation streams unified" },
+      { value: "2-way", label: "Give or request in every module" },
+      { value: "1,500+", label: "Students supported, shown in-app" },
+      { value: "Bio", label: "Biometric login and language switching" },
+    ],
+    gallery: [
+      {
+        src: "/work/trusting-hands/2.png",
+        alt: "Home screen \u2014 Get Involved Today with four programme tiles, a donation progress chart, and a persistent Donate Now action",
+        width: 1024,
+        height: 1536,
+      },
+      {
+        src: "/work/trusting-hands/3.png",
+        alt: "Dashboard \u2014 multi-series donation progress across quarters, with an urgent blood request card showing group, hospital and city",
+        width: 1024,
+        height: 1536,
+      },
+      {
+        src: "/work/trusting-hands/4.png",
+        alt: "Choose donation type \u2014 zakat, khums and sadaqah kept separate from blood, education and Shuhada family support",
+        width: 1024,
+        height: 1536,
+      },
+      {
+        src: "/work/trusting-hands/7.png",
+        alt: "Blood donation \u2014 request blood, track your requests, and a blood type compatibility reference, colour-coded red throughout",
+        width: 1024,
+        height: 1536,
+      },
+      {
+        src: "/work/trusting-hands/5.png",
+        alt: "Education support \u2014 request, review and browse sponsorship requests, with a running count of students supported",
+        width: 1024,
+        height: 1536,
+      },
+      {
+        src: "/work/trusting-hands/6.png",
+        alt: "Shuhada family support \u2014 the same request-and-review shape applied to financial, education and healthcare assistance",
+        width: 1024,
+        height: 1536,
+      },
+      {
+        src: "/work/trusting-hands/1.png",
+        alt: "Login \u2014 biometric entry alongside password, with a language selector in the top corner",
+        width: 1024,
+        height: 1536,
+      },
+    ],
+  },
+
+  {
+    id: "connectgenie",
+    client: "ConnectGenie AI",
+    title: "Building the audience before building the launch",
+    category: "SaaS · LinkedIn Marketing",
+    year: "2025",
+    medium: "marketing",
+    lead: "Itrat Batool",
+    summary:
+      "Eight months of authority-led content and community work ahead of a Product Hunt launch, so the founder arrived on launch day with an audience already waiting rather than a cold announcement.",
+    metric: { value: "320%", label: "follower growth in 8 months" },
+    stack: ["LinkedIn", "Content Strategy", "Community Building"],
+    tone: "ink",
+    art: 1,
+    industry: "AI SaaS",
+    expertise: ["Content Strategy", "Community Building", "Founder Positioning", "Launch Support"],
+    platform: "LinkedIn",
+    overviewTitle: "A launch is only as good as the room you launch into",
+    overview:
+      "Bilal Asif was preparing to launch ConnectGenie AI and had the problem most technical founders have: a product close to ready and almost nobody watching. The work was to spend the months before launch turning his personal profile into a place people followed for the thinking, so the announcement landed in a room rather than an empty feed.",
+    challenge:
+      "Pre-launch audiences are easy to buy and almost impossible to activate. Follower count on its own would have looked good and done nothing — what the launch needed was a few hundred people who cared enough to show up on the day, which meant earning attention months before there was anything to sell.",
+    approach:
+      "Authority-first content built around what he was learning while building, not around the product. Posts were shaped to be useful whether or not you ever bought anything, which is what made several of them travel. Alongside that ran deliberate community work: replying, connecting, and pulling the people who engaged most into a named pre-launch group so launch day had somewhere to start.",
+    outcome:
+      "The following went from roughly two thousand to over eight and a half thousand in eight months, with several posts clearing a hundred thousand impressions and the strongest passing two hundred and fifty thousand. More usefully, four hundred-plus engaged supporters were in place before launch, which turned Product Hunt day into a coordinated push instead of a cold start.",
+    results: [
+      { value: "320%", label: "Follower growth, 2K to 8.5K+" },
+      { value: "250K+", label: "Impressions on top posts" },
+      { value: "400+", label: "Pre-launch community" },
+      { value: "8", label: "Months to launch" },
+    ],
+    quote: {
+      text: "The audience was there before the product was. That changed what launch day even looked like for us.",
+      name: "Bilal Asif",
+      role: "Founder, ConnectGenie AI",
+    },
+  },
+
+  {
+    id: "lvl-marketing",
+    client: "LVL Marketing",
+    title: "An outreach engine that keeps producing after you stop pushing",
+    category: "Agency · Lead Generation",
+    year: "2025",
+    medium: "marketing",
+    lead: "Itrat Batool",
+    summary:
+      "Personal brand and agency presence scaled together, with end-to-end lead generation run across multiple international client accounts through LinkedIn Sales Navigator.",
+    metric: { value: "1,500+", label: "qualified leads generated" },
+    stack: ["LinkedIn", "Sales Navigator", "Outreach Systems"],
+    tone: "flare",
+    art: 2,
+    industry: "Marketing Agency",
+    expertise: ["Lead Generation", "Outreach Systems", "Personal Branding", "Account Management"],
+    platform: "LinkedIn · Sales Navigator",
+    overviewTitle: "Predictable pipeline beats a good month",
+    overview:
+      "Laeequa Ahmed was running LVL Marketing and carrying two jobs at once: growing her own authority as the face of the agency, and keeping a pipeline full for a roster of international clients. Both were being done manually, which meant results tracked effort rather than compounding.",
+    challenge:
+      "Outreach at volume usually costs you either reply rate or reputation. Sending more gets you ignored; personalising everything does not scale past one person. The work had to hold a genuine conversation rate across several niches at once, for clients whose audiences had nothing in common.",
+    approach:
+      "Sales Navigator did the targeting so the list was narrow before anything was sent, and messaging was written per segment rather than per send — close enough to personal to earn a reply, structured enough to run at volume. Her own content ran alongside it, so a prospect who checked the profile after a connection request found something worth following rather than an empty page.",
+    outcome:
+      "More than fifteen hundred qualified leads across multiple niches, with connection acceptance holding between twenty-five and thirty-five per cent and a steady reply flow behind it. The combination of inbound from content and outbound from Sales Navigator gave the agency a pipeline it could forecast rather than hope for.",
+    results: [
+      { value: "1,500+", label: "Qualified leads" },
+      { value: "25–35%", label: "Connection acceptance" },
+      { value: "Multi", label: "International accounts" },
+      { value: "2", label: "Channels, inbound and outbound" },
+    ],
+  },
+
+  {
+    id: "ace-services",
+    client: "ACE Services",
+    title: "Zero to a working pipeline in ninety days",
+    category: "Services · LinkedIn Marketing",
+    year: "2024",
+    medium: "marketing",
+    lead: "Itrat Batool",
+    summary:
+      "A LinkedIn presence built from nothing for both the founder and a brand-new company page, taken to a warm pipeline inside a single quarter.",
+    metric: { value: "90", label: "days to a warm pipeline" },
+    stack: ["LinkedIn", "Content Strategy", "Outreach"],
+    tone: "paper",
+    art: 3,
+    industry: "Professional Services",
+    expertise: ["Profile Optimisation", "Content Strategy", "Outreach", "Company Page Growth"],
+    platform: "LinkedIn",
+    overviewTitle: "Starting from an empty profile",
+    overview:
+      "Abdul Manan was launching ACE Services with no LinkedIn footprint at all — a bare personal profile and a company page that did not yet exist. The brief was the hardest version of this work: not growing an audience, but starting one, and reaching real enquiries fast enough to matter to a new business.",
+    challenge:
+      "A new page has no signal for the algorithm to work with and no reason for anyone to follow it. Chasing raw follower count would have produced a number and no customers; the audience had to be narrow enough that a few hundred of the right people would outperform thousands of the wrong ones.",
+    approach:
+      "The personal profile was rebuilt first, since people follow people before they follow companies — clear positioning, a stated offer, and a reason to connect. Content then ran on his profile with the company page amplifying rather than leading, and targeted outreach went only to the specific niche the business actually served.",
+    outcome:
+      "Five hundred-plus personal followers in three months and a company page past a hundred targeted followers, producing more than fifty qualified leads and a steady flow of early inbound enquiries — a foundation rather than a spike, and one the business could keep building on.",
+    results: [
+      { value: "500+", label: "Personal followers, from zero" },
+      { value: "100+", label: "Company page followers" },
+      { value: "50+", label: "Qualified leads" },
+      { value: "90", label: "Days" },
     ],
   },
 ];
@@ -552,6 +1011,13 @@ export const team: Person[] = [
   { id: "tomas", name: "Tomás Rivera", role: "Head of Product Engineering" },
   { id: "sana", name: "Sana Qureshi", role: "Principal Architect" },
   { id: "elias", name: "Elias Brandt", role: "Design Director" },
+  {
+    id: "itrat",
+    name: "Itrat Batool",
+    role: "Business Analyst",
+    // NOTE: source is 200x200 — soft in the 4:5 frame. Replace with 800x1000.
+    photo: "/team/itrat.jpg",
+  },
 ];
 
 /** Where the studio has working-hours overlap — the timezone question. */

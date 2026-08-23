@@ -2,8 +2,37 @@ import Link from "next/link";
 import { ArrowLeft, ArrowUpRight, Building2, Layers, Quote } from "lucide-react";
 import { projects, type Project } from "@/lib/data";
 import { DeviceMockup } from "./device-mockup";
+import { MediaGallery } from "./media-gallery";
 import { ProjectArt } from "./project-art";
 import { Reveal } from "./reveal";
+import { VideoReel } from "./video-reel";
+
+/**
+ * Marketing work has no artifact to photograph — the growth numbers are the
+ * artifact. This gives them the space a screenshot would otherwise occupy.
+ */
+function ResultWall({ project }: { project: Project }) {
+  return (
+    <div className="rounded-3xl border border-line bg-ink px-7 py-14 text-paper md:px-14 md:py-20">
+      <p className="eyebrow text-paper/60">What the work produced</p>
+      <dl className="mt-12 grid grid-cols-2 gap-x-8 gap-y-12 lg:grid-cols-4">
+        {project.results.map((r) => (
+          <div key={r.label}>
+            <dt className="sr-only">{r.label}</dt>
+            <dd>
+              <span className="tnum block font-display text-[2.5rem] leading-none tracking-tight text-flare md:text-[3.5rem]">
+                {r.value}
+              </span>
+              <span className="mt-3 block text-[0.8125rem] leading-snug text-paper/65">
+                {r.label}
+              </span>
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  );
+}
 
 /** Numbered section, matching the 01/02/03 rhythm used across the site. */
 function Chapter({
@@ -91,11 +120,23 @@ export function CaseStudy({ project }: { project: Project }) {
         </div>
       </section>
 
-      {/* ---- Device showcase ---- */}
+      {/* ---- Showcase: the proof this discipline actually trades in ---- */}
       <section className="border-b border-line bg-paper py-20 md:py-28">
         <div className="shell">
           <Reveal>
-            <DeviceMockup project={project} />
+            {/* Marketing has no artifact, so the numbers are the showcase.
+                Otherwise prefer whatever real media exists — app screenshots
+                arrive as finished mockups, so they belong in the gallery
+                rather than inside another device frame. */}
+            {project.medium === "marketing" ? (
+              <ResultWall project={project} />
+            ) : project.videos?.length ? (
+              <VideoReel videos={project.videos} />
+            ) : project.gallery?.length ? (
+              <MediaGallery items={project.gallery} />
+            ) : (
+              <DeviceMockup project={project} />
+            )}
           </Reveal>
         </div>
       </section>
@@ -135,6 +176,12 @@ export function CaseStudy({ project }: { project: Project }) {
                 <dt className="eyebrow text-ink-muted">Platform</dt>
                 <dd className="mt-2 text-[0.9375rem] text-ink">{project.platform}</dd>
               </div>
+              {project.lead && (
+                <div>
+                  <dt className="eyebrow text-ink-muted">Led by</dt>
+                  <dd className="mt-2 text-[0.9375rem] text-ink">{project.lead}</dd>
+                </div>
+              )}
             </dl>
 
             {/* Technology */}
