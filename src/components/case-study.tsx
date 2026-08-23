@@ -129,7 +129,16 @@ export function CaseStudy({ project }: { project: Project }) {
                 arrive as finished mockups, so they belong in the gallery
                 rather than inside another device frame. */}
             {project.medium === "marketing" ? (
-              <ResultWall project={project} />
+              // Numbers first, then the dashboards that back them up — a
+              // marketing claim without its evidence is just a claim.
+              <>
+                <ResultWall project={project} />
+                {project.gallery?.length ? (
+                  <div className="mt-6">
+                    <MediaGallery items={project.gallery} />
+                  </div>
+                ) : null}
+              </>
             ) : project.videos?.length ? (
               <VideoReel videos={project.videos} />
             ) : project.gallery?.length ? (

@@ -895,6 +895,222 @@ export const projects: Project[] = [
       { value: "90", label: "Days" },
     ],
   },
+
+  {
+    id: "offshore-minds",
+    client: "Offshore Minds",
+    title: "Wellbeing support that works with no signal and no therapist",
+    category: "Energy · Mobile App",
+    year: "2026",
+    medium: "app",
+    summary:
+      "A non-clinical wellbeing companion for offshore oil and gas crews — role-aware, private, and built to work on a rig with no connectivity and no time.",
+    metric: { value: "30s", label: "shortest recovery exercise" },
+    stack: ["Mobile app", "Offline-first storage", "On-device content"],
+    tone: "paper",
+    art: 3,
+    cover: "/work/offshore-minds/cover.jpg",
+    industry: "Energy & Offshore Operations",
+    expertise: ["Mobile Engineering", "Offline-First Architecture", "Product Design", "Wellbeing UX"],
+    platform: "iOS · Android",
+    overviewTitle: "Thirty seconds, no signal, no counsellor",
+    overview:
+      "Offshore crews work rotations that wreck sleep, in a culture where admitting you are struggling carries a cost, on installations where the connection drops for hours at a time. Most wellbeing apps assume the opposite of all three: a quiet room, a stable connection, and a user comfortable being labelled a patient. Offshore Minds was built for the actual conditions.",
+    challenge:
+      "Three constraints pulled against each other. Connectivity offshore is intermittent, so anything that needs a server at the moment of use is worthless. The content had to stay explicitly non-clinical — the moment an app claims to treat anything it takes on regulatory weight and, more practically, workers stop opening it. And the time available is not twenty minutes of meditation; it is the gap between two tasks.",
+    approach:
+      "Everything ships on the device, so the app behaves identically with the radio off. Onboarding asks for the role — drilling, production, maintenance, safety — and tailors what follows, because fatigue reads differently to a driller than to a safety operator. The recovery library is graded by how much time you actually have: five to ten minutes for a full wind-down, but also a 30-second three-breath reset, a 90-second shoulder release, and a one-minute grounding exercise. Language stays deliberately ordinary throughout — check-in, reset, reflection — and the journal counts streaks rather than symptoms.",
+    outcome:
+      "A wellbeing tool that survives the environment it was built for: usable with no signal, short enough to fit a real shift, and framed so that opening it does not feel like admitting to a diagnosis.",
+    results: [
+      { value: "4", label: "Worker roles tailored for" },
+      { value: "30s", label: "Shortest recovery exercise" },
+      { value: "100%", label: "Offline-capable" },
+      { value: "0", label: "Clinical claims made" },
+    ],
+    gallery: [
+      {
+        src: "/work/offshore-minds/01.jpg",
+        alt: "Offshore Minds \u2014 onboarding, where the worker picks their role so the content that follows matches the job",
+        width: 1024,
+        height: 1536,
+      },
+      {
+        src: "/work/offshore-minds/02.jpg",
+        alt: "Diaphragmatic breathing \u2014 a Ready state with a paced circle, hand-placement instruction, and a 5, 8 or 10 minute selector",
+        width: 1024,
+        height: 1536,
+      },
+      {
+        src: "/work/offshore-minds/03.jpg",
+        alt: "Quick Check-In \u2014 a short, non-clinical read on how the shift is going",
+        width: 1024,
+        height: 1536,
+      },
+      {
+        src: "/work/offshore-minds/04.jpg",
+        alt: "Reset & Recovery \u2014 breathing, grounding and wind-down techniques, with 30-second and 90-second quick exercises underneath",
+        width: 1024,
+        height: 1536,
+      },
+      {
+        src: "/work/offshore-minds/05.jpg",
+        alt: "Fatigue Awareness \u2014 guidance framed around shift patterns rather than clinical language",
+        width: 1024,
+        height: 1536,
+      },
+      {
+        src: "/work/offshore-minds/06.jpg",
+        alt: "Moments That Matter \u2014 short reflective prompts written for life on a rig",
+        width: 1024,
+        height: 1536,
+      },
+      {
+        src: "/work/offshore-minds/07.jpg",
+        alt: "Staying Sharp journal \u2014 total entries, entries this week, and a day streak above the reflection composer",
+        width: 1024,
+        height: 1536,
+      },
+      {
+        src: "/work/offshore-minds/08.jpg",
+        alt: "Your Rewards \u2014 progress recognised without turning wellbeing into a scoreboard",
+        width: 1024,
+        height: 1536,
+      },
+      {
+        src: "/work/offshore-minds/09.jpg",
+        alt: "Account and settings, including the offline behaviour the app depends on",
+        width: 1024,
+        height: 1536,
+      },
+    ],
+  },
+
+  {
+    id: "mynavilife",
+    client: "MyNaviLife",
+    title: "A whole day, shown one step at a time",
+    category: "Health & Social Care · Mobile App",
+    year: "2026",
+    medium: "app",
+    summary:
+      "A daily-living companion for adults in supported care: a 37-step day reduced to a single next action, every step readable aloud, and help never more than one tap away.",
+    metric: { value: "1", label: "next action shown at a time" },
+    stack: ["Mobile app", "Text-to-speech", "Location sharing"],
+    tone: "flare",
+    art: 4,
+    cover: "/work/mynavilife/cover.jpg",
+    industry: "Health & Social Care",
+    expertise: ["Accessible Product Design", "Mobile Engineering", "Safeguarding Flows", "Text-to-Speech"],
+    platform: "iOS · Android",
+    overviewTitle: "Thirty-seven tasks, one card",
+    overview:
+      "MyNaviLife supports adults living in supported accommodation through their day. A typical plan runs to nearly forty steps — waking, medication, meals, appointments, routines — and presenting that as a list is the fastest way to make someone stop using it. The organising decision was to show exactly one thing at a time.",
+    challenge:
+      "The user may not read comfortably, may be overwhelmed by choice, and may at some point be in genuine distress. Each of those pulls the design in a different direction: fewer words, fewer options, but faster access to help. On top of that, the escalation path is not a single number — a care unit, a non-urgent medical line, and emergency services are all appropriate at different moments, and deciding which is exactly what a person in difficulty cannot do.",
+    approach:
+      "The home screen shows the day as one figure and one card: Do This Next, with the time and a speaker button, because reading is optional rather than required. The full plan is still reachable, just never the first thing you meet. Help is a persistent floating control on every screen — never inside a menu — and the help screen opens with 'You are safe' before presenting contacts in escalation order, from the local care unit through NHS 111 to emergency services, each with both call and message. Share My Location sits at the bottom for when someone cannot say where they are. Progress is handled as stars and unlockable badges, so the day reads as encouragement rather than a compliance checklist.",
+    outcome:
+      "A day that would overwhelm as a list becomes a sequence of single, spoken steps, with the safeguarding path always one tap away regardless of where the person is in the app.",
+    results: [
+      { value: "1", label: "Next action shown at a time" },
+      { value: "37", label: "Steps in a typical plan" },
+      { value: "1 tap", label: "To reach help, from any screen" },
+      { value: "4", label: "Escalation levels, care to emergency" },
+    ],
+    gallery: [
+      {
+        src: "/work/mynavilife/01.jpg",
+        alt: "Home \u2014 a greeting by name, today's plan as a single progress figure, and one Do This Next card with audio playback",
+        width: 1024,
+        height: 1536,
+      },
+      {
+        src: "/work/mynavilife/02.jpg",
+        alt: "My Day \u2014 the full plan, kept behind the single next action so the day never arrives all at once",
+        width: 1024,
+        height: 1536,
+      },
+      {
+        src: "/work/mynavilife/03.jpg",
+        alt: "My Rewards \u2014 stars earned, task counts, and unlockable badges like First Step and On a Roll",
+        width: 1024,
+        height: 1536,
+      },
+      {
+        src: "/work/mynavilife/04.jpg",
+        alt: "I Need Help \u2014 'You are safe', then a ladder of contacts from care unit to NHS 111 to emergency services, each with call and message",
+        width: 1024,
+        height: 1536,
+      },
+      {
+        src: "/work/mynavilife/05.jpg",
+        alt: "Share My Location \u2014 for the moments when someone cannot explain where they are",
+        width: 1024,
+        height: 1536,
+      },
+      {
+        src: "/work/mynavilife/06.jpg",
+        alt: "Calm \u2014 grounding content reachable from the persistent bottom bar",
+        width: 1024,
+        height: 1536,
+      },
+    ],
+  },
+
+  {
+    id: "babyfits",
+    client: "BabyFits",
+    title: "Orders up 256% on a store that already existed",
+    category: "E-commerce · Paid Social",
+    year: "2026",
+    medium: "marketing",
+    summary:
+      "Paid social and store optimisation for a baby clothing brand — rebuilt around broad-audience testing on Meta, with the winning ad set landing purchases at roughly PKR 636 each.",
+    metric: { value: "+256%", label: "orders, period on period" },
+    stack: ["Meta Ads", "Shopify", "Creative Testing"],
+    tone: "flare",
+    art: 2,
+    industry: "E-commerce · Baby & Kids",
+    expertise: ["Paid Social", "Creative Testing", "Shopify", "Conversion Tracking"],
+    platform: "Meta · Shopify",
+    overviewTitle: "Find the ad set that works, then feed it",
+    overview:
+      "BabyFits sells baby clothing through Shopify. The account was already spending on Meta, but spend was spread thinly across a large number of ad sets with no clear read on which audience or creative was actually producing orders. The work was to find the combinations that convert and move budget behind them.",
+    challenge:
+      "Eighty-nine ad sets were live. At that spread, no single set accumulated enough data to prove itself, cost per purchase varied by a factor of five between them, and creative fatigue was invisible because nothing ran long enough to fatigue. Broad-audience testing on Meta only works if you let a set run — which means being willing to turn most of them off.",
+    approach:
+      "Structured testing against broad audiences rather than narrow interest stacks, with product-led creative and enough budget per set to reach statistical daylight. Winners were identified on cost per purchase rather than on CTR or reach, since a cheap click that does not convert is just a cheap click. Budget then consolidated behind the sets that held their cost as spend increased, with the Shopify side tracking order volume and average order value so the ad platform was never the only source of truth.",
+    outcome:
+      "Across Jul 1 to Aug 19, 2026, the store recorded PKR 1.05M in total sales from 770 orders — up 163% and 256% respectively on the preceding period. On the Meta side, the strongest broad ad set delivered 113 website purchases at PKR 635.61 each across the 30 days to Aug 18, against 1.53M impressions and 708,501 people reached.",
+    results: [
+      { value: "+256%", label: "Orders, period on period" },
+      { value: "+163%", label: "Total sales, period on period" },
+      { value: "PKR 636", label: "Cost per purchase, best ad set" },
+      { value: "708K", label: "People reached in 30 days" },
+    ],
+    gallery: [
+      {
+        src: "/work/baby-fits/shopify-babyfits.jpg",
+        alt: "Shopify dashboard for BabyFits, 1 July to 19 August 2026 \u2014 PKR 1.05M total sales up 163%, 770 orders up 256%, average order value PKR 1,806",
+        width: 1920,
+        height: 1080,
+        wide: true,
+      },
+      {
+        src: "/work/baby-fits/meta-ads-babyfits.jpg",
+        alt: "Meta Ads Manager for BabyFits \u2014 89 ad sets, PKR 437,229 spent, 1.53M impressions and 708,501 reached, with the leading broad ad set at 113 purchases",
+        width: 1920,
+        height: 1080,
+      },
+      {
+        src: "/work/baby-fits/shopify-babyfits-2.jpg",
+        alt: "Shopify and Meta side by side, showing order volume against the ad sets producing it",
+        width: 1920,
+        height: 1080,
+      },
+    ],
+  },
 ];
 
 export type Stage = {
@@ -1155,9 +1371,9 @@ export const offices: Office[] = [
     email: "uk@nexic.tech",
     hours: "09:00 – 18:00 GMT",
   },
+
 ];
 
-/** Routed inboxes, so enquiries do not all land in one pile. */
 export const contactChannels = [
   {
     id: "new-business",
