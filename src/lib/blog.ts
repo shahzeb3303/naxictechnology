@@ -31,9 +31,12 @@ export type Author = {
 };
 
 export const authors: Record<string, Author> = {
-  amara: { id: "amara", name: "Amara Diallo", role: "Founder & Principal Engineer" },
-  sana: { id: "sana", name: "Sana Qureshi", role: "Principal Architect" },
-  elias: { id: "elias", name: "Elias Brandt", role: "Design Director" },
+  umar: {
+    id: "umar",
+    name: "Umar Nisar",
+    role: "Founder · Digital & Social Media Marketing",
+  },
+  itrat: { id: "itrat", name: "Itrat Batool", role: "Business Analyst" },
 };
 
 export type Post = {
@@ -76,7 +79,7 @@ export const posts: Post[] = [
       "A straight answer with real ranges — what sits behind a $3,000 site, a $30,000 site, and a $150,000 platform, and how to tell which one you actually need.",
     category: "Business",
     tags: ["Pricing", "Web Development", "Budgeting"],
-    authorId: "amara",
+    authorId: "umar",
     publishedAt: "2026-07-28",
     readMinutes: 9,
     tone: "ink",
@@ -187,7 +190,7 @@ export const posts: Post[] = [
       "Agents differ from chatbots in one specific way: they take actions. Here is what that changes, where it works today, and where it still fails.",
     category: "AI",
     tags: ["Agentic AI", "Automation", "LLM"],
-    authorId: "sana",
+    authorId: "umar",
     publishedAt: "2026-07-14",
     updatedAt: "2026-08-02",
     readMinutes: 11,
@@ -278,7 +281,7 @@ export const posts: Post[] = [
       "They solve different problems on different timelines. A practical framework for deciding which to fund when you cannot fund both.",
     category: "Marketing",
     tags: ["SEO", "Paid Ads", "Strategy"],
-    authorId: "elias",
+    authorId: "itrat",
     publishedAt: "2026-06-30",
     readMinutes: 7,
     tone: "paper",

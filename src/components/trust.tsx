@@ -10,12 +10,17 @@ import { Reveal } from "./reveal";
  * lockups at the same box size, so nothing reflows when they land.
  */
 export function Trust() {
+  // Nothing to prove yet — render nothing rather than an empty logo strip.
+  if (clients.length === 0 && badges.length === 0) return null;
+
   return (
     <section className="border-t border-line bg-paper-pure py-20 md:py-24">
       <div className="shell">
-        <Reveal>
-          <p className="eyebrow text-center text-ink-muted">Trusted by teams at</p>
-        </Reveal>
+        {clients.length > 0 && (
+          <Reveal>
+            <p className="eyebrow text-center text-ink-muted">Trusted by teams at</p>
+          </Reveal>
+        )}
 
         <Reveal delay={0.06}>
           <ul className="mt-10 grid grid-cols-2 items-center gap-x-6 gap-y-8 sm:grid-cols-4">

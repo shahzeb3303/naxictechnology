@@ -12,6 +12,9 @@ import { testimonials } from "@/lib/data";
  */
 export function Testimonial() {
   const [index, setIndex] = useState(0);
+
+  // No invented quotes — the section disappears until a client gives one.
+  if (testimonials.length === 0) return null;
   const active = testimonials[index];
   const go = (step: number) =>
     setIndex((i) => (i + step + testimonials.length) % testimonials.length);

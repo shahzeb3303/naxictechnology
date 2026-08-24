@@ -159,10 +159,10 @@ export const NODES: ChatNode[] = [
         `We've delivered ${stats.projects} projects for ${stats.clients} clients. A few with numbers attached:`,
       ],
       bullets: [
-        "Meridian Bank — account opening down 91%, from eleven days to nine minutes",
-        "Lumen Health — 4.2M clinical records indexed, every answer cited",
-        "Cargo & Co. — freight visibility across 30 countries, 1.8s sync latency",
-        "Atlas Robotics — 200k events per second, 99.98% uptime over 18 months",
+        "BabyFits — orders up 256% and sales up 163% through paid social",
+        "Trusting Hands — Flutter donation platform on iOS and Android, with an admin dashboard behind it",
+        "Xebayi — skincare storefront with order tracking and a full catalogue dashboard",
+        "MyNaviLife and Offshore Minds — Flutter apps, both live on the stores",
       ],
       cta: { label: "Read the case studies", href: "/work" },
     },
@@ -195,8 +195,8 @@ export const NODES: ChatNode[] = [
     ],
     answer: {
       text: [
-        `${stats.engineers} engineers and designers, deliberately. There is no bench, no juniors learning on your budget, and no account manager between you and the people doing the work.`,
-        `${stats.retention} of our clients come back.`,
+        "A small senior team, deliberately. There is no bench, no juniors learning on your budget, and no account manager between you and the people doing the work.",
+        "Most of our clients come back with a second project.",
       ],
       cta: { label: "Meet the studio", href: "/about" },
     },

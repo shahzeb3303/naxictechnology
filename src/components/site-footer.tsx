@@ -3,18 +3,15 @@ import { ArrowUp } from "lucide-react";
 import { nav, site } from "@/lib/data";
 import { Wordmark } from "./wordmark";
 
-const social = [
-  { label: "GitHub", href: "#github" },
-  { label: "LinkedIn", href: "#linkedin" },
-  { label: "Dribbble", href: "#dribbble" },
-  { label: "X", href: "#x" },
-];
+/**
+ * Real destinations only. A footer link that goes nowhere costs more trust
+ * than the missing link does — and a dead Privacy link is a compliance
+ * question, not just a polish one. Add entries as the pages and profiles
+ * actually exist.
+ */
+const social: { label: string; href: string }[] = [];
 
-const legal = [
-  { label: "Privacy", href: "#privacy" },
-  { label: "Terms", href: "#terms" },
-  { label: "Careers", href: "#careers" },
-];
+const legal: { label: string; href: string }[] = [];
 
 /** Dark, to bookend the dark hero and close the page on a solid edge. */
 export function SiteFooter() {
@@ -52,7 +49,7 @@ export function SiteFooter() {
             </ul>
           </nav>
 
-          <div className="md:col-span-2">
+          <div className={social.length ? "md:col-span-2" : "hidden"}>
             <h2 className="eyebrow text-paper/50">Social</h2>
             <ul className="mt-5 space-y-2">
               {social.map((item) => (
