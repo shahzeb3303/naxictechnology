@@ -39,16 +39,36 @@ export function MediaGallery({ items }: { items: GalleryItem[] }) {
 
   if (items.length === 0) return null;
 
+  // Three or more items earn the feature block; fewer just flow in the grid.
+  const feature = items.length >= 3 ? items.slice(0, 3) : [];
+  const rest = items.slice(feature.length);
+
   const active = openAt === null ? null : items[openAt];
 
   return (
     <>
+      {/* Feature block: item 0 large on the left, items 1 and 2 stacked to
+          its right. row-span-2 makes the tall cell match the two short ones
+          exactly, instead of overhanging into empty space. */}
+      {feature.length === 3 && (
+        <ul className="mb-4 grid gap-4 lg:grid-cols-3 lg:grid-rows-2">
+          {feature.map((item, i) => (
+            <li
+              key={item.src}
+              className={i === 0 ? "lg:col-span-2 lg:row-span-2" : undefined}
+            >
+              <Tile item={item} index={i} onOpen={setOpenAt} fill />
+            </li>
+          ))}
+        </ul>
+      )}
+
       <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {items.map((item, i) => (
+        {rest.map((item, i) => (
           <li key={item.src} className={item.wide ? "sm:col-span-2" : undefined}>
             <button
               type="button"
-              onClick={() => setOpenAt(i)}
+              onClick={() => setOpenAt(i + feature.length)}
               aria-label={`View ${item.alt}`}
               className="group block w-full cursor-pointer overflow-hidden rounded-2xl border border-line bg-paper-pure"
             >
@@ -108,6 +128,45 @@ export function MediaGallery({ items }: { items: GalleryItem[] }) {
         </div>
       )}
     </>
+  );
+}
+
+/** Feature-block cell. `fill` makes the image cover its grid cell so the
+ *  large item and the two stacked ones line up on the same bottom edge. */
+function Tile({
+  item,
+  index,
+  onOpen,
+  fill,
+}: {
+  item: GalleryItem;
+  index: number;
+  onOpen: (i: number) => void;
+  fill?: boolean;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={() => onOpen(index)}
+      aria-label={`View ${item.alt}`}
+      className={`group block w-full cursor-pointer overflow-hidden rounded-2xl border border-line bg-paper-pure ${
+        fill ? "relative h-full min-h-[13rem]" : ""
+      }`}
+    >
+      <Image
+        src={item.src}
+        alt={item.alt}
+        {...(fill
+          ? { fill: true as const, className: "object-cover transition-transform duration-500 ease-[var(--ease-out-soft)] group-hover:scale-[1.03]" }
+          : {
+              width: item.width,
+              height: item.height,
+              className:
+                "h-auto w-full transition-transform duration-500 ease-[var(--ease-out-soft)] group-hover:scale-[1.03]",
+            })}
+        sizes="(min-width: 1024px) 45vw, 100vw"
+      />
+    </button>
   );
 }
 

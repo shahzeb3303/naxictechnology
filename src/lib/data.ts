@@ -497,7 +497,7 @@ export const projects: Project[] = [
     art: 2,
     cover: "/work/restaurant-social/front-resturant.png",
     industry: "Food & Beverage",
-    expertise: ["Art Direction", "Social Design", "Typography", "Food Retouch"],
+    expertise: ["Social Media Management", "Art Direction", "Content Design", "Typography"],
     platform: "Instagram · 1:1 feed",
     overviewTitle: "One dish, one promise, one second to land it",
     overview:
@@ -721,13 +721,13 @@ export const projects: Project[] = [
     summary:
       "A charity platform covering blood donation, education sponsorship, Shuhada family support and Islamic giving — where every module lets the same person donate or request, rather than sorting users into donors and recipients.",
     metric: { value: "4", label: "donation streams in one app" },
-    stack: ["Mobile app", "REST API", "Push notifications"],
+    stack: ["Flutter", "iOS", "Android", "Admin dashboard"],
     tone: "ink",
     art: 1,
     cover: "/work/trusting-hands/cover.jpg",
     industry: "Non-profit & Community Welfare",
-    expertise: ["Mobile Engineering", "Product Design", "Donation Flows", "Localisation"],
-    platform: "iOS · Android",
+    expertise: ["Flutter Development", "Product Design", "Donation Flows", "Admin Tooling"],
+    platform: "Flutter · iOS & Android",
     overviewTitle: "Nobody is only a donor",
     overview:
       "Trusting Hands brings four kinds of giving into one app: an urgent blood bank, education sponsorship, financial support for Shuhada families, and general Islamic charity. The organising decision was to refuse the usual split between people who give and people who receive — someone who donates blood in March may need school fees in September, and the app should not make them feel like a different class of user in each case.",
@@ -736,12 +736,12 @@ export const projects: Project[] = [
     approach:
       "Every module was given the same three-action shape — request support, see my requests, see all requests — so the second module a user opens is already familiar. Underneath, each stream keeps its own rules: blood carries urgency, blood group, hospital and location and is colour-coded red throughout; education and Shuhada support run on request-and-review; the Islamic giving categories stay separate all the way down rather than being flattened at the point of donation. A single dashboard plots all streams together, and biometric login plus an in-app language switch keep the entry barrier low.",
     outcome:
-      "Four charitable programmes that previously lived in separate processes now sit behind one login, with urgent blood requests surfacing on the home screen the moment they are raised, and the same person able to move between giving and asking without changing accounts.",
+      "Four charitable programmes that previously lived in separate processes now sit behind one login, built in Flutter so a single codebase serves both stores. Behind the app, an admin dashboard gives the organisation a queue of incoming requests to review, approve or decline, so nothing reaches a donor unverified — and the architecture leaves room for new donation streams without reopening the ones already live.",
     results: [
       { value: "4", label: "Donation streams unified" },
       { value: "2-way", label: "Give or request in every module" },
       { value: "1,500+", label: "Students supported, shown in-app" },
-      { value: "Bio", label: "Biometric login and language switching" },
+      { value: "1", label: "Flutter codebase, both stores" },
     ],
     gallery: [
       {
@@ -899,23 +899,23 @@ export const projects: Project[] = [
   {
     id: "offshore-minds",
     client: "Offshore Minds",
-    title: "Wellbeing support that works with no signal and no therapist",
+    title: "The wellbeing platform a company gives its crew",
     category: "Energy · Mobile App",
     year: "2026",
     medium: "app",
     summary:
-      "A non-clinical wellbeing companion for offshore oil and gas crews — role-aware, private, and built to work on a rig with no connectivity and no time.",
+      "An employer-provided wellbeing platform for offshore workforces, built in Flutter. Companies give it to their crews; it stays non-clinical, private to the individual, and works with no signal.",
     metric: { value: "30s", label: "shortest recovery exercise" },
-    stack: ["Mobile app", "Offline-first storage", "On-device content"],
+    stack: ["Flutter", "iOS", "Android", "Offline-first storage"],
     tone: "paper",
     art: 3,
     cover: "/work/offshore-minds/cover.jpg",
     industry: "Energy & Offshore Operations",
-    expertise: ["Mobile Engineering", "Offline-First Architecture", "Product Design", "Wellbeing UX"],
-    platform: "iOS · Android",
+    expertise: ["Flutter Development", "Offline-First Architecture", "Product Design", "Wellbeing UX"],
+    platform: "Flutter · iOS & Android",
     overviewTitle: "Thirty seconds, no signal, no counsellor",
     overview:
-      "Offshore crews work rotations that wreck sleep, in a culture where admitting you are struggling carries a cost, on installations where the connection drops for hours at a time. Most wellbeing apps assume the opposite of all three: a quiet room, a stable connection, and a user comfortable being labelled a patient. Offshore Minds was built for the actual conditions.",
+      "Offshore Minds is bought by the employer and used by the worker, which is the tension the whole product has to hold. Companies have a duty of care to crews working rotations that wreck sleep, in a culture where admitting you are struggling carries a cost, on installations where the connection drops for hours. A tool that feels like surveillance gets ignored; one that feels clinical gets avoided. It had to be neither.",
     challenge:
       "Three constraints pulled against each other. Connectivity offshore is intermittent, so anything that needs a server at the moment of use is worthless. The content had to stay explicitly non-clinical — the moment an app claims to treat anything it takes on regulatory weight and, more practically, workers stop opening it. And the time available is not twenty minutes of meditation; it is the gap between two tasks.",
     approach:
@@ -926,7 +926,7 @@ export const projects: Project[] = [
       { value: "4", label: "Worker roles tailored for" },
       { value: "30s", label: "Shortest recovery exercise" },
       { value: "100%", label: "Offline-capable" },
-      { value: "0", label: "Clinical claims made" },
+      { value: "1", label: "Flutter codebase, both stores" },
     ],
     gallery: [
       {
@@ -989,34 +989,34 @@ export const projects: Project[] = [
   {
     id: "mynavilife",
     client: "MyNaviLife",
-    title: "A whole day, shown one step at a time",
-    category: "Health & Social Care · Mobile App",
+    title: "A child's whole day, shown one step at a time",
+    category: "Family & Education · Mobile App",
     year: "2026",
     medium: "app",
     summary:
-      "A daily-living companion for adults in supported care: a 37-step day reduced to a single next action, every step readable aloud, and help never more than one tap away.",
+      "A routine and activities app for children, built in Flutter. A day of nearly forty steps is reduced to one card at a time, every instruction can be read aloud, and stars and badges keep it feeling like progress rather than a chore list.",
     metric: { value: "1", label: "next action shown at a time" },
-    stack: ["Mobile app", "Text-to-speech", "Location sharing"],
+    stack: ["Flutter", "iOS", "Android", "Text-to-speech"],
     tone: "flare",
     art: 4,
     cover: "/work/mynavilife/cover.jpg",
-    industry: "Health & Social Care",
-    expertise: ["Accessible Product Design", "Mobile Engineering", "Safeguarding Flows", "Text-to-Speech"],
-    platform: "iOS · Android",
-    overviewTitle: "Thirty-seven tasks, one card",
+    industry: "Family, Education & Care",
+    expertise: ["Flutter Development", "Accessible Product Design", "Safeguarding Flows", "Text-to-Speech"],
+    platform: "Flutter · iOS & Android",
+    overviewTitle: "Thirty-seven steps, one card",
     overview:
-      "MyNaviLife supports adults living in supported accommodation through their day. A typical plan runs to nearly forty steps — waking, medication, meals, appointments, routines — and presenting that as a list is the fastest way to make someone stop using it. The organising decision was to show exactly one thing at a time.",
+      "MyNaviLife walks a child through their day — waking, getting ready, meals, activities, appointments, winding down. A typical plan runs to nearly forty steps, and handing a child a list of forty things is the fastest way to make them close the app. The organising decision was to show exactly one thing at a time, and to make finishing it feel worth doing.",
     challenge:
-      "The user may not read comfortably, may be overwhelmed by choice, and may at some point be in genuine distress. Each of those pulls the design in a different direction: fewer words, fewer options, but faster access to help. On top of that, the escalation path is not a single number — a care unit, a non-urgent medical line, and emergency services are all appropriate at different moments, and deciding which is exactly what a person in difficulty cannot do.",
+      "A child may not read fluently, is easily overwhelmed by choice, and at some point may need an adult quickly. Each of those pulls the design in a different direction: fewer words, fewer options, but faster access to help. The escalation path is not one number either — a carer, a care unit, a non-urgent medical line and emergency services are each right at different moments, and choosing between them is exactly what a frightened child cannot do.",
     approach:
-      "The home screen shows the day as one figure and one card: Do This Next, with the time and a speaker button, because reading is optional rather than required. The full plan is still reachable, just never the first thing you meet. Help is a persistent floating control on every screen — never inside a menu — and the help screen opens with 'You are safe' before presenting contacts in escalation order, from the local care unit through NHS 111 to emergency services, each with both call and message. Share My Location sits at the bottom for when someone cannot say where they are. Progress is handled as stars and unlockable badges, so the day reads as encouragement rather than a compliance checklist.",
+      "The home screen shows the day as one figure and one card: Do This Next, with the time and a speaker button, because reading is optional rather than required. The full plan is still reachable, just never the first thing you meet. Help is a persistent floating control on every screen — never inside a menu — and the help screen opens with 'You are safe' before presenting contacts in escalation order, from the carer and care unit through the non-urgent medical line to emergency services, each with both call and message. Share My Location sits at the bottom for when a child cannot say where they are. Progress is handled as stars and unlockable badges, so the day reads as encouragement rather than a chore list.",
     outcome:
-      "A day that would overwhelm as a list becomes a sequence of single, spoken steps, with the safeguarding path always one tap away regardless of where the person is in the app.",
+      "A day that would overwhelm as a list becomes a sequence of single, spoken steps a child can actually follow, with the safeguarding path always one tap away wherever they are in the app — and one Flutter codebase serving both stores.",
     results: [
       { value: "1", label: "Next action shown at a time" },
       { value: "37", label: "Steps in a typical plan" },
       { value: "1 tap", label: "To reach help, from any screen" },
-      { value: "4", label: "Escalation levels, care to emergency" },
+      { value: "4", label: "Escalation levels, carer to emergency" },
     ],
     gallery: [
       {
@@ -1061,7 +1061,7 @@ export const projects: Project[] = [
   {
     id: "babyfits",
     client: "BabyFits",
-    title: "Orders up 256% on a store that already existed",
+    title: "Orders up 256% by finding the ad set that actually worked",
     category: "E-commerce · Paid Social",
     year: "2026",
     medium: "marketing",
@@ -1108,6 +1108,135 @@ export const projects: Project[] = [
         alt: "Shopify and Meta side by side, showing order volume against the ad sets producing it",
         width: 1920,
         height: 1080,
+      },
+    ],
+  },
+  {
+    id: "xebayi",
+    client: "Xebayi Dermaceuticals",
+    title: "Selling actives to people who have been burned before",
+    category: "Skincare · E-commerce",
+    year: "2026",
+    medium: "web",
+    summary:
+      "A storefront for a clinical skincare range that leads with concentrations rather than adjectives — five formulas, honest strengths, and bundles that sell the routine instead of the bottle.",
+    metric: { value: "5", label: "formulas, one clear routine" },
+    stack: ["E-commerce", "Admin dashboard", "Order tracking", "WhatsApp"],
+    tone: "ink",
+    art: 4,
+    cover: "/work/xebayi/cover.jpg",
+    industry: "Skincare & Cosmeceuticals",
+    expertise: ["E-commerce", "Conversion Design", "Product Merchandising", "Frontend Engineering"],
+    platform: "Web · Mobile-first",
+    overviewTitle: "Percentages, not promises",
+    overview:
+      "Xebayi sells medicated skincare — vitamin C, niacinamide, retinol — to a market that has been sold a great deal of scented nothing. The buyer is sceptical for good reason and, with actives, is also right to be cautious: the wrong strength genuinely does damage. The storefront had to earn a purchase from someone who has already been disappointed.",
+    challenge:
+      "Skincare pages usually hide the one number that matters. Naming a product Radiance Elixir and burying the concentration in the ingredients tab reads as evasion to an informed buyer, and gives an uninformed one nothing to compare. The site also had to work for two very different visitors — someone who knows they want 1% retinol, and someone who only knows their skin is not behaving.",
+    approach:
+      "Every product leads with its active and its strength: 15% Vitamin C, 10% Niacinamide, 1% Retinol, set in the product name itself rather than the small print. For the visitor who does not know where to start, bundles do the work — a bundle is a routine with an order to it, not a discount bin, and it lifts basket value as a side effect rather than as the pitch. A credibility ticker runs the claims that matter in this category — cruelty free, paraben free, medical-grade formulation — and social proof is specific and local rather than generic. Support routes to WhatsApp, because that is where this market actually asks questions before buying.",
+    outcome:
+      "A storefront that answers the informed buyer's first question on the product card, and gives the uncertain one a routine to start with instead of a catalogue to guess at. Behind it, the team runs the whole catalogue and every order from one dashboard, and customers follow their own delivery through order tracking rather than messaging to ask where it is.",
+    results: [
+      { value: "5", label: "Core formulas" },
+      { value: "2,000+", label: "Customers cited on site" },
+      { value: "PKR 1,000", label: "Saved on the lead bundle" },
+      { value: "1", label: "Dashboard for catalogue and orders" },
+    ],
+    gallery: [
+      {
+        src: "/work/xebayi/00.jpg",
+        alt: "Homepage hero — Medicated skincare for visible results, with the active-strength badges called out beside the model",
+        width: 1536,
+        height: 1024,
+        wide: true,
+      },
+      {
+        src: "/work/xebayi/01.jpg",
+        alt: "The Range — five product cards, each naming its active and concentration rather than a marketing name",
+        width: 1536,
+        height: 1024,
+      },
+      {
+        src: "/work/xebayi/02.jpg",
+        alt: "Bright and Protect bundle — the routine broken into numbered steps with the saving stated against the full price",
+        width: 1536,
+        height: 1024,
+      },
+      {
+        src: "/work/xebayi/03.jpg",
+        alt: "Product detail — concentration, volume and the skin concern it addresses above the fold",
+        width: 1536,
+        height: 1024,
+      },
+      {
+        src: "/work/xebayi/04.jpg",
+        alt: "Ingredients and formulation detail, written for a buyer who reads labels",
+        width: 1536,
+        height: 1024,
+      },
+      {
+        src: "/work/xebayi/05.jpg",
+        alt: "Checkout and support — cart flow with WhatsApp reachable throughout",
+        width: 1536,
+        height: 1024,
+      },
+    ],
+  },
+  {
+    id: "short-form-video",
+    client: "Nexic Technologies",
+    title: "Short-form edits built for the first two seconds",
+    category: "Social · Video Editing",
+    year: "2026",
+    medium: "video",
+    summary:
+      "A reel that is scrolled past has failed regardless of how it ends. A selection of vertical edits cut for the platform they run on — pace set by the hook, captions built for sound-off, and a stop at the first frame.",
+    metric: { value: "9:16", label: "cut for the feed, not reframed for it" },
+    stack: ["Premiere Pro", "After Effects", "Instagram Reels"],
+    tone: "flare",
+    art: 2,
+    industry: "Social & Content",
+    expertise: ["Video Editing", "Motion Graphics", "Sound Design", "Short-Form Strategy"],
+    platform: "Instagram Reels · 9:16",
+    overviewTitle: "The edit starts before the first cut",
+    overview:
+      "Short-form is not long-form made shorter. The format has its own grammar: the viewer arrives mid-scroll with the sound off, decides inside two seconds, and never sees a slow build. Every edit here is cut to that reality rather than trimmed down to it.",
+    challenge:
+      "Most video that fails on social fails for the same three reasons — it opens on a title card instead of the payoff, it assumes audio, and it holds shots at a length that reads as dead air on a phone. Landscape footage reframed to vertical compounds all three, because the composition was never built for the crop.",
+    approach:
+      "Each edit opens on its strongest frame, not its beginning. Cuts are timed against the beat rather than the sentence, so the rhythm carries a viewer who is not yet listening. Captions are treated as design rather than accessibility afterthought — legible at thumb distance, keyed to the delivery, and written to carry the whole message with the sound off. Grading and motion stay consistent across a set so a feed reads as one hand.",
+    outcome:
+      "A body of vertical work that holds attention past the point where most reels lose it, and reads as a coherent set rather than a folder of one-offs.",
+    results: [
+      { value: "2s", label: "To earn the scroll" },
+      { value: "9:16", label: "Native vertical, not cropped" },
+      { value: "100%", label: "Legible with sound off" },
+    ],
+    videos: [
+      {
+        title: "Reel 01",
+        provider: "instagram",
+        id: "https://www.instagram.com/reel/DbuwrHgNzxI/",
+        aspect: "9/16",
+      },
+      {
+        title: "Reel 02",
+        provider: "instagram",
+        id: "https://www.instagram.com/reel/Dbq9LUwtRDq/",
+        aspect: "9/16",
+      },
+      {
+        title: "Reel 03",
+        provider: "instagram",
+        id: "https://www.instagram.com/reel/DZhFPjTRajo/",
+        aspect: "9/16",
+      },
+      {
+        title: "Reel 04",
+        provider: "instagram",
+        id: "https://www.instagram.com/reel/DOs_XSxDcuv/",
+        aspect: "9/16",
       },
     ],
   },
@@ -1227,6 +1356,12 @@ export const team: Person[] = [
   { id: "tomas", name: "Tomás Rivera", role: "Head of Product Engineering" },
   { id: "sana", name: "Sana Qureshi", role: "Principal Architect" },
   { id: "elias", name: "Elias Brandt", role: "Design Director" },
+  {
+    id: "umar",
+    name: "Umar Nisar",
+    role: "Founder · Digital & Social Media Marketing",
+    // photo: "/team/umar.jpg" — 800x1000 portrait needed
+  },
   {
     id: "itrat",
     name: "Itrat Batool",
