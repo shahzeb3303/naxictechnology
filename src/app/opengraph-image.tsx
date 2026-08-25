@@ -1,7 +1,17 @@
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 import { ImageResponse } from "next/og";
 import { site, stats } from "@/lib/data";
 
 export const runtime = "nodejs";
+
+/**
+ * Satori cannot fetch over the network, so the mark is inlined as a data URI
+ * at build time. Read once at module scope rather than per render.
+ */
+const MARK = `data:image/png;base64,${readFileSync(
+  join(process.cwd(), "public", "brand", "mark.png")
+).toString("base64")}`;
 export const alt = `${site.name} — ${site.tagline}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
@@ -28,12 +38,22 @@ export default function OpengraphImage() {
       >
         {/* Mark + name */}
         <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
-          <svg width="56" height="56" viewBox="0 0 32 32">
-            <rect width="32" height="32" rx="7" fill="#fafaf9" />
-            <rect x="8" y="8" width="3.4" height="16" rx="1.2" fill="#0a0a0a" />
-            <path d="M11.4 8.4 L14.6 8.4 L23.2 23.6 L20 23.6 Z" fill="#ff5a1f" />
-            <rect x="20.6" y="8" width="3.4" height="16" rx="1.2" fill="#0a0a0a" />
-          </svg>
+          {/* The mark is a black badge and the card is near-black, so it needs
+              a light ring to separate from the background. */}
+          <div
+            style={{
+              display: "flex",
+              width: 68,
+              height: 68,
+              borderRadius: 34,
+              backgroundColor: "#fafaf9",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={MARK} alt="" width={60} height={60} />
+          </div>
           <div style={{ fontSize: 30, color: "#fafaf9", fontWeight: 600 }}>
             {site.name}
           </div>

@@ -43,7 +43,7 @@ export function SiteHeader() {
           aria-label={`${site.name} — home`}
           className="flex items-center gap-2.5 rounded-sm"
         >
-          <Wordmark className="h-7 w-7" onOrange />
+          <Wordmark className="h-9 w-9" onOrange />
           <span className="font-display text-[0.95rem] font-semibold tracking-tight text-white">
             {site.name}
           </span>

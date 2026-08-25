@@ -1,64 +1,39 @@
+import Image from "next/image";
+
 /**
- * Nexic mark — a monogram "N" cut from a solid square, with the ascending
- * stroke carrying the brand orange. Pure geometry, so it stays crisp at
- * favicon size and inverts cleanly on dark sections.
+ * The Nexic mark — the real brand logo, a circular black badge carrying the
+ * orange wordmark.
+ *
+ * It ships as a PNG with the corners knocked out, so the same file sits
+ * correctly on the orange header, the dark footer, and paper alike. That is
+ * why the `inverted` and `onOrange` props are accepted but no longer switch
+ * anything: they exist so the call sites did not all have to change, and a
+ * transparent circle needs no per-background variant.
+ *
+ * The lockup contains three lines of type, which are illegible below roughly
+ * 100px. At mark sizes it reads as a badge, and the adjacent wordmark text in
+ * the header and footer carries the name — the usual treatment for a circular
+ * logo of this kind.
  */
 export function Wordmark({
   className,
-  inverted = false,
-  onOrange = false,
+  inverted: _inverted = false,
+  onOrange: _onOrange = false,
 }: {
   className?: string;
+  /** Retained for call-site compatibility; the transparent PNG needs no variant. */
   inverted?: boolean;
-  /** On the orange header the mark goes white-on-ink so it stays legible. */
+  /** Retained for call-site compatibility; the transparent PNG needs no variant. */
   onOrange?: boolean;
 }) {
-  if (onOrange) {
-    return (
-      <svg
-        viewBox="0 0 32 32"
-        className={className}
-        role="img"
-        aria-label="Nexic Technologies"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <rect width="32" height="32" rx="7" fill="#ffffff" />
-        <rect x="8" y="8" width="3.4" height="16" rx="1.2" fill="#0a0a0a" />
-        <path d="M11.4 8.4 L14.6 8.4 L23.2 23.6 L20 23.6 Z" fill="#c24f20" />
-        <rect x="20.6" y="8" width="3.4" height="16" rx="1.2" fill="#0a0a0a" />
-      </svg>
-    );
-  }
-
   return (
-    <svg
-      viewBox="0 0 32 32"
+    <Image
+      src="/brand/mark.png"
+      alt="Nexic Technologies"
+      width={512}
+      height={512}
       className={className}
-      role="img"
-      aria-label="Nexic Technologies"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <rect
-        width="32"
-        height="32"
-        rx="7"
-        fill={inverted ? "#fafaf9" : "#0a0a0a"}
-      />
-      {/* Left stem */}
-      <rect x="8" y="8" width="3.4" height="16" rx="1.2" fill={inverted ? "#0a0a0a" : "#fafaf9"} />
-      {/* Diagonal — the orange carries the eye upward */}
-      <path d="M11.4 8.4 L14.6 8.4 L23.2 23.6 L20 23.6 Z" fill="#ff5a1f" />
-      {/* Right stem */}
-      <rect
-        x="20.6"
-        y="8"
-        width="3.4"
-        height="16"
-        rx="1.2"
-        fill={inverted ? "#0a0a0a" : "#fafaf9"}
-      />
-    </svg>
+      priority
+    />
   );
 }

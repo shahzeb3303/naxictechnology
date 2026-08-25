@@ -23,7 +23,7 @@ export function Services() {
             <Reveal as="li" key={service.id} delay={i * 0.04}>
               <Link
                 href={`/services#${service.id}`}
-                className="group relative grid cursor-pointer items-start gap-5 border-b border-line py-8 transition-colors duration-300 hover:bg-paper-pure md:grid-cols-12 md:gap-8 md:py-9"
+                className="group relative grid cursor-pointer items-start gap-5 border-b border-line py-8 transition-colors duration-300 hover:bg-paper-pure md:grid-cols-12 md:gap-8 md:py-9 md:pr-12"
               >
                 {/* Orange rail that draws in on hover */}
                 <span
@@ -53,9 +53,11 @@ export function Services() {
                   ))}
                 </ul>
 
+                {/* Sits in the md:pr-12 gutter the row reserves, so it never
+                    lands on top of the right-aligned deliverable chips. */}
                 <ArrowUpRight
                   aria-hidden="true"
-                  className="absolute right-0 top-8 hidden h-5 w-5 text-ink-muted opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100 md:block md:-translate-x-2"
+                  className="absolute right-3 top-9 hidden h-5 w-5 text-ink-muted opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100 md:block md:-translate-x-2"
                 />
               </Link>
             </Reveal>

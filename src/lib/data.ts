@@ -114,7 +114,7 @@ export const services: Service[] = [
     id: "marketing",
     index: "01",
     title: "Digital Marketing",
-    tagline: "Content, email, and attribution",
+    tagline: "Measured in pipeline, not impressions",
     icon: "marketing",
     summary:
       "Content, email, and lifecycle run as one system against one dashboard. Every activity ties back to pipeline rather than to impressions.",
@@ -132,7 +132,7 @@ export const services: Service[] = [
     id: "social",
     index: "02",
     title: "Social Media Marketing",
-    tagline: "Channels, calendar, community",
+    tagline: "A presence you can actually sustain",
     icon: "social",
     summary:
       "Channel strategy, a publishing calendar your team can actually sustain, and community management that sounds like a person rather than a policy.",
@@ -150,7 +150,7 @@ export const services: Service[] = [
     id: "ads",
     index: "03",
     title: "Paid Advertising",
-    tagline: "Search, social, and display",
+    tagline: "Spend that traces back to revenue",
     icon: "ads",
     summary:
       "Campaigns built around a tracked conversion, with creative tested weekly and budget moved toward whatever is currently working.",
@@ -168,7 +168,7 @@ export const services: Service[] = [
     id: "seo",
     index: "04",
     title: "Search Engine Optimisation",
-    tagline: "Technical, content, and local",
+    tagline: "Found by the buyers already searching",
     icon: "seo",
     summary:
       "Technical fixes applied rather than listed, content built around the queries that convert, and local visibility for the places you actually trade in.",
@@ -186,7 +186,7 @@ export const services: Service[] = [
     id: "design",
     index: "05",
     title: "Graphic Design & Video Editing",
-    tagline: "Identity, assets, and short form",
+    tagline: "One visual system, every channel",
     icon: "design",
     summary:
       "Brand identity and the everyday assets that keep it consistent, plus short-form edits and motion graphics delivered in every ratio your channels need.",
@@ -204,7 +204,7 @@ export const services: Service[] = [
     id: "web",
     index: "06",
     title: "Websites & Web Applications",
-    tagline: "Marketing sites and product platforms",
+    tagline: "Fast to load, built to convert",
     icon: "web",
     summary:
       "Marketing sites that load fast and rank, and web applications that hold up once the traffic is real. Built on frameworks your next developer will already recognise.",
@@ -222,7 +222,7 @@ export const services: Service[] = [
     id: "mobile",
     index: "07",
     title: "Mobile App Development",
-    tagline: "iOS and Android, shipped",
+    tagline: "Built, shipped, and through review",
     icon: "mobile",
     summary:
       "Native-feeling iOS and Android from one codebase, or fully native when the hardware demands it. Taken through store review, instrumented from the first build.",
@@ -240,7 +240,7 @@ export const services: Service[] = [
     id: "ai",
     index: "08",
     title: "Agentic AI Services",
-    tagline: "Agents that do the work",
+    tagline: "Agents that do work, not demos",
     icon: "ai",
     summary:
       "Autonomous agents wired into real workflows — not a chatbot bolted onto a homepage. Tool use, retrieval, and evaluation harnesses that tell you when quality drifts.",
