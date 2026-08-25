@@ -97,8 +97,13 @@ function ProjectCard({ project, featured }: { project: Project; featured?: boole
  * heading — running both would say the same thing twice in a row.
  */
 export function Work({ showHead = true }: { showHead?: boolean } = {}) {
-  const featured = projects.filter((p) => p.featured);
-  const rest = projects.filter((p) => !p.featured);
+  /**
+   * The homepage shows a curated four, not the whole catalogue. Twelve cards at
+   * identical weight is what made the portfolio unreadable — a visitor scanning
+   * for proof could not tell which piece we would want them to judge us on.
+   * /work carries the full set behind discipline filters.
+   */
+  const shown = projects.filter((p) => p.featured).slice(0, 4);
 
   return (
     <section id="work" className="scroll-mt-24 border-t border-line bg-paper-pure py-24 md:py-32">
@@ -107,24 +112,16 @@ export function Work({ showHead = true }: { showHead?: boolean } = {}) {
           <SectionHead
             eyebrow="Selected work"
             title="Our best work"
-            lede="A sample of what we've shipped in the last two years. Each one started as a problem someone had already tried to solve twice."
+            lede="Four pieces that show the range — paid social that moved revenue, a storefront, and a product build. The rest are on the work page."
           />
         )}
 
         {/* Odd cards drop half a step so the columns never read as a table.
             Only above md, where there are actually two columns to offset. */}
         <div className="mt-16 grid items-start gap-x-8 gap-y-16 md:grid-cols-2">
-          {featured.map((p, i) => (
+          {shown.map((p, i) => (
             <Reveal key={p.id} delay={i * 0.08} className={i % 2 ? "md:mt-20" : undefined}>
               <ProjectCard project={p} featured />
-            </Reveal>
-          ))}
-        </div>
-
-        <div className="mt-16 grid items-start gap-x-8 gap-y-16 border-t border-line pt-16 md:grid-cols-2">
-          {rest.map((p, i) => (
-            <Reveal key={p.id} delay={i * 0.08} className={i % 2 ? "md:mt-20" : undefined}>
-              <ProjectCard project={p} />
             </Reveal>
           ))}
         </div>

@@ -18,9 +18,11 @@ export function WhyChoose() {
     >
       {/* No items-start here: the right column must stretch to the row height,
           otherwise the sticky child has no room to travel. */}
-      <div className="shell grid gap-14 lg:grid-cols-2 lg:gap-20">
-        {/* Copy */}
-        <div>
+      <div className="shell grid gap-14 lg:grid-cols-12 lg:gap-16">
+        {/* Copy — carries two thirds of the row. The tile cluster is decoration
+            and reads as such at a third; at half it competed with the content
+            it was meant to sit beside. */}
+        <div className="lg:col-span-8">
           <Reveal>
             <div className="flex items-center gap-3">
               <span className="h-px w-8 bg-flare" aria-hidden="true" />
@@ -33,11 +35,10 @@ export function WhyChoose() {
             </h2>
 
             <p className="mt-6 max-w-[56ch] text-[1.0625rem] leading-relaxed text-ink-muted">
-              Our team specialises in custom software, web platforms, and
-              digital products — tailored to the problem in front of you rather
-              than the one our last client had. With a focus on performance,
-              clarity, and support that outlasts the launch, we help businesses
-              ship and keep shipping.
+              Marketing, design and development under one roof — so the campaign,
+              the creative and the page it lands on are built by people who talk
+              to each other. Every engagement opens with the numbers we intend to
+              move, and closes by showing whether we moved them.
             </p>
           </Reveal>
 
@@ -70,7 +71,7 @@ export function WhyChoose() {
         </div>
 
         {/* Tile cluster — rides alongside the list as it scrolls */}
-        <div>
+        <div className="lg:col-span-4">
           <div className="lg:sticky lg:top-28">
             <Reveal delay={0.12}>
               <Mosaic />

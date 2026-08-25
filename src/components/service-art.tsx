@@ -6,6 +6,7 @@ import {
   Megaphone,
   MessagesSquare,
   PenTool,
+  Search,
   Smartphone,
 } from "lucide-react";
 import type { Service } from "@/lib/data";
@@ -19,6 +20,7 @@ const icons = {
   ads: Megaphone,
   design: PenTool,
   video: Clapperboard,
+  seo: Search,
 } as const;
 
 /**

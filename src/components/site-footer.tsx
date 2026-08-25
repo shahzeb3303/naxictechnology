@@ -27,9 +27,9 @@ export function SiteFooter() {
               </span>
             </div>
             <p className="mt-5 max-w-[38ch] text-sm leading-relaxed text-paper/60">
-              An independent software studio in Islamabad and Manchester. We build web
-              platforms, mobile apps, and AI products — then hand them over
-              properly.
+              Digital marketing, advertising and SEO in Islamabad and Manchester
+              — with the design, video, websites and apps that campaign work
+              depends on, built by the same team.
             </p>
           </div>
 
@@ -83,7 +83,7 @@ export function SiteFooter() {
 
         <div className="mt-14 flex flex-col items-start justify-between gap-6 border-t border-line-dark pt-8 sm:flex-row sm:items-center">
           <p className="text-[0.8125rem] text-paper/55">
-            © {site.founded}–2026 {site.name}. All rights reserved.
+            © {site.founded} {site.name}. All rights reserved.
           </p>
 
           <div className="flex items-center gap-6">

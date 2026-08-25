@@ -14,7 +14,7 @@ import { site } from "@/lib/data";
 export const metadata: Metadata = {
   title: `About — ${site.name}`,
   description:
-    "An independent software studio in Islamabad and Manchester. Twenty-four engineers and designers who build web platforms, mobile apps, and AI products — then hand them over properly.",
+    "A digital marketing and software studio in Islamabad and Manchester. We run marketing, ads and SEO, and build the design, video, websites and apps behind them.",
   alternates: { canonical: `${site.url}/about` },
 };
 

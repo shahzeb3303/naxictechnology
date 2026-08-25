@@ -5,7 +5,7 @@ import { motion, useReducedMotion, useScroll, useTransform } from "motion/react"
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { site, stats } from "@/lib/data";
 
-const HEADLINE = ["We build", "software that", "ships."];
+const HEADLINE = ["Marketing that", "moves the", "numbers."];
 
 export function Hero() {
   const reduced = useReducedMotion();
@@ -73,27 +73,12 @@ export function Hero() {
         style={reduced ? undefined : { y: contentY, opacity: contentOpacity }}
         className="shell relative w-full pb-14 pt-24 md:pb-20 md:pt-32"
       >
-        {/* Availability pill */}
-        <Masked delay={0} reduced={reduced}>
-          <span className="mb-9 inline-flex items-center gap-2.5 rounded-full border border-white/25 bg-white/10 py-1.5 pl-2 pr-4 backdrop-blur-sm">
-            <span className="relative flex h-2 w-2">
-              {!reduced && (
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-flare opacity-70" />
-              )}
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-flare" />
-            </span>
-            <span className="text-[0.8125rem] text-paper/90">
-              Taking on 2 new projects for Q3
-            </span>
-          </span>
-        </Masked>
-
         <h1 className="text-display max-w-[15ch] font-display text-paper">
           {HEADLINE.map((text, i) => (
             <Masked key={text} delay={0.08 * (i + 1)} reduced={reduced}>
               {i === 2 ? (
                 <span>
-                  ships<span className="text-flare">.</span>
+                  numbers<span className="text-flare">.</span>
                 </span>
               ) : (
                 text
@@ -108,10 +93,10 @@ export function Hero() {
           <div className="md:col-span-6">
             <Masked as="div" delay={0.36} reduced={reduced}>
               <p className="max-w-[52ch] text-[1.0625rem] leading-relaxed text-paper/75 md:text-lg">
-                {site.name} is an independent studio of 24 engineers and
-                designers. We partner with founders and product teams to turn
-                ambitious briefs into systems that survive contact with real
-                users — then hand them over documented, tested, and yours.
+                {site.name} runs digital marketing, paid advertising and SEO for
+                brands in Pakistan and the UK — and builds the design, video,
+                websites and apps that campaign work depends on. One team, so
+                the ads and the landing page are never arguing with each other.
               </p>
             </Masked>
 
@@ -123,7 +108,7 @@ export function Hero() {
                 {[
                   { v: stats.projects, l: "projects delivered" },
                   { v: stats.clients, l: "clients worldwide" },
-                  { v: stats.years, l: "years building" },
+                  { v: stats.disciplines, l: "disciplines in-house" },
                 ].map((s) => (
                   <div key={s.l} className="flex items-baseline gap-2">
                     <dt className="sr-only">{s.l}</dt>
@@ -163,9 +148,7 @@ export function Hero() {
             </Masked>
 
             <Masked as="div" delay={0.52} reduced={reduced}>
-              <p className="eyebrow text-paper/60">
-                Est. {site.founded} · Islamabad &amp; Manchester
-              </p>
+              <p className="eyebrow text-paper/60">Islamabad &amp; Manchester</p>
             </Masked>
           </div>
         </div>

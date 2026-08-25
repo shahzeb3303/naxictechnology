@@ -7,7 +7,6 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { Team } from "@/components/team";
 import { Testimonial } from "@/components/testimonial";
-import { Ticker } from "@/components/ticker";
 import { Trust } from "@/components/trust";
 import { WhyChoose } from "@/components/why-choose";
 import { Work } from "@/components/work";
@@ -23,7 +22,6 @@ export default function HomePage() {
       <SiteHeader />
       <main id="main">
         <Hero />
-        <Ticker />
         <Services />
         <WhyChoose />
         <Work />

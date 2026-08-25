@@ -32,12 +32,16 @@ export function AboutStats() {
 
 /** Founding story as a dated timeline rather than three paragraphs of prose. */
 export function AboutStory() {
+  // Nexic was founded in 2026 — there is no history to date yet. Render nothing
+  // rather than an invented timeline; the section returns as milestones land.
+  if (milestones.length === 0) return null;
+
   return (
     <section className="bg-paper-pure py-24 md:py-32">
       <div className="shell">
         <SectionHead
           eyebrow="How we got here"
-          title="Nine years, deliberately slowly"
+          title="How we got here"
           lede="We have turned down more work than we have taken. That is the whole strategy — stay small enough that senior people are on every project rather than supervising from a distance."
         />
 

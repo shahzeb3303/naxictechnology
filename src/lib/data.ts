@@ -12,11 +12,11 @@ export const site = {
   short: "Nexic",
   /** Canonical origin. Drives sitemap, robots, and structured data URLs. */
   url: "https://nexic.tech",
-  tagline: "Software that ships",
+  tagline: "Marketing that moves the numbers",
   email: "hello@nexic.tech",
   phone: "+92 51 555 0142",
   address: "Nawaz Arcade, First Floor, Office #4, National Police Foundation, Block A, Islamabad",
-  founded: 2017,
+  founded: 2026,
 } as const;
 
 /**
@@ -43,7 +43,9 @@ export const nav = [
 export const stats = {
   projects: "12+",
   clients: "10+",
-  years: "5+",
+  /** Count of services offered — replaces a "years building" figure, which
+   *  a studio founded in 2026 cannot honestly claim. */
+  disciplines: "8",
   engineers: "6+",
   retention: "High",
 } as const;
@@ -103,77 +105,24 @@ export type Service = {
     | "social"
     | "ads"
     | "design"
-    | "video";
+    | "video"
+    | "seo";
 };
 
 export const services: Service[] = [
   {
-    id: "web",
-    index: "01",
-    title: "Websites & Web Applications",
-    tagline: "Marketing sites and product platforms",
-    icon: "web",
-    summary:
-      "Marketing sites that load fast and rank, and web applications that hold up once the traffic is real. Built on frameworks your next developer will already recognise.",
-    detail:
-      "Most agency websites are handed over as a folder nobody can open. We build on mainstream, documented tooling — so whoever maintains this after us can read it on day one. Performance and accessibility are budgeted at the start, not bolted on when the audit fails.",
-    deliverables: ["Next.js & React", "Headless CMS", "E-commerce", "Design systems"],
-    includes: [
-      "Core Web Vitals in the green at launch",
-      "A CMS your marketing team can run without us",
-      "WCAG AA accessibility as standard",
-      "Analytics and conversion tracking wired in",
-    ],
-  },
-  {
-    id: "mobile",
-    index: "02",
-    title: "Mobile App Development",
-    tagline: "iOS and Android, shipped",
-    icon: "mobile",
-    summary:
-      "Native-feeling iOS and Android from one codebase, or fully native when the hardware demands it. Taken through store review, instrumented from the first build.",
-    detail:
-      "Getting an app built is the easy half; getting it approved, updated, and observable is where projects stall. We handle store submission, staged rollouts, and crash reporting, and we design for the network you actually have rather than the one in the demo.",
-    deliverables: ["React Native", "Swift & Kotlin", "Offline-first sync", "App Store release"],
-    includes: [
-      "App Store and Play Store submission handled",
-      "Offline-first data sync where it matters",
-      "Crash reporting and release monitoring",
-      "Staged rollouts with a rollback path",
-    ],
-  },
-  {
-    id: "ai",
-    index: "03",
-    title: "Agentic AI Services",
-    tagline: "Agents that do the work",
-    icon: "ai",
-    summary:
-      "Autonomous agents wired into real workflows — not a chatbot bolted onto a homepage. Tool use, retrieval, and evaluation harnesses that tell you when quality drifts.",
-    detail:
-      "An AI feature that impresses in a demo and fails in month three is worse than no feature. We build agents that can call your systems, cite their sources, and hand off to a human when confidence drops — then we ship the evaluation suite that proves it still works after the next model update.",
-    deliverables: ["RAG pipelines", "Tool-using agents", "Eval harnesses", "Model routing"],
-    includes: [
-      "Retrieval grounded in your own documents",
-      "An eval suite that runs on every change",
-      "Human-in-the-loop escalation paths",
-      "Cost and latency budgets you can forecast",
-    ],
-  },
-  {
     id: "marketing",
-    index: "04",
+    index: "01",
     title: "Digital Marketing",
-    tagline: "Search, content, and lifecycle",
+    tagline: "Content, email, and attribution",
     icon: "marketing",
     summary:
-      "SEO, content, and email run as one system against one dashboard. Every activity ties back to pipeline rather than to impressions.",
+      "Content, email, and lifecycle run as one system against one dashboard. Every activity ties back to pipeline rather than to impressions.",
     detail:
-      "We start by fixing attribution, because a marketing programme you cannot measure is a marketing programme you cannot defend. Once the numbers are trustworthy, we build the content and search work around the queries that actually convert for you.",
-    deliverables: ["Technical SEO", "Content strategy", "Email & lifecycle", "Analytics"],
+      "We start by fixing attribution, because a marketing programme you cannot measure is a marketing programme you cannot defend. Once the numbers are trustworthy, we build the content and lifecycle work around the buyers who actually convert for you.",
+    deliverables: ["Content strategy", "Email & lifecycle", "Analytics & attribution", "Conversion tracking"],
     includes: [
-      "A technical SEO audit with fixes applied, not just listed",
+      "Attribution fixed before spend scales",
       "A content calendar mapped to buying intent",
       "Lifecycle email sequences that are not spam",
       "One dashboard the whole team reads",
@@ -181,7 +130,7 @@ export const services: Service[] = [
   },
   {
     id: "social",
-    index: "05",
+    index: "02",
     title: "Social Media Marketing",
     tagline: "Channels, calendar, community",
     icon: "social",
@@ -199,7 +148,7 @@ export const services: Service[] = [
   },
   {
     id: "ads",
-    index: "06",
+    index: "03",
     title: "Paid Advertising",
     tagline: "Search, social, and display",
     icon: "ads",
@@ -216,39 +165,93 @@ export const services: Service[] = [
     ],
   },
   {
+    id: "seo",
+    index: "04",
+    title: "Search Engine Optimisation",
+    tagline: "Technical, content, and local",
+    icon: "seo",
+    summary:
+      "Technical fixes applied rather than listed, content built around the queries that convert, and local visibility for the places you actually trade in.",
+    detail:
+      "Most SEO audits are a spreadsheet nobody actions. We apply the technical fixes ourselves — crawlability, site speed, structured data, internal linking — then build content against real search intent rather than vanity keywords. Rankings are reported next to traffic and conversions, because position alone pays nobody.",
+    deliverables: ["Technical audits", "Keyword & intent research", "On-page & content", "Local SEO"],
+    includes: [
+      "A technical audit with the fixes applied, not just listed",
+      "Keyword mapping tied to buying intent",
+      "Structured data and internal linking sorted",
+      "Rankings reported next to traffic and conversions",
+    ],
+  },
+  {
     id: "design",
-    index: "07",
-    title: "Graphic Design",
-    tagline: "Identity and everyday assets",
+    index: "05",
+    title: "Graphic Design & Video Editing",
+    tagline: "Identity, assets, and short form",
     icon: "design",
     summary:
-      "Brand identity, design systems, and the everyday assets that keep a brand consistent long after the launch deck is closed.",
+      "Brand identity and the everyday assets that keep it consistent, plus short-form edits and motion graphics delivered in every ratio your channels need.",
     detail:
-      "A logo is the smallest part of an identity. What keeps a brand coherent is the system underneath it — type scale, colour rules, spacing, and templates your team can use without asking a designer for every social post.",
-    deliverables: ["Brand identity", "Design systems", "Print & packaging", "Pitch decks"],
+      "A logo is the smallest part of an identity. What keeps a brand coherent is the system underneath it — type scale, colour rules, spacing, and templates your team can use without asking a designer for every post. The same system carries into video, where we write for the hook and export the story in vertical, square, and wide so nothing gets cropped into nonsense.",
+    deliverables: ["Brand identity", "Social & print assets", "Short-form video", "Motion graphics"],
     includes: [
       "Logo suite with clear usage rules",
-      "A documented design system, not a mood board",
       "Editable templates for social, decks, and print",
+      "Every cut delivered in 9:16, 1:1, and 16:9",
       "Source files handed over, no lock-in",
     ],
   },
   {
-    id: "video",
-    index: "08",
-    title: "Video Production & Editing",
-    tagline: "Short form to product film",
-    icon: "video",
+    id: "web",
+    index: "06",
+    title: "Websites & Web Applications",
+    tagline: "Marketing sites and product platforms",
+    icon: "web",
     summary:
-      "Short-form edits, product films, and motion graphics — scripted, cut, graded, and delivered in every aspect ratio your channels need.",
+      "Marketing sites that load fast and rank, and web applications that hold up once the traffic is real. Built on frameworks your next developer will already recognise.",
     detail:
-      "Video fails on the first three seconds and on the last-mile delivery. We write for the hook, then export the same story in vertical, square, and wide so nothing gets cropped into nonsense on the channel it was not made for.",
-    deliverables: ["Short-form social", "Product films", "Motion graphics", "Colour & sound"],
+      "Most agency websites are handed over as a folder nobody can open. We build on mainstream, documented tooling — so whoever maintains this after us can read it on day one. Performance and accessibility are budgeted at the start, not bolted on when the audit fails.",
+    deliverables: ["Next.js & React", "Headless CMS", "E-commerce", "Design systems"],
     includes: [
-      "Scripting and storyboard before the shoot",
-      "Every cut delivered in 9:16, 1:1, and 16:9",
-      "Captions and subtitle files included",
-      "Motion graphics built from your brand system",
+      "Core Web Vitals in the green at launch",
+      "A CMS your marketing team can run without us",
+      "WCAG AA accessibility as standard",
+      "Analytics and conversion tracking wired in",
+    ],
+  },
+  {
+    id: "mobile",
+    index: "07",
+    title: "Mobile App Development",
+    tagline: "iOS and Android, shipped",
+    icon: "mobile",
+    summary:
+      "Native-feeling iOS and Android from one codebase, or fully native when the hardware demands it. Taken through store review, instrumented from the first build.",
+    detail:
+      "Getting an app built is the easy half; getting it approved, updated, and observable is where projects stall. We handle store submission, staged rollouts, and crash reporting, and we design for the network you actually have rather than the one in the demo.",
+    deliverables: ["Flutter", "Swift & Kotlin", "Offline-first sync", "App Store release"],
+    includes: [
+      "App Store and Play Store submission handled",
+      "Offline-first data sync where it matters",
+      "Crash reporting and release monitoring",
+      "Staged rollouts with a rollback path",
+    ],
+  },
+  {
+    id: "ai",
+    index: "08",
+    title: "Agentic AI Services",
+    tagline: "Agents that do the work",
+    icon: "ai",
+    summary:
+      "Autonomous agents wired into real workflows — not a chatbot bolted onto a homepage. Tool use, retrieval, and evaluation harnesses that tell you when quality drifts.",
+    detail:
+      "An AI feature that impresses in a demo and fails in month three is worse than no feature. We build agents that can call your systems, cite their sources, and hand off to a human when confidence drops — then we ship the evaluation suite that proves it still works after the next model update.",
+    deliverables: ["RAG pipelines", "Tool-using agents", "Eval harnesses", "Model routing"],
+    includes: [
+      "Retrieval grounded in your own documents",
+      "An eval suite that runs on every change",
+      "Human-in-the-loop escalation paths",
+      "Cost and latency budgets you can forecast",
     ],
   },
 ];
@@ -568,6 +571,7 @@ export const projects: Project[] = [
 
   {
     id: "trusting-hands",
+    featured: true,
     client: "Trusting Hands",
     title: "One app where you can give help or ask for it",
     category: "Non-profit · Mobile App",
@@ -685,6 +689,7 @@ export const projects: Project[] = [
 
   {
     id: "lvl-marketing",
+    featured: true,
     client: "LVL Marketing",
     title: "An outreach engine that keeps producing after you stop pushing",
     category: "Agency · Lead Generation",
@@ -915,6 +920,7 @@ export const projects: Project[] = [
 
   {
     id: "babyfits",
+    featured: true,
     client: "BabyFits",
     title: "Orders up 256% by finding the ad set that actually worked",
     category: "E-commerce · Paid Social",
@@ -968,6 +974,7 @@ export const projects: Project[] = [
   },
   {
     id: "xebayi",
+    featured: true,
     client: "Xebayi Dermaceuticals",
     title: "Selling actives to people who have been burned before",
     category: "Skincare · E-commerce",
@@ -1174,28 +1181,12 @@ export type Milestone = {
   body: string;
 };
 
-export const milestones: Milestone[] = [
-  {
-    year: "2017",
-    title: "Two people and a rented desk",
-    body: "Founded in Islamabad after one too many projects handed over as an unmaintainable folder. The original rule — leave every client able to run it without us — has not changed.",
-  },
-  {
-    year: "2020",
-    title: "First platform at scale",
-    body: "A logistics client asked for something their previous three agencies had declined. Shipping it taught us to prove the risky part before quoting the rest.",
-  },
-  {
-    year: "2023",
-    title: "Manchester opens",
-    body: "European clients wanted working hours that overlapped theirs. Rather than pretend, we opened a second office and staffed it properly.",
-  },
-  {
-    year: "2026",
-    title: "Twenty-four people, still no bench",
-    body: "We turn down more work than we take. Staying small is what keeps senior people on every project instead of supervising from a distance.",
-  },
-];
+/**
+ * Empty until there is real history to tell. Nexic was founded in 2026, so a
+ * dated timeline has nothing true to put in it yet. AboutStory renders nothing
+ * while this is empty; add entries as milestones actually happen.
+ */
+export const milestones: Milestone[] = [];
 
 export type Person = {
   id: string;
