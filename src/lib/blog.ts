@@ -63,12 +63,17 @@ export type Post = {
   featured?: boolean;
 };
 
+/**
+ * Order matters — these render as chips on /blog and put the primary services
+ * first, matching the services list. Every post's category must appear here,
+ * otherwise a post shows a chip the topic list does not offer.
+ */
 export const categories = [
-  "Engineering",
-  "AI",
   "Marketing",
   "Design",
-  "Business",
+  "SEO",
+  "Engineering",
+  "AI",
 ] as const;
 
 export const posts: Post[] = [
@@ -77,7 +82,7 @@ export const posts: Post[] = [
     title: "How much does a business website cost in 2026?",
     excerpt:
       "A straight answer with real ranges — what sits behind a $3,000 site, a $30,000 site, and a $150,000 platform, and how to tell which one you actually need.",
-    category: "Business",
+    category: "Marketing",
     tags: ["Pricing", "Web Development", "Budgeting"],
     authorId: "umar",
     publishedAt: "2026-07-28",
@@ -279,7 +284,7 @@ export const posts: Post[] = [
     title: "SEO or paid ads: where should a limited budget go first?",
     excerpt:
       "They solve different problems on different timelines. A practical framework for deciding which to fund when you cannot fund both.",
-    category: "Marketing",
+    category: "SEO",
     tags: ["SEO", "Paid Ads", "Strategy"],
     authorId: "itrat",
     publishedAt: "2026-06-30",

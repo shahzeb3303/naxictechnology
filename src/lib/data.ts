@@ -1208,7 +1208,11 @@ export const team: Person[] = [
     id: "itrat",
     name: "Itrat Batool",
     role: "Business Analyst",
-    // NOTE: source is 200x200 — soft in the 4:5 frame. Replace with 800x1000.
+    /**
+     * Resampled from a 200x200 original to 400x500 (lanczos + unsharp) and the
+     * grid is capped so it renders below native size. That removes the visible
+     * stretch but adds no detail — a real 800x1000 portrait still wins.
+     */
     photo: "/team/itrat.jpg",
   },
 ];
@@ -1383,19 +1387,22 @@ export const timelines = [
 
 /** Spans every discipline, not just engineering — the ticker runs on the
  *  services page too, where a dev-only list would read as a gap. */
+/**
+ * The band that runs across /work. This was a list of frameworks — Postgres,
+ * AWS, Swift — which sold the wrong thing to a marketing buyer. It now names
+ * what we are actually hired for, in the same priority order as the services.
+ */
 export const capabilities = [
-  "TypeScript",
-  "React",
-  "Next.js",
-  "Swift",
-  "Kotlin",
-  "Python",
-  "Postgres",
-  "AWS",
-  "Figma",
-  "After Effects",
-  "Google Ads",
-  "Meta Ads",
-  "Shopify",
-  "HubSpot",
+  "Digital Marketing",
+  "SEO",
+  "Paid Advertising",
+  "Social Media",
+  "Branding",
+  "Graphic Design",
+  "Video Editing",
+  "Motion Graphics",
+  "Web Development",
+  "Mobile Apps",
+  "Automation",
+  "Agentic AI",
 ] as const;

@@ -17,7 +17,10 @@ export function Team() {
           lede={`We stay at ${stats.engineers} people so every project gets senior attention. There is no bench, no juniors learning on your budget, and no account manager between you and the engineers.`}
         />
 
-        <ul className="mt-16 grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4 lg:gap-x-8">
+        {/* Capped rather than spread across four columns. With two people a
+            4-col grid left half the row empty and stretched each portrait to
+            ~280px, which is where a small source file starts to show. */}
+        <ul className="mt-16 grid max-w-md grid-cols-2 gap-x-6 gap-y-10 sm:max-w-lg sm:gap-x-8">
           {team.map((person, i) => (
             <Reveal as="li" key={person.id} delay={i * 0.06}>
               <figure>

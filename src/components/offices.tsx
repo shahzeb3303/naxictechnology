@@ -17,8 +17,10 @@ export function Offices() {
           {offices.map((office, i) => (
             <Reveal as="li" key={office.id} delay={i * 0.07}>
               <article className="flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-paper-pure">
-                {/* Photo slot */}
-                <div className="relative aspect-[4/3] overflow-hidden border-b border-line">
+                {/* Photo slot. Deliberately a short band rather than 4:3 — the
+                    abstract art is decoration and was taking more of the card
+                    than the address it sits above. */}
+                <div className="relative aspect-[16/5] overflow-hidden border-b border-line">
                   {office.photo ? (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img
@@ -36,11 +38,11 @@ export function Offices() {
                 </div>
 
                 <div className="flex flex-1 flex-col p-7">
-                  <h3 className="font-display text-[1.5rem] leading-tight tracking-tight">
+                  <h3 className="font-display text-[1.75rem] leading-tight tracking-tight md:text-[2rem]">
                     {office.city}
                   </h3>
 
-                  <address className="mt-4 space-y-3 text-[0.9375rem] not-italic leading-relaxed text-ink-muted">
+                  <address className="mt-5 space-y-4 text-[1rem] not-italic leading-relaxed text-ink-muted">
                     <span className="flex gap-3">
                       <MapPin
                         className="mt-0.5 h-4 w-4 shrink-0 text-flare-ink"

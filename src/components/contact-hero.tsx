@@ -42,8 +42,9 @@ export function ContactHero() {
 
             <p className="mt-8 max-w-[52ch] text-[1.0625rem] leading-relaxed text-paper/75 md:text-lg">
               Tell us what is not working, what you have already tried, and what
-              &ldquo;done&rdquo; looks like. You will get a reply from an
-              engineer — not a sales rep — within one business day.
+              &ldquo;done&rdquo; looks like. You will get a reply within one
+              business day from a team that owns the problem from start to
+              finish.
             </p>
           </Reveal>
 
