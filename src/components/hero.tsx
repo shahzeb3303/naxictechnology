@@ -5,7 +5,9 @@ import { motion, useReducedMotion, useScroll, useTransform } from "motion/react"
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { site, stats } from "@/lib/data";
 
-const HEADLINE = ["Marketing that", "moves the", "numbers."];
+/** Last line carries the orange — see the ORANGE_LINE index below. */
+const HEADLINE = ["Built to be taken", "seriously."];
+const ORANGE_LINE = HEADLINE.length - 1;
 
 export function Hero() {
   const reduced = useReducedMotion();
@@ -73,13 +75,11 @@ export function Hero() {
         style={reduced ? undefined : { y: contentY, opacity: contentOpacity }}
         className="shell relative w-full pb-14 pt-24 md:pb-20 md:pt-32"
       >
-        <h1 className="text-display max-w-[15ch] font-display text-paper">
+        <h1 className="text-display max-w-[17ch] font-display text-paper">
           {HEADLINE.map((text, i) => (
             <Masked key={text} delay={0.08 * (i + 1)} reduced={reduced}>
-              {i === 2 ? (
-                <span>
-                  numbers<span className="text-flare">.</span>
-                </span>
+              {i === ORANGE_LINE ? (
+                <span className="text-flare">{text}</span>
               ) : (
                 text
               )}

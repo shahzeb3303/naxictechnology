@@ -1,4 +1,4 @@
-import { site, stats } from "@/lib/data";
+import { site } from "@/lib/data";
 import { Reveal } from "./reveal";
 import { ShapedImage } from "./shaped-image";
 
@@ -22,21 +22,31 @@ export function AboutHero() {
               <span className="eyebrow text-ink-muted">About us</span>
             </div>
 
-            <h1 className="text-display mt-7 max-w-[11ch] font-display">
-              We build, then we leave<span className="text-flare">.</span>
+            <h1 className="text-display mt-7 max-w-[13ch] font-display">
+              We sell it. We also build it<span className="text-flare">.</span>
             </h1>
 
             <p className="mt-8 max-w-[54ch] text-[1.0625rem] leading-relaxed text-ink-muted md:text-lg">
-              {site.name} is an independent software studio in Islamabad and
-              Manchester. We design and build web platforms, mobile apps, and AI
-              products for teams who need the thing to work — then hand it over
-              documented, tested, and entirely theirs.
+              {site.name} is a marketing agency with a build team inside it. We
+              run paid advertising, SEO and content for brands in Pakistan and
+              the UK, and we design and build the websites, apps, video and
+              creative those campaigns depend on.
+            </p>
+
+            <p className="mt-5 max-w-[54ch] text-[1.0625rem] font-medium leading-relaxed text-ink">
+              That combination is rarer than it sounds.
             </p>
 
             <p className="mt-5 max-w-[54ch] text-[1.0625rem] leading-relaxed text-ink-muted">
-              We stay at {stats.engineers} people on purpose. There is no bench,
-              no juniors learning on your budget, and nobody between you and the
-              engineers doing the work.
+              Most agencies hand the website to someone else and hope it
+              converts. Most studios can build the thing but have never bought a
+              click in their lives. We do both, in one team across Islamabad and
+              Manchester.
+            </p>
+
+            <p className="mt-5 max-w-[54ch] text-[1.0625rem] leading-relaxed text-ink-muted">
+              No subcontractors, no account manager relaying messages. You talk
+              to the people doing the work.
             </p>
           </Reveal>
         </div>

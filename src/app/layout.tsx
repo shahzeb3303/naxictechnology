@@ -19,20 +19,22 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Nexic Technologies — Software that ships",
+  title: "Nexic Technologies — Built to be taken seriously",
   description:
-    "An independent software studio building web platforms, mobile apps, and AI products for teams that need to move fast without breaking what matters.",
+    "A marketing agency with a build team inside it. Paid advertising, SEO and content for brands in Pakistan and the UK — plus the websites, apps, video and creative those campaigns depend on.",
   keywords: [
-    "software house",
-    "product studio",
+    "digital marketing agency",
+    "paid advertising",
+    "SEO",
+    "social media marketing",
+    "graphic design and video editing",
     "web development",
     "mobile apps",
-    "AI engineering",
   ],
   openGraph: {
-    title: "Nexic Technologies — Software that ships",
+    title: "Nexic Technologies — Built to be taken seriously",
     description:
-      "An independent software studio building web platforms, mobile apps, and AI products.",
+      "A marketing agency with a build team inside it. Advertising, SEO and content — plus the websites, apps and creative behind them.",
     type: "website",
   },
 };

@@ -12,7 +12,7 @@ export const site = {
   short: "Nexic",
   /** Canonical origin. Drives sitemap, robots, and structured data URLs. */
   url: "https://nexic.tech",
-  tagline: "Marketing that moves the numbers",
+  tagline: "Built to be taken seriously",
   email: "hello@nexic.tech",
   phone: "+92 51 555 0142",
   address: "Nawaz Arcade, First Floor, Office #4, National Police Foundation, Block A, Islamabad",
