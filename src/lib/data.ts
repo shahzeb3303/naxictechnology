@@ -1202,7 +1202,7 @@ export const team: Person[] = [
     id: "umar",
     name: "Umar Nisar",
     role: "Founder · Digital & Social Media Marketing",
-    // photo: "/team/umar.jpg" — 800x1000 portrait needed
+    photo: "/team/umar.jpg",
   },
   {
     id: "itrat",
