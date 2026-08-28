@@ -35,7 +35,7 @@ export function WhyChoose() {
             </h2>
 
             <p className="mt-6 max-w-[56ch] text-[1.0625rem] leading-relaxed text-ink-muted">
-              Marketing, design and development under one roof — so the campaign,
+              Marketing, design and development under one roof, so the campaign,
               the creative and the page it lands on are built by people who talk
               to each other. Every engagement opens with the numbers we intend to
               move, and closes by showing whether we moved them.

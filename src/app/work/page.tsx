@@ -8,9 +8,9 @@ import { Reveal } from "@/components/reveal";
 import { projects, site, stats } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: `Work — ${site.name}`,
+  title: `Work | ${site.name}`,
   description:
-    "Selected case studies from Nexic Technologies — fintech onboarding, clinical AI, freight visibility, and industrial telemetry.",
+    "Selected case studies from Nexic Technologies: paid social, social campaigns, brand design, e-commerce storefronts, and Flutter apps.",
 };
 
 export default function WorkPage() {
@@ -40,7 +40,7 @@ export default function WorkPage() {
               <Reveal className="md:col-span-7">
                 <p className="max-w-[54ch] text-[1.0625rem] leading-relaxed text-paper/75 md:text-lg">
                   A sample of what we&rsquo;ve shipped. Each one started as a
-                  problem someone had already tried to solve twice — open any
+                  problem someone had already tried to solve twice. Open any
                   case study for the challenge, the approach, and the numbers
                   that came out the other side.
                 </p>

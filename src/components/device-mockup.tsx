@@ -32,7 +32,7 @@ export function DeviceMockup({ project }: { project: Project }) {
             // eslint-disable-next-line @next/next/no-img-element
             <img
               src={desktop}
-              alt={`${project.client} — desktop interface`}
+              alt={`${project.client} desktop interface`}
               className="h-full w-full object-cover object-top"
               loading="lazy"
             />
@@ -50,7 +50,7 @@ export function DeviceMockup({ project }: { project: Project }) {
               // eslint-disable-next-line @next/next/no-img-element
               <img
                 src={mobile}
-                alt={`${project.client} — mobile interface`}
+                alt={`${project.client} mobile interface`}
                 className="h-full w-full object-cover object-top"
                 loading="lazy"
               />

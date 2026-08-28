@@ -16,10 +16,10 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
   const project = projects.find((p) => p.id === slug);
-  if (!project) return { title: `Work — ${site.name}` };
+  if (!project) return { title: `Work | ${site.name}` };
 
   return {
-    title: `${project.client} — ${project.title} | ${site.name}`,
+    title: `${project.client}: ${project.title} | ${site.name}`,
     description: project.summary,
   };
 }

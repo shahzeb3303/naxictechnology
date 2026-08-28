@@ -9,7 +9,7 @@ import { categories, sortedPosts } from "@/lib/blog";
 import { site } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: `Blog — ${site.name}`,
+  title: `Blog | ${site.name}`,
   description:
     "Practical writing on software, AI, and digital marketing from the Nexic Technologies team. Straight answers, real numbers, no vendor spin.",
   alternates: { canonical: `${site.url}/blog` },

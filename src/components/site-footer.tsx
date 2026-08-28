@@ -27,9 +27,9 @@ export function SiteFooter() {
               </span>
             </div>
             <p className="mt-5 max-w-[38ch] text-sm leading-relaxed text-paper/60">
-              Digital marketing, advertising and SEO in Islamabad and Manchester
-              — with the design, video, websites and apps that campaign work
-              depends on, built by the same team.
+              Digital marketing, advertising and SEO in Islamabad and
+              Manchester, with the design, video, websites and apps that
+              campaign work depends on, built by the same team.
             </p>
           </div>
 

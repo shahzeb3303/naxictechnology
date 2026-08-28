@@ -83,9 +83,12 @@ export function ArticleBody({ body }: { body: Block[] }) {
                     {block.text}
                   </p>
                 </blockquote>
+                {/* A rule carries the attribution instead of a leading dash,
+                    which keeps the em dash out of rendered copy entirely. */}
                 {block.cite && (
-                  <figcaption className="mt-3 text-[0.8125rem] text-ink-muted">
-                    — {block.cite}
+                  <figcaption className="mt-3 flex items-center gap-2.5 text-[0.8125rem] text-ink-muted">
+                    <span className="h-px w-5 bg-line" aria-hidden="true" />
+                    {block.cite}
                   </figcaption>
                 )}
               </figure>

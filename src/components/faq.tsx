@@ -20,7 +20,7 @@ export function Faq() {
         <SectionHead
           eyebrow="Questions"
           title="The things clients ask first"
-          lede="If your question is not here, send it over — you will get a straight answer, not a discovery call."
+          lede="If your question is not here, send it over and you will get a straight answer, not a discovery call."
         />
 
         <ul className="mt-16 border-t border-line">

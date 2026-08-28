@@ -1,7 +1,7 @@
 /**
  * Placeholder content for the Nexic Technologies marketing site.
  *
- * ASSET SLOTS — every field typed `?: string` is a path into /public that is
+ * ASSET SLOTS: every field typed `?: string` is a path into /public that is
  * intentionally left undefined. Each component renders a designed fallback
  * when the field is absent, so the page looks finished today and swapping in
  * real artwork is a one-line change here. See ASSETS.md for the spec.
@@ -32,18 +32,18 @@ export const nav = [
 ] as const;
 
 /**
- * One set of numbers, used everywhere. Keep these consistent — a visitor who
+ * One set of numbers, used everywhere. Keep these consistent: a visitor who
  * reads "350+ projects" here and "68" further down stops trusting both.
  */
 /**
  * VERIFY BEFORE LAUNCH. These were placeholders and have been reduced to what
  * the portfolio actually evidences. Raise them only to numbers you can stand
- * behind — a prospect who counts the case studies will notice.
+ * behind: a prospect who counts the case studies will notice.
  */
 export const stats = {
   projects: "12+",
   clients: "10+",
-  /** Count of services offered — replaces a "years building" figure, which
+  /** Count of services offered: replaces a "years building" figure, which
    *  a studio founded in 2026 cannot honestly claim. */
   disciplines: "8",
   engineers: "6+",
@@ -79,7 +79,7 @@ export type Badge = {
 
 /**
  * Third-party validation. Add only credentials that actually exist and can be
- * checked — a claimed AWS partnership or ISO certification is verifiable, and
+ * checked: a claimed AWS partnership or ISO certification is verifiable, and
  * being caught inventing one costs more than having none.
  */
 export const badges: Badge[] = [];
@@ -92,7 +92,7 @@ export type Service = {
   tagline: string;
   summary: string;
   deliverables: string[];
-  /** Expanded copy — services page only. */
+  /** Expanded copy: services page only. */
   detail?: string;
   /** Concrete things a client walks away with. */
   includes?: string[];
@@ -137,7 +137,7 @@ export const services: Service[] = [
     summary:
       "Channel strategy, a publishing calendar your team can actually sustain, and community management that sounds like a person rather than a policy.",
     detail:
-      "Consistency beats brilliance on social, so we design a cadence you can hold for a year — not a launch burst that dies in six weeks. We pick the two or three channels where your buyers actually are and let the rest go.",
+      "Consistency beats brilliance on social, so we design a cadence you can hold for a year, not a launch burst that dies in six weeks. We pick the two or three channels where your buyers actually are and let the rest go.",
     deliverables: ["Channel strategy", "Content calendars", "Community management", "Reporting"],
     includes: [
       "A channel plan that says what to ignore",
@@ -173,7 +173,7 @@ export const services: Service[] = [
     summary:
       "Technical fixes applied rather than listed, content built around the queries that convert, and local visibility for the places you actually trade in.",
     detail:
-      "Most SEO audits are a spreadsheet nobody actions. We apply the technical fixes ourselves — crawlability, site speed, structured data, internal linking — then build content against real search intent rather than vanity keywords. Rankings are reported next to traffic and conversions, because position alone pays nobody.",
+      "Most SEO audits are a spreadsheet nobody actions. We apply the technical fixes ourselves: crawlability, site speed, structured data, internal linking. Then we build content against real search intent rather than vanity keywords. Rankings are reported next to traffic and conversions, because position alone pays nobody.",
     deliverables: ["Technical audits", "Keyword & intent research", "On-page & content", "Local SEO"],
     includes: [
       "A technical audit with the fixes applied, not just listed",
@@ -191,7 +191,7 @@ export const services: Service[] = [
     summary:
       "Brand identity and the everyday assets that keep it consistent, plus short-form edits and motion graphics delivered in every ratio your channels need.",
     detail:
-      "A logo is the smallest part of an identity. What keeps a brand coherent is the system underneath it — type scale, colour rules, spacing, and templates your team can use without asking a designer for every post. The same system carries into video, where we write for the hook and export the story in vertical, square, and wide so nothing gets cropped into nonsense.",
+      "A logo is the smallest part of an identity. What keeps a brand coherent is the system underneath it: type scale, colour rules, spacing, and templates your team can use without asking a designer for every post. The same system carries into video, where we write for the hook and export the story in vertical, square, and wide so nothing gets cropped into nonsense.",
     deliverables: ["Brand identity", "Social & print assets", "Short-form video", "Motion graphics"],
     includes: [
       "Logo suite with clear usage rules",
@@ -209,7 +209,7 @@ export const services: Service[] = [
     summary:
       "Marketing sites that load fast and rank, and web applications that hold up once the traffic is real. Built on frameworks your next developer will already recognise.",
     detail:
-      "Most agency websites are handed over as a folder nobody can open. We build on mainstream, documented tooling — so whoever maintains this after us can read it on day one. Performance and accessibility are budgeted at the start, not bolted on when the audit fails.",
+      "Most agency websites are handed over as a folder nobody can open. We build on mainstream, documented tooling, so whoever maintains this after us can read it on day one. Performance and accessibility are budgeted at the start, not bolted on when the audit fails.",
     deliverables: ["Next.js & React", "Headless CMS", "E-commerce", "Design systems"],
     includes: [
       "Core Web Vitals in the green at launch",
@@ -243,9 +243,9 @@ export const services: Service[] = [
     tagline: "Agents that do work, not demos",
     icon: "ai",
     summary:
-      "Autonomous agents wired into real workflows — not a chatbot bolted onto a homepage. Tool use, retrieval, and evaluation harnesses that tell you when quality drifts.",
+      "Autonomous agents wired into real workflows, not a chatbot bolted onto a homepage. Tool use, retrieval, and evaluation harnesses that tell you when quality drifts.",
     detail:
-      "An AI feature that impresses in a demo and fails in month three is worse than no feature. We build agents that can call your systems, cite their sources, and hand off to a human when confidence drops — then we ship the evaluation suite that proves it still works after the next model update.",
+      "An AI feature that impresses in a demo and fails in month three is worse than no feature. We build agents that can call your systems, cite their sources, and hand off to a human when confidence drops, then we ship the evaluation suite that proves it still works after the next model update.",
     deliverables: ["RAG pipelines", "Tool-using agents", "Eval harnesses", "Model routing"],
     includes: [
       "Retrieval grounded in your own documents",
@@ -280,7 +280,7 @@ export type GalleryItem = {
   wide?: boolean;
 };
 
-/** One video. Hosted externally — self-hosting a reel portfolio is fatal. */
+/** One video. Hosted externally: self-hosting a reel portfolio is fatal. */
 export type VideoItem = {
   title: string;
   provider: "stream" | "vimeo" | "youtube" | "instagram";
@@ -361,7 +361,7 @@ export const projects: Project[] = [
     overview:
       "A restaurant's feed competes with everything else on the phone, and it loses in the first second or not at all. This set was built around that constraint: a single hero dish per post, a headline that states the offer plainly, and enough dark negative space that the food is the brightest thing on screen.",
     challenge:
-      "The brief spanned very different moods — a cocktail launch, a weekend brunch, a spicy wings promo, a new teriyaki menu. Treated separately they would have looked like seven brands. Treated identically they would have flattened the difference between a delicate brunch and a flame-grilled promo.",
+      "The brief spanned very different moods: a cocktail launch, a weekend brunch, a spicy wings promo, a new teriyaki menu. Treated separately they would have looked like seven brands. Treated identically they would have flattened the difference between a delicate brunch and a flame-grilled promo.",
     approach:
       "One structural system, two typographic registers. Everything shares the same dark ground, the same generous margin, and the same rule about a single focal dish. Within that, indulgent items get a script-and-serif pairing with warm amber accents, while the high-energy promos switch to heavy condensed sans with a hard red block. The grid stays constant; only the voice changes.",
     outcome:
@@ -374,44 +374,44 @@ export const projects: Project[] = [
     gallery: [
       {
         src: "/work/restaurant-social/resturant-1.png",
-        alt: "Authentic Indian Cuisine \u2014 overhead flat-lay inside a thin amber rule, script set across a torn-edge black panel",
+        alt: "Authentic Indian Cuisine: overhead flat-lay inside a thin amber rule, script set across a torn-edge black panel",
         width: 807,
         height: 802,
         wide: true,
       },
       {
         src: "/work/restaurant-social/resturant-4.png",
-        alt: "Morning Brunch \u2014 daylight table setting, high-contrast serif with a swipe affordance for the carousel",
+        alt: "Morning Brunch: daylight table setting, high-contrast serif with a swipe affordance for the carousel",
         width: 797,
         height: 800,
       },
       {
         src: "/work/restaurant-social/resturant-2.png",
-        alt: "Special Cocktail Party \u2014 single backlit cocktail on black, script above wide-tracked serif caps",
+        alt: "Special Cocktail Party: single backlit cocktail on black, script above wide-tracked serif caps",
         width: 806,
         height: 807,
       },
       {
         src: "/work/restaurant-social/resturant-3.png",
-        alt: "Spicy Chicken \u2014 heavy condensed sans with a red highlight block over flame and smoke",
+        alt: "Spicy Chicken: heavy condensed sans with a red highlight block over flame and smoke",
         width: 800,
         height: 797,
       },
       {
         src: "/work/restaurant-social/resturant-5.png",
-        alt: "New Menu, Chicken Teriyaki \u2014 overhead plate above a dark panel carrying the order line",
+        alt: "New Menu, Chicken Teriyaki: overhead plate above a dark panel carrying the order line",
         width: 802,
         height: 802,
       },
       {
         src: "/work/restaurant-social/resturant-7.png",
-        alt: "Sparkling Citrus Delight \u2014 display serif overlapped by script, warm amber mocktail still life",
+        alt: "Sparkling Citrus Delight: display serif overlapped by script, warm amber mocktail still life",
         width: 801,
         height: 801,
       },
       {
         src: "/work/restaurant-social/resturant-8.png",
-        alt: "Grill Chicken \u2014 bold sans over a red today-special banner on a styled tray shot",
+        alt: "Grill Chicken: bold sans over a red today-special banner on a styled tray shot",
         width: 806,
         height: 802,
       },
@@ -421,7 +421,7 @@ export const projects: Project[] = [
   {
     id: "car-hire-australia",
     client: "Car Hire Australia",
-    title: "Six posts, six reasons to book — one recognisable feed",
+    title: "Six posts, six reasons to book, one recognisable feed",
     category: "Travel & Mobility · Design",
     year: "2025",
     medium: "design",
@@ -437,13 +437,13 @@ export const projects: Project[] = [
     platform: "Instagram · social feed",
     overviewTitle: "Sell the occasion, not the vehicle",
     overview:
-      "Car hire is bought at a moment, not browsed at leisure — a flight lands, a wedding is booked, a family works out that five seats will not do. The set is organised around those moments, so each post can be recognised instantly by someone in exactly that situation.",
+      "Car hire is bought at a moment, not browsed at leisure. A flight lands, a wedding is booked, a family works out that five seats will not do. The set is organised around those moments, so each post can be recognised instantly by someone in exactly that situation.",
     challenge:
       "Six posts, six very different jobs. An airport-transfer promo needs urgency; a wedding car needs restraint; a seat-count post is pure information. Left alone they drift into six unrelated visual identities, and the feed stops reading as one brand.",
     approach:
-      "A fixed frame does the holding: dark automotive photography, headline weight anchored to one corner, and a single amber accent carried through from the cover mark. Within that, the register shifts to suit the moment — condensed caps and a hard call to action for transfers and availability, a lighter script pairing for the occasion pieces. The testimonial post breaks the pattern deliberately, overlaying real client messages so it reads as proof rather than promotion.",
+      "A fixed frame does the holding: dark automotive photography, headline weight anchored to one corner, and a single amber accent carried through from the cover mark. Within that, the register shifts to suit the moment: condensed caps and a hard call to action for transfers and availability, a lighter script pairing for the occasion pieces. The testimonial post breaks the pattern deliberately, overlaying real client messages so it reads as proof rather than promotion.",
     outcome:
-      "The set covers the brand's main booking triggers while still scanning as one feed, and the frame is reusable — a new occasion becomes a new post without redesigning the layout.",
+      "The set covers the brand's main booking triggers while still scanning as one feed, and the frame is reusable, so a new occasion becomes a new post without redesigning the layout.",
     results: [
       { value: "6", label: "Posts delivered" },
       { value: "6", label: "Booking occasions covered" },
@@ -452,38 +452,38 @@ export const projects: Project[] = [
     gallery: [
       {
         src: "/work/car-hire-australia/car-1.png",
-        alt: "On Your Special Day \u2014 evening shot of a black sedan, script over caps for wedding and occasion hire",
+        alt: "On Your Special Day: evening shot of a black sedan, script over caps for wedding and occasion hire",
         width: 840,
         height: 837,
         wide: true,
       },
       {
         src: "/work/car-hire-australia/car-5.png",
-        alt: "Airport Transfers \u2014 landing-day urgency in condensed caps over a dark forecourt shot",
+        alt: "Airport Transfers: landing-day urgency in condensed caps over a dark forecourt shot",
         width: 872,
         height: 857,
       },
       {
         src: "/work/car-hire-australia/car-4.png",
-        alt: "Six, seven and eight seater SUVs \u2014 capacity headline over a silver SUV on an open road",
+        alt: "Six, seven and eight seater SUVs: capacity headline over a silver SUV on an open road",
         width: 862,
         height: 852,
       },
       {
         src: "/work/car-hire-australia/car-6.png",
-        alt: "Car Hire Made Easy \u2014 simplicity message over a maroon hatchback",
+        alt: "Car Hire Made Easy: simplicity message over a maroon hatchback",
         width: 830,
         height: 821,
       },
       {
         src: "/work/car-hire-australia/car-3.png",
-        alt: "Client testimonials \u2014 real booking messages overlaid as chat bubbles, breaking the campaign frame on purpose",
+        alt: "Client testimonials: real booking messages overlaid as chat bubbles, breaking the campaign frame on purpose",
         width: 832,
         height: 832,
       },
       {
         src: "/work/car-hire-australia/car-2.png",
-        alt: "Customer Satisfaction \u2014 dark SUV on an open highway with the amber brand accent",
+        alt: "Customer Satisfaction: dark SUV on an open highway with the amber brand accent",
         width: 852,
         height: 816,
       },
@@ -498,7 +498,7 @@ export const projects: Project[] = [
     year: "2025",
     medium: "design",
     summary:
-      "A courier brand with a single proposition — anything, anywhere in Houston, within the hour. Seven posts that each open a different door to the same promise, and drive the same app install.",
+      "A courier brand with a single proposition: anything, anywhere in Houston, within the hour. Seven posts that each open a different door to the same promise, and drive the same app install.",
     metric: { value: "7", label: "demand triggers covered" },
     stack: ["Photoshop", "Illustrator", "Instagram"],
     tone: "paper",
@@ -510,11 +510,11 @@ export const projects: Project[] = [
     platform: "Instagram · social feed",
     overviewTitle: "Say the same thing seven times without repeating yourself",
     overview:
-      "1HourShipIt sells one thing: anything you need moved across Houston, delivered inside an hour. That clarity is the brand's strength and the campaign's problem — a single proposition can very easily become seven identical posts that people scroll past after the first.",
+      "1HourShipIt sells one thing: anything you need moved across Houston, delivered inside an hour. That clarity is the brand's strength and the campaign's problem, because a single proposition can very easily become seven identical posts that people scroll past after the first.",
     challenge:
-      "Every post had to carry three fixed elements — the one-hour promise, Houston, and the app download — while still giving a different person a different reason to stop. Groceries, mall runs, flowers, medical supplies and commercial parcels are the same service to the business and completely different errands to the customer.",
+      "Every post had to carry three fixed elements (the one-hour promise, Houston, and the app download) while still giving a different person a different reason to stop. Groceries, mall runs, flowers, medical supplies and commercial parcels are the same service to the business and completely different errands to the customer.",
     approach:
-      "The service becomes the variable and everything else stays nailed down. Each post opens on one errand, but the brand furniture never moves: logo top-left, and a footer carrying the URL, both app-store badges, and the social icons. Two grounds alternate to keep the feed from flattening — saturated amber for the grocery and gifting posts, a light concrete texture for the logistics ones. The signature move is the highlight block: any phrase that has to survive being scanned at thumb speed gets set into a solid black or amber box.",
+      "The service becomes the variable and everything else stays nailed down. Each post opens on one errand, but the brand furniture never moves: logo top-left, and a footer carrying the URL, both app-store badges, and the social icons. Two grounds alternate to keep the feed from flattening: saturated amber for the grocery and gifting posts, a light concrete texture for the logistics ones. The signature move is the highlight block: any phrase that has to survive being scanned at thumb speed gets set into a solid black or amber box.",
     outcome:
       "Seven distinct entry points into one service, each reinforcing the same promise and pointing at the same install. Because the furniture is fixed, a new errand becomes a new post without reopening the layout.",
     results: [
@@ -525,44 +525,44 @@ export const projects: Project[] = [
     gallery: [
       {
         src: "/work/package-delivery/04.png",
-        alt: "Send and receive all your parcels and packages \u2014 the full service list as a bulleted amber panel beside a courier holding branded boxes",
+        alt: "Send and receive all your parcels and packages: the full service list as a bulleted amber panel beside a courier holding branded boxes",
         width: 672,
         height: 672,
         wide: true,
       },
       {
         src: "/work/package-delivery/03.png",
-        alt: "Need shopping mall items \u2014 order online, receive within one hour; circular cut-out of a shopper with floating reaction bubbles",
+        alt: "Need shopping mall items: order online, receive within one hour; circular cut-out of a shopper with floating reaction bubbles",
         width: 802,
         height: 797,
       },
       {
         src: "/work/package-delivery/01.png",
-        alt: "Deliver and receive grocery items in Houston at a given time \u2014 amber ground with a basket of fresh produce on a wooden counter",
+        alt: "Deliver and receive grocery items in Houston at a given time: amber ground with a basket of fresh produce on a wooden counter",
         width: 802,
         height: 797,
       },
       {
         src: "/work/package-delivery/05.png",
-        alt: "Send flowers and gifts through the app \u2014 split layout, white copy panel against amber with a man offering tulips and a wrapped gift",
+        alt: "Send flowers and gifts through the app: split layout, white copy panel against amber with a man offering tulips and a wrapped gift",
         width: 691,
         height: 671,
       },
       {
         src: "/work/package-delivery/07.png",
-        alt: "Commercial and residential packages in one hour \u2014 outlined Texas map with location pins on a light concrete ground",
+        alt: "Commercial and residential packages in one hour: outlined Texas map with location pins on a light concrete ground",
         width: 671,
         height: 667,
       },
       {
         src: "/work/package-delivery/06.png",
-        alt: "Sending a commercial parcel \u2014 city skyline illustration behind a hand holding the app sign-in screen",
+        alt: "Sending a commercial parcel: city skyline illustration behind a hand holding the app sign-in screen",
         width: 690,
         height: 677,
       },
       {
         src: "/work/package-delivery/02.png",
-        alt: "Grocery pickup and delivery across Houston \u2014 saturated amber ground with a full grocery spread and a stopwatch mark",
+        alt: "Grocery pickup and delivery across Houston: saturated amber ground with a full grocery spread and a stopwatch mark",
         width: 797,
         height: 796,
       },
@@ -578,7 +578,7 @@ export const projects: Project[] = [
     year: "2025",
     medium: "app",
     summary:
-      "A charity platform covering blood donation, education sponsorship, Shuhada family support and Islamic giving — where every module lets the same person donate or request, rather than sorting users into donors and recipients.",
+      "A charity platform covering blood donation, education sponsorship, Shuhada family support and Islamic giving, where every module lets the same person donate or request, rather than sorting users into donors and recipients.",
     metric: { value: "4", label: "donation streams in one app" },
     stack: ["Flutter", "iOS", "Android", "Admin dashboard"],
     tone: "ink",
@@ -589,13 +589,13 @@ export const projects: Project[] = [
     platform: "Flutter · iOS & Android",
     overviewTitle: "Nobody is only a donor",
     overview:
-      "Trusting Hands brings four kinds of giving into one app: an urgent blood bank, education sponsorship, financial support for Shuhada families, and general Islamic charity. The organising decision was to refuse the usual split between people who give and people who receive — someone who donates blood in March may need school fees in September, and the app should not make them feel like a different class of user in each case.",
+      "Trusting Hands brings four kinds of giving into one app: an urgent blood bank, education sponsorship, financial support for Shuhada families, and general Islamic charity. The organising decision was to refuse the usual split between people who give and people who receive. Someone who donates blood in March may need school fees in September, and the app should not make them feel like a different class of user in each case.",
     challenge:
-      "Four donation streams behave nothing alike. A blood request is an emergency measured in hours and matched on blood group, hospital and city. Education sponsorship is a considered decision made once a term. Zakat, khums and sadaqah are not interchangeable — each has its own rules about who may receive it, so collapsing them into a single donate button would have been religiously wrong as well as unusable. On top of that the audience is not English-first, and many users are not comfortable with long password entry on a phone.",
+      "Four donation streams behave nothing alike. A blood request is an emergency measured in hours and matched on blood group, hospital and city. Education sponsorship is a considered decision made once a term. Zakat, khums and sadaqah are not interchangeable. Each has its own rules about who may receive it, so collapsing them into a single donate button would have been religiously wrong as well as unusable. On top of that the audience is not English-first, and many users are not comfortable with long password entry on a phone.",
     approach:
-      "Every module was given the same three-action shape — request support, see my requests, see all requests — so the second module a user opens is already familiar. Underneath, each stream keeps its own rules: blood carries urgency, blood group, hospital and location and is colour-coded red throughout; education and Shuhada support run on request-and-review; the Islamic giving categories stay separate all the way down rather than being flattened at the point of donation. A single dashboard plots all streams together, and biometric login plus an in-app language switch keep the entry barrier low.",
+      "Every module was given the same three-action shape (request support, see my requests, see all requests) so the second module a user opens is already familiar. Underneath, each stream keeps its own rules: blood carries urgency, blood group, hospital and location and is colour-coded red throughout; education and Shuhada support run on request-and-review; the Islamic giving categories stay separate all the way down rather than being flattened at the point of donation. A single dashboard plots all streams together, and biometric login plus an in-app language switch keep the entry barrier low.",
     outcome:
-      "Four charitable programmes that previously lived in separate processes now sit behind one login, built in Flutter so a single codebase serves both stores. Behind the app, an admin dashboard gives the organisation a queue of incoming requests to review, approve or decline, so nothing reaches a donor unverified — and the architecture leaves room for new donation streams without reopening the ones already live.",
+      "Four charitable programmes that previously lived in separate processes now sit behind one login, built in Flutter so a single codebase serves both stores. Behind the app, an admin dashboard gives the organisation a queue of incoming requests to review, approve or decline, so nothing reaches a donor unverified, and the architecture leaves room for new donation streams without reopening the ones already live.",
     results: [
       { value: "4", label: "Donation streams unified" },
       { value: "2-way", label: "Give or request in every module" },
@@ -605,43 +605,43 @@ export const projects: Project[] = [
     gallery: [
       {
         src: "/work/trusting-hands/2.png",
-        alt: "Home screen \u2014 Get Involved Today with four programme tiles, a donation progress chart, and a persistent Donate Now action",
+        alt: "Home screen: Get Involved Today with four programme tiles, a donation progress chart, and a persistent Donate Now action",
         width: 1024,
         height: 1536,
       },
       {
         src: "/work/trusting-hands/3.png",
-        alt: "Dashboard \u2014 multi-series donation progress across quarters, with an urgent blood request card showing group, hospital and city",
+        alt: "Dashboard: multi-series donation progress across quarters, with an urgent blood request card showing group, hospital and city",
         width: 1024,
         height: 1536,
       },
       {
         src: "/work/trusting-hands/4.png",
-        alt: "Choose donation type \u2014 zakat, khums and sadaqah kept separate from blood, education and Shuhada family support",
+        alt: "Choose donation type: zakat, khums and sadaqah kept separate from blood, education and Shuhada family support",
         width: 1024,
         height: 1536,
       },
       {
         src: "/work/trusting-hands/7.png",
-        alt: "Blood donation \u2014 request blood, track your requests, and a blood type compatibility reference, colour-coded red throughout",
+        alt: "Blood donation: request blood, track your requests, and a blood type compatibility reference, colour-coded red throughout",
         width: 1024,
         height: 1536,
       },
       {
         src: "/work/trusting-hands/5.png",
-        alt: "Education support \u2014 request, review and browse sponsorship requests, with a running count of students supported",
+        alt: "Education support: request, review and browse sponsorship requests, with a running count of students supported",
         width: 1024,
         height: 1536,
       },
       {
         src: "/work/trusting-hands/6.png",
-        alt: "Shuhada family support \u2014 the same request-and-review shape applied to financial, education and healthcare assistance",
+        alt: "Shuhada family support: the same request-and-review shape applied to financial, education and healthcare assistance",
         width: 1024,
         height: 1536,
       },
       {
         src: "/work/trusting-hands/1.png",
-        alt: "Login \u2014 biometric entry alongside password, with a language selector in the top corner",
+        alt: "Login: biometric entry alongside password, with a language selector in the top corner",
         width: 1024,
         height: 1536,
       },
@@ -669,7 +669,7 @@ export const projects: Project[] = [
     overview:
       "Bilal Asif was preparing to launch ConnectGenie AI and had the problem most technical founders have: a product close to ready and almost nobody watching. The work was to spend the months before launch turning his personal profile into a place people followed for the thinking, so the announcement landed in a room rather than an empty feed.",
     challenge:
-      "Pre-launch audiences are easy to buy and almost impossible to activate. Follower count on its own would have looked good and done nothing — what the launch needed was a few hundred people who cared enough to show up on the day, which meant earning attention months before there was anything to sell.",
+      "Pre-launch audiences are easy to buy and almost impossible to activate. Follower count on its own would have looked good and done nothing. What the launch needed was a few hundred people who cared enough to show up on the day, which meant earning attention months before there was anything to sell.",
     approach:
       "Authority-first content built around what he was learning while building, not around the product. Posts were shaped to be useful whether or not you ever bought anything, which is what made several of them travel. Alongside that ran deliberate community work: replying, connecting, and pulling the people who engaged most into a named pre-launch group so launch day had somewhere to start.",
     outcome:
@@ -711,7 +711,7 @@ export const projects: Project[] = [
     challenge:
       "Outreach at volume usually costs you either reply rate or reputation. Sending more gets you ignored; personalising everything does not scale past one person. The work had to hold a genuine conversation rate across several niches at once, for clients whose audiences had nothing in common.",
     approach:
-      "Sales Navigator did the targeting so the list was narrow before anything was sent, and messaging was written per segment rather than per send — close enough to personal to earn a reply, structured enough to run at volume. Her own content ran alongside it, so a prospect who checked the profile after a connection request found something worth following rather than an empty page.",
+      "Sales Navigator did the targeting so the list was narrow before anything was sent, and messaging was written per segment rather than per send, close enough to personal to earn a reply, structured enough to run at volume. Her own content ran alongside it, so a prospect who checked the profile after a connection request found something worth following rather than an empty page.",
     outcome:
       "More than fifteen hundred qualified leads across multiple niches, with connection acceptance holding between twenty-five and thirty-five per cent and a steady reply flow behind it. The combination of inbound from content and outbound from Sales Navigator gave the agency a pipeline it could forecast rather than hope for.",
     results: [
@@ -741,13 +741,13 @@ export const projects: Project[] = [
     platform: "LinkedIn",
     overviewTitle: "Starting from an empty profile",
     overview:
-      "Abdul Manan was launching ACE Services with no LinkedIn footprint at all — a bare personal profile and a company page that did not yet exist. The brief was the hardest version of this work: not growing an audience, but starting one, and reaching real enquiries fast enough to matter to a new business.",
+      "Abdul Manan was launching ACE Services with no LinkedIn footprint at all: a bare personal profile and a company page that did not yet exist. The brief was the hardest version of this work: not growing an audience, but starting one, and reaching real enquiries fast enough to matter to a new business.",
     challenge:
       "A new page has no signal for the algorithm to work with and no reason for anyone to follow it. Chasing raw follower count would have produced a number and no customers; the audience had to be narrow enough that a few hundred of the right people would outperform thousands of the wrong ones.",
     approach:
-      "The personal profile was rebuilt first, since people follow people before they follow companies — clear positioning, a stated offer, and a reason to connect. Content then ran on his profile with the company page amplifying rather than leading, and targeted outreach went only to the specific niche the business actually served.",
+      "The personal profile was rebuilt first, since people follow people before they follow companies: clear positioning, a stated offer, and a reason to connect. Content then ran on his profile with the company page amplifying rather than leading, and targeted outreach went only to the specific niche the business actually served.",
     outcome:
-      "Five hundred-plus personal followers in three months and a company page past a hundred targeted followers, producing more than fifty qualified leads and a steady flow of early inbound enquiries — a foundation rather than a spike, and one the business could keep building on.",
+      "Five hundred-plus personal followers in three months and a company page past a hundred targeted followers, producing more than fifty qualified leads and a steady flow of early inbound enquiries. A foundation rather than a spike, and one the business could keep building on.",
     results: [
       { value: "500+", label: "Personal followers, from zero" },
       { value: "100+", label: "Company page followers" },
@@ -777,9 +777,9 @@ export const projects: Project[] = [
     overview:
       "Offshore Minds is bought by the employer and used by the worker, which is the tension the whole product has to hold. Companies have a duty of care to crews working rotations that wreck sleep, in a culture where admitting you are struggling carries a cost, on installations where the connection drops for hours. A tool that feels like surveillance gets ignored; one that feels clinical gets avoided. It had to be neither.",
     challenge:
-      "Three constraints pulled against each other. Connectivity offshore is intermittent, so anything that needs a server at the moment of use is worthless. The content had to stay explicitly non-clinical — the moment an app claims to treat anything it takes on regulatory weight and, more practically, workers stop opening it. And the time available is not twenty minutes of meditation; it is the gap between two tasks.",
+      "Three constraints pulled against each other. Connectivity offshore is intermittent, so anything that needs a server at the moment of use is worthless. The content had to stay explicitly non-clinical, because the moment an app claims to treat anything it takes on regulatory weight and, more practically, workers stop opening it. And the time available is not twenty minutes of meditation; it is the gap between two tasks.",
     approach:
-      "Everything ships on the device, so the app behaves identically with the radio off. Onboarding asks for the role — drilling, production, maintenance, safety — and tailors what follows, because fatigue reads differently to a driller than to a safety operator. The recovery library is graded by how much time you actually have: five to ten minutes for a full wind-down, but also a 30-second three-breath reset, a 90-second shoulder release, and a one-minute grounding exercise. Language stays deliberately ordinary throughout — check-in, reset, reflection — and the journal counts streaks rather than symptoms.",
+      "Everything ships on the device, so the app behaves identically with the radio off. Onboarding asks for the role (drilling, production, maintenance, safety) and tailors what follows, because fatigue reads differently to a driller than to a safety operator. The recovery library is graded by how much time you actually have: five to ten minutes for a full wind-down, but also a 30-second three-breath reset, a 90-second shoulder release, and a one-minute grounding exercise. Language stays deliberately ordinary throughout: check-in, reset, reflection. The journal counts streaks rather than symptoms.",
     outcome:
       "A wellbeing tool that survives the environment it was built for: usable with no signal, short enough to fit a real shift, and framed so that opening it does not feel like admitting to a diagnosis.",
     results: [
@@ -791,49 +791,49 @@ export const projects: Project[] = [
     gallery: [
       {
         src: "/work/offshore-minds/01.jpg",
-        alt: "Offshore Minds \u2014 onboarding, where the worker picks their role so the content that follows matches the job",
+        alt: "Offshore Minds: onboarding, where the worker picks their role so the content that follows matches the job",
         width: 1024,
         height: 1536,
       },
       {
         src: "/work/offshore-minds/02.jpg",
-        alt: "Diaphragmatic breathing \u2014 a Ready state with a paced circle, hand-placement instruction, and a 5, 8 or 10 minute selector",
+        alt: "Diaphragmatic breathing: a Ready state with a paced circle, hand-placement instruction, and a 5, 8 or 10 minute selector",
         width: 1024,
         height: 1536,
       },
       {
         src: "/work/offshore-minds/03.jpg",
-        alt: "Quick Check-In \u2014 a short, non-clinical read on how the shift is going",
+        alt: "Quick Check-In: a short, non-clinical read on how the shift is going",
         width: 1024,
         height: 1536,
       },
       {
         src: "/work/offshore-minds/04.jpg",
-        alt: "Reset & Recovery \u2014 breathing, grounding and wind-down techniques, with 30-second and 90-second quick exercises underneath",
+        alt: "Reset & Recovery: breathing, grounding and wind-down techniques, with 30-second and 90-second quick exercises underneath",
         width: 1024,
         height: 1536,
       },
       {
         src: "/work/offshore-minds/05.jpg",
-        alt: "Fatigue Awareness \u2014 guidance framed around shift patterns rather than clinical language",
+        alt: "Fatigue Awareness: guidance framed around shift patterns rather than clinical language",
         width: 1024,
         height: 1536,
       },
       {
         src: "/work/offshore-minds/06.jpg",
-        alt: "Moments That Matter \u2014 short reflective prompts written for life on a rig",
+        alt: "Moments That Matter: short reflective prompts written for life on a rig",
         width: 1024,
         height: 1536,
       },
       {
         src: "/work/offshore-minds/07.jpg",
-        alt: "Staying Sharp journal \u2014 total entries, entries this week, and a day streak above the reflection composer",
+        alt: "Staying Sharp journal: total entries, entries this week, and a day streak above the reflection composer",
         width: 1024,
         height: 1536,
       },
       {
         src: "/work/offshore-minds/08.jpg",
-        alt: "Your Rewards \u2014 progress recognised without turning wellbeing into a scoreboard",
+        alt: "Your Rewards: progress recognised without turning wellbeing into a scoreboard",
         width: 1024,
         height: 1536,
       },
@@ -865,13 +865,13 @@ export const projects: Project[] = [
     platform: "Flutter · iOS & Android",
     overviewTitle: "Thirty-seven steps, one card",
     overview:
-      "MyNaviLife walks a child through their day — waking, getting ready, meals, activities, appointments, winding down. A typical plan runs to nearly forty steps, and handing a child a list of forty things is the fastest way to make them close the app. The organising decision was to show exactly one thing at a time, and to make finishing it feel worth doing.",
+      "MyNaviLife walks a child through their day: waking, getting ready, meals, activities, appointments, winding down. A typical plan runs to nearly forty steps, and handing a child a list of forty things is the fastest way to make them close the app. The organising decision was to show exactly one thing at a time, and to make finishing it feel worth doing.",
     challenge:
-      "A child may not read fluently, is easily overwhelmed by choice, and at some point may need an adult quickly. Each of those pulls the design in a different direction: fewer words, fewer options, but faster access to help. The escalation path is not one number either — a carer, a care unit, a non-urgent medical line and emergency services are each right at different moments, and choosing between them is exactly what a frightened child cannot do.",
+      "A child may not read fluently, is easily overwhelmed by choice, and at some point may need an adult quickly. Each of those pulls the design in a different direction: fewer words, fewer options, but faster access to help. The escalation path is not one number either. A carer, a care unit, a non-urgent medical line and emergency services are each right at different moments, and choosing between them is exactly what a frightened child cannot do.",
     approach:
-      "The home screen shows the day as one figure and one card: Do This Next, with the time and a speaker button, because reading is optional rather than required. The full plan is still reachable, just never the first thing you meet. Help is a persistent floating control on every screen — never inside a menu — and the help screen opens with 'You are safe' before presenting contacts in escalation order, from the carer and care unit through the non-urgent medical line to emergency services, each with both call and message. Share My Location sits at the bottom for when a child cannot say where they are. Progress is handled as stars and unlockable badges, so the day reads as encouragement rather than a chore list.",
+      "The home screen shows the day as one figure and one card: Do This Next, with the time and a speaker button, because reading is optional rather than required. The full plan is still reachable, just never the first thing you meet. Help is a persistent floating control on every screen, never inside a menu, and the help screen opens with 'You are safe' before presenting contacts in escalation order, from the carer and care unit through the non-urgent medical line to emergency services, each with both call and message. Share My Location sits at the bottom for when a child cannot say where they are. Progress is handled as stars and unlockable badges, so the day reads as encouragement rather than a chore list.",
     outcome:
-      "A day that would overwhelm as a list becomes a sequence of single, spoken steps a child can actually follow, with the safeguarding path always one tap away wherever they are in the app — and one Flutter codebase serving both stores.",
+      "A day that would overwhelm as a list becomes a sequence of single, spoken steps a child can actually follow, with the safeguarding path always one tap away wherever they are in the app, with one Flutter codebase serving both stores.",
     results: [
       { value: "1", label: "Next action shown at a time" },
       { value: "37", label: "Steps in a typical plan" },
@@ -881,37 +881,37 @@ export const projects: Project[] = [
     gallery: [
       {
         src: "/work/mynavilife/01.jpg",
-        alt: "Home \u2014 a greeting by name, today's plan as a single progress figure, and one Do This Next card with audio playback",
+        alt: "Home: a greeting by name, today's plan as a single progress figure, and one Do This Next card with audio playback",
         width: 1024,
         height: 1536,
       },
       {
         src: "/work/mynavilife/02.jpg",
-        alt: "My Day \u2014 the full plan, kept behind the single next action so the day never arrives all at once",
+        alt: "My Day: the full plan, kept behind the single next action so the day never arrives all at once",
         width: 1024,
         height: 1536,
       },
       {
         src: "/work/mynavilife/03.jpg",
-        alt: "My Rewards \u2014 stars earned, task counts, and unlockable badges like First Step and On a Roll",
+        alt: "My Rewards: stars earned, task counts, and unlockable badges like First Step and On a Roll",
         width: 1024,
         height: 1536,
       },
       {
         src: "/work/mynavilife/04.jpg",
-        alt: "I Need Help \u2014 'You are safe', then a ladder of contacts from care unit to NHS 111 to emergency services, each with call and message",
+        alt: "I Need Help: 'You are safe', then a ladder of contacts from care unit to NHS 111 to emergency services, each with call and message",
         width: 1024,
         height: 1536,
       },
       {
         src: "/work/mynavilife/05.jpg",
-        alt: "Share My Location \u2014 for the moments when someone cannot explain where they are",
+        alt: "Share My Location: for the moments when someone cannot explain where they are",
         width: 1024,
         height: 1536,
       },
       {
         src: "/work/mynavilife/06.jpg",
-        alt: "Calm \u2014 grounding content reachable from the persistent bottom bar",
+        alt: "Calm: grounding content reachable from the persistent bottom bar",
         width: 1024,
         height: 1536,
       },
@@ -927,7 +927,7 @@ export const projects: Project[] = [
     year: "2026",
     medium: "marketing",
     summary:
-      "Paid social and store optimisation for a baby clothing brand — rebuilt around broad-audience testing on Meta, with the winning ad set landing purchases at roughly PKR 636 each.",
+      "Paid social and store optimisation for a baby clothing brand, rebuilt around broad-audience testing on Meta, with the winning ad set landing purchases at roughly PKR 636 each.",
     metric: { value: "+256%", label: "orders, period on period" },
     stack: ["Meta Ads", "Shopify", "Creative Testing"],
     tone: "flare",
@@ -939,11 +939,11 @@ export const projects: Project[] = [
     overview:
       "BabyFits sells baby clothing through Shopify. The account was already spending on Meta, but spend was spread thinly across a large number of ad sets with no clear read on which audience or creative was actually producing orders. The work was to find the combinations that convert and move budget behind them.",
     challenge:
-      "Eighty-nine ad sets were live. At that spread, no single set accumulated enough data to prove itself, cost per purchase varied by a factor of five between them, and creative fatigue was invisible because nothing ran long enough to fatigue. Broad-audience testing on Meta only works if you let a set run — which means being willing to turn most of them off.",
+      "Eighty-nine ad sets were live. At that spread, no single set accumulated enough data to prove itself, cost per purchase varied by a factor of five between them, and creative fatigue was invisible because nothing ran long enough to fatigue. Broad-audience testing on Meta only works if you let a set run, which means being willing to turn most of them off.",
     approach:
       "Structured testing against broad audiences rather than narrow interest stacks, with product-led creative and enough budget per set to reach statistical daylight. Winners were identified on cost per purchase rather than on CTR or reach, since a cheap click that does not convert is just a cheap click. Budget then consolidated behind the sets that held their cost as spend increased, with the Shopify side tracking order volume and average order value so the ad platform was never the only source of truth.",
     outcome:
-      "Across Jul 1 to Aug 19, 2026, the store recorded PKR 1.05M in total sales from 770 orders — up 163% and 256% respectively on the preceding period. On the Meta side, the strongest broad ad set delivered 113 website purchases at PKR 635.61 each across the 30 days to Aug 18, against 1.53M impressions and 708,501 people reached.",
+      "Across Jul 1 to Aug 19, 2026, the store recorded PKR 1.05M in total sales from 770 orders, up 163% and 256% respectively on the preceding period. On the Meta side, the strongest broad ad set delivered 113 website purchases at PKR 635.61 each across the 30 days to Aug 18, against 1.53M impressions and 708,501 people reached.",
     results: [
       { value: "+256%", label: "Orders, period on period" },
       { value: "+163%", label: "Total sales, period on period" },
@@ -953,14 +953,14 @@ export const projects: Project[] = [
     gallery: [
       {
         src: "/work/baby-fits/shopify-babyfits.jpg",
-        alt: "Shopify dashboard for BabyFits, 1 July to 19 August 2026 \u2014 PKR 1.05M total sales up 163%, 770 orders up 256%, average order value PKR 1,806",
+        alt: "Shopify dashboard for BabyFits, 1 July to 19 August 2026: PKR 1.05M total sales up 163%, 770 orders up 256%, average order value PKR 1,806",
         width: 1920,
         height: 1080,
         wide: true,
       },
       {
         src: "/work/baby-fits/meta-ads-babyfits.jpg",
-        alt: "Meta Ads Manager for BabyFits \u2014 89 ad sets, PKR 437,229 spent, 1.53M impressions and 708,501 reached, with the leading broad ad set at 113 purchases",
+        alt: "Meta Ads Manager for BabyFits: 89 ad sets, PKR 437,229 spent, 1.53M impressions and 708,501 reached, with the leading broad ad set at 113 purchases",
         width: 1920,
         height: 1080,
       },
@@ -981,7 +981,7 @@ export const projects: Project[] = [
     year: "2026",
     medium: "web",
     summary:
-      "A storefront for a clinical skincare range that leads with concentrations rather than adjectives — five formulas, honest strengths, and bundles that sell the routine instead of the bottle.",
+      "A storefront for a clinical skincare range that leads with concentrations rather than adjectives, five formulas, honest strengths, and bundles that sell the routine instead of the bottle.",
     metric: { value: "5", label: "formulas, one clear routine" },
     stack: ["E-commerce", "Admin dashboard", "Order tracking", "WhatsApp"],
     tone: "ink",
@@ -992,11 +992,11 @@ export const projects: Project[] = [
     platform: "Web · Mobile-first",
     overviewTitle: "Percentages, not promises",
     overview:
-      "Xebayi sells medicated skincare — vitamin C, niacinamide, retinol — to a market that has been sold a great deal of scented nothing. The buyer is sceptical for good reason and, with actives, is also right to be cautious: the wrong strength genuinely does damage. The storefront had to earn a purchase from someone who has already been disappointed.",
+      "Xebayi sells medicated skincare (vitamin C, niacinamide, retinol) to a market that has been sold a great deal of scented nothing. The buyer is sceptical for good reason and, with actives, is also right to be cautious: the wrong strength genuinely does damage. The storefront had to earn a purchase from someone who has already been disappointed.",
     challenge:
-      "Skincare pages usually hide the one number that matters. Naming a product Radiance Elixir and burying the concentration in the ingredients tab reads as evasion to an informed buyer, and gives an uninformed one nothing to compare. The site also had to work for two very different visitors — someone who knows they want 1% retinol, and someone who only knows their skin is not behaving.",
+      "Skincare pages usually hide the one number that matters. Naming a product Radiance Elixir and burying the concentration in the ingredients tab reads as evasion to an informed buyer, and gives an uninformed one nothing to compare. The site also had to work for two very different visitors: someone who knows they want 1% retinol, and someone who only knows their skin is not behaving.",
     approach:
-      "Every product leads with its active and its strength: 15% Vitamin C, 10% Niacinamide, 1% Retinol, set in the product name itself rather than the small print. For the visitor who does not know where to start, bundles do the work — a bundle is a routine with an order to it, not a discount bin, and it lifts basket value as a side effect rather than as the pitch. A credibility ticker runs the claims that matter in this category — cruelty free, paraben free, medical-grade formulation — and social proof is specific and local rather than generic. Support routes to WhatsApp, because that is where this market actually asks questions before buying.",
+      "Every product leads with its active and its strength: 15% Vitamin C, 10% Niacinamide, 1% Retinol, set in the product name itself rather than the small print. For the visitor who does not know where to start, bundles do the work, a bundle is a routine with an order to it, not a discount bin, and it lifts basket value as a side effect rather than as the pitch. A credibility ticker runs the claims that matter in this category (cruelty free, paraben free, medical-grade formulation) and social proof is specific and local rather than generic. Support routes to WhatsApp, because that is where this market actually asks questions before buying.",
     outcome:
       "A storefront that answers the informed buyer's first question on the product card, and gives the uncertain one a routine to start with instead of a catalogue to guess at. Behind it, the team runs the whole catalogue and every order from one dashboard, and customers follow their own delivery through order tracking rather than messaging to ask where it is.",
     results: [
@@ -1008,26 +1008,26 @@ export const projects: Project[] = [
     gallery: [
       {
         src: "/work/xebayi/00.jpg",
-        alt: "Homepage hero — Medicated skincare for visible results, with the active-strength badges called out beside the model",
+        alt: "Homepage hero: medicated skincare for visible results, with the active-strength badges called out beside the model",
         width: 1536,
         height: 1024,
         wide: true,
       },
       {
         src: "/work/xebayi/01.jpg",
-        alt: "The Range — five product cards, each naming its active and concentration rather than a marketing name",
+        alt: "The Range, five product cards, each naming its active and concentration rather than a marketing name",
         width: 1536,
         height: 1024,
       },
       {
         src: "/work/xebayi/02.jpg",
-        alt: "Bright and Protect bundle — the routine broken into numbered steps with the saving stated against the full price",
+        alt: "Bright and Protect bundle, the routine broken into numbered steps with the saving stated against the full price",
         width: 1536,
         height: 1024,
       },
       {
         src: "/work/xebayi/03.jpg",
-        alt: "Product detail — concentration, volume and the skin concern it addresses above the fold",
+        alt: "Product detail: concentration, volume and the skin concern it addresses above the fold",
         width: 1536,
         height: 1024,
       },
@@ -1039,7 +1039,7 @@ export const projects: Project[] = [
       },
       {
         src: "/work/xebayi/05.jpg",
-        alt: "Checkout and support — cart flow with WhatsApp reachable throughout",
+        alt: "Checkout and support: cart flow with WhatsApp reachable throughout",
         width: 1536,
         height: 1024,
       },
@@ -1053,7 +1053,7 @@ export const projects: Project[] = [
     year: "2026",
     medium: "video",
     summary:
-      "A reel that is scrolled past has failed regardless of how it ends. A selection of vertical edits cut for the platform they run on — pace set by the hook, captions built for sound-off, and a stop at the first frame.",
+      "A reel that is scrolled past has failed regardless of how it ends. A selection of vertical edits cut for the platform they run on, with pace set by the hook, captions built for sound-off, and a stop at the first frame.",
     metric: { value: "9:16", label: "cut for the feed, not reframed for it" },
     stack: ["Premiere Pro", "After Effects", "Instagram Reels"],
     tone: "flare",
@@ -1065,9 +1065,9 @@ export const projects: Project[] = [
     overview:
       "Short-form is not long-form made shorter. The format has its own grammar: the viewer arrives mid-scroll with the sound off, decides inside two seconds, and never sees a slow build. Every edit here is cut to that reality rather than trimmed down to it.",
     challenge:
-      "Most video that fails on social fails for the same three reasons — it opens on a title card instead of the payoff, it assumes audio, and it holds shots at a length that reads as dead air on a phone. Landscape footage reframed to vertical compounds all three, because the composition was never built for the crop.",
+      "Most video that fails on social fails for the same three reasons. It opens on a title card instead of the payoff, it assumes audio, and it holds shots at a length that reads as dead air on a phone. Landscape footage reframed to vertical compounds all three, because the composition was never built for the crop.",
     approach:
-      "Each edit opens on its strongest frame, not its beginning. Cuts are timed against the beat rather than the sentence, so the rhythm carries a viewer who is not yet listening. Captions are treated as design rather than accessibility afterthought — legible at thumb distance, keyed to the delivery, and written to carry the whole message with the sound off. Grading and motion stay consistent across a set so a feed reads as one hand.",
+      "Each edit opens on its strongest frame, not its beginning. Cuts are timed against the beat rather than the sentence, so the rhythm carries a viewer who is not yet listening. Captions are treated as design rather than accessibility afterthought: legible at thumb distance, keyed to the delivery, and written to carry the whole message with the sound off. Grading and motion stay consistent across a set so a feed reads as one hand.",
     outcome:
       "A body of vertical work that holds attention past the point where most reels lose it, and reads as a coherent set rather than a folder of one-offs.",
     results: [
@@ -1117,7 +1117,7 @@ export const process: Stage[] = [
     title: "Frame the problem",
     duration: "Week 1",
     body:
-      "A short, paid discovery. We interview your team, read the existing code, and write down what success actually looks like — in numbers, not adjectives.",
+      "A short, paid discovery. We interview your team, read the existing code, and write down what success actually looks like, in numbers, not adjectives.",
   },
   {
     step: "02",
@@ -1138,7 +1138,7 @@ export const process: Stage[] = [
     title: "Hand over properly",
     duration: "Ongoing",
     body:
-      "Runbooks, architecture notes, and a paired handover with your engineers. We stay on retainer if you want us — but the goal is that you don't need to.",
+      "Runbooks, architecture notes, and a paired handover with your engineers. We stay on retainer if you want us, but the goal is that you don't need to.",
   },
 ];
 
@@ -1161,7 +1161,7 @@ export const values: Value[] = [
   {
     id: "own",
     title: "You own everything we make",
-    body: "Code, design files, infrastructure, documentation — all yours from the first commit. No proprietary platform, no licence that expires, no leverage held over you.",
+    body: "Code, design files, infrastructure, documentation: all yours from the first commit. No proprietary platform, no licence that expires, no leverage held over you.",
   },
   {
     id: "measure",
@@ -1211,13 +1211,13 @@ export const team: Person[] = [
     /**
      * Resampled from a 200x200 original to 400x500 (lanczos + unsharp) and the
      * grid is capped so it renders below native size. That removes the visible
-     * stretch but adds no detail — a real 800x1000 portrait still wins.
+     * stretch but adds no detail: a real 800x1000 portrait still wins.
      */
     photo: "/team/itrat.jpg",
   },
 ];
 
-/** Where the studio has working-hours overlap — the timezone question. */
+/** Where the studio has working-hours overlap: the timezone question. */
 export const coverage = [
   { region: "Asia & Middle East", city: "Islamabad", hours: "09:00 – 18:00 PKT" },
   { region: "UK & Europe", city: "Manchester", hours: "09:00 – 18:00 GMT" },
@@ -1234,12 +1234,12 @@ export type Testimonial = {
   logo?: string;
 };
 
-/** Real quotes only — add them as clients give permission. */
+/** Real quotes only: add them as clients give permission. */
 export const testimonials: Testimonial[] = [];
 
 /**
  * Three square images (1000x1000) for the media tiles in the WhyChoose
- * mosaic — team at work, an office shot, a product close-up. Leave entries
+ * mosaic: team at work, an office shot, a product close-up. Leave entries
  * undefined and a drawn grid stands in.
  */
 export const mosaicMedia: (string | undefined)[] = [undefined, undefined, undefined];
@@ -1351,7 +1351,7 @@ export const contactChannels = [
   {
     id: "careers",
     label: "Careers",
-    detail: "Engineers and designers — we read every one.",
+    detail: "Engineers and designers read every one.",
     email: "jobs@nexic.tech",
   },
   {
@@ -1385,11 +1385,11 @@ export const timelines = [
   "Just exploring",
 ] as const;
 
-/** Spans every discipline, not just engineering — the ticker runs on the
+/** Spans every discipline, not just engineering: the ticker runs on the
  *  services page too, where a dev-only list would read as a gap. */
 /**
- * The band that runs across /work. This was a list of frameworks — Postgres,
- * AWS, Swift — which sold the wrong thing to a marketing buyer. It now names
+ * The band that runs across /work. This was a list of frameworks: Postgres,
+ * AWS, Swift: which sold the wrong thing to a marketing buyer. It now names
  * what we are actually hired for, in the same priority order as the services.
  */
 export const capabilities = [

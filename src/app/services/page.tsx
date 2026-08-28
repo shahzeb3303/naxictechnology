@@ -10,9 +10,9 @@ import { Ticker } from "@/components/ticker";
 import { site } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: `Services — ${site.name}`,
+  title: `Services | ${site.name}`,
   description:
-    "Web and mobile development, agentic AI, digital and social marketing, paid advertising, graphic design, and video production — from one team in Islamabad and Manchester.",
+    "Web and mobile development, agentic AI, digital and social marketing, paid advertising, graphic design, and video production, from one team in Islamabad and Manchester.",
 };
 
 export default function ServicesPage() {

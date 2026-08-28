@@ -12,7 +12,7 @@ import { Trust } from "@/components/trust";
 import { site } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: `About — ${site.name}`,
+  title: `About | ${site.name}`,
   description:
     "A digital marketing and software studio in Islamabad and Manchester. We run marketing, ads and SEO, and build the design, video, websites and apps behind them.",
   alternates: { canonical: `${site.url}/about` },

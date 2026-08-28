@@ -325,7 +325,7 @@ export function CaseStudy({ project }: { project: Project }) {
                         // eslint-disable-next-line @next/next/no-img-element
                         <img
                           src={other.cover}
-                          alt={`${other.client} — ${other.title}`}
+                          alt={`${other.client}: ${other.title}`}
                           className="h-full w-full object-cover"
                           loading="lazy"
                         />

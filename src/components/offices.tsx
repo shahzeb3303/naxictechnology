@@ -10,7 +10,7 @@ export function Offices() {
         <SectionHead
           eyebrow="Where we are"
           title="Two offices, one team"
-          lede="Projects are staffed from the office with the most overlap with you — never fewer than four shared working hours a day."
+          lede="Projects are staffed from the office with the most overlap with you, never fewer than four shared working hours a day."
         />
 
         <ul className="mt-16 grid gap-8 md:grid-cols-2">

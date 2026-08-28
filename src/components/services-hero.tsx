@@ -29,7 +29,7 @@ export function ServicesHero() {
         <div className="mt-12 grid gap-10 border-t border-white/20 pt-8 md:grid-cols-12 md:gap-8">
           <Reveal className="md:col-span-6">
             <p className="max-w-[54ch] text-[1.0625rem] leading-relaxed text-paper/75 md:text-lg">
-              Build, market, and creative under one roof — so the people who
+              Build, market, and creative under one roof, so the people who
               design the thing are the people who ship it and the people who
               promote it. No handoffs between three agencies who have never
               spoken to each other.

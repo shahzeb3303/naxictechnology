@@ -9,7 +9,7 @@ import { SiteHeader } from "@/components/site-header";
 import { process, site } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: `Contact — ${site.name}`,
+  title: `Contact | ${site.name}`,
   description:
     "Start a project with Nexic Technologies. Offices in Islamabad and Manchester. A reply from an engineer within one business day.",
 };
@@ -21,7 +21,7 @@ export default function ContactPage() {
       <main id="main">
         <ContactHero />
 
-        {/* Brief — the conversion point, so it sits immediately under the hero */}
+        {/* Brief, the conversion point, so it sits immediately under the hero */}
         <section id="brief" className="scroll-mt-24 bg-paper-pure py-24 md:py-32">
           <div className="shell grid gap-14 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-4">

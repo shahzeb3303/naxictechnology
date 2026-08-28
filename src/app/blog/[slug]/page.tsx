@@ -27,7 +27,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
   const post = getPost(slug);
-  if (!post) return { title: `Blog — ${site.name}` };
+  if (!post) return { title: `Blog | ${site.name}` };
 
   const url = `${site.url}/blog/${post.slug}`;
 
@@ -171,7 +171,7 @@ export default async function PostPage({ params }: Params) {
               </aside>
 
               <div className="lg:col-span-9">
-                {/* Key takeaways — the block answer engines quote */}
+                {/* Key takeaways, the block answer engines quote */}
                 <Reveal>
                   <section
                     id="key-takeaways"

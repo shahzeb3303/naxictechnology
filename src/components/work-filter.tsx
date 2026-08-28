@@ -109,7 +109,7 @@ function Card({ project }: { project: Project }) {
     <article className="group h-full">
       <Link
         href={`/work/${project.id}`}
-        aria-label={`${project.client} — ${project.title}`}
+        aria-label={`${project.client}: ${project.title}`}
         className="flex h-full cursor-pointer flex-col"
       >
         <div className="relative aspect-[16/11] overflow-hidden rounded-2xl border border-line">
@@ -117,7 +117,7 @@ function Card({ project }: { project: Project }) {
             {project.cover ? (
               <Image
                 src={project.cover}
-                alt={`${project.client} — ${project.title}`}
+                alt={`${project.client}: ${project.title}`}
                 fill
                 sizes="(min-width: 768px) 50vw, 100vw"
                 className="object-cover"

@@ -61,7 +61,7 @@ export function Team() {
           ))}
         </ul>
 
-        {/* Coverage — the timezone answer, stated before it is asked */}
+        {/* Coverage, the timezone answer, stated before it is asked */}
         <Reveal>
           <div className="mt-20 border-t border-line pt-10">
             <p className="eyebrow text-ink-muted">Working hours</p>
@@ -85,7 +85,7 @@ export function Team() {
             </dl>
             <p className="mt-8 max-w-[56ch] text-[0.9375rem] leading-relaxed text-ink-muted">
               Wherever you are, {site.short} staffs your project from the office
-              with the most overlap — never fewer than four shared hours a day.
+              with the most overlap, never fewer than four shared hours a day.
             </p>
           </div>
         </Reveal>

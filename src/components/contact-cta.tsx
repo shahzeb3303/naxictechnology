@@ -29,7 +29,7 @@ export function ContactCta() {
               </h2>
 
               <p className="mt-6 max-w-[54ch] text-[1.0625rem] leading-relaxed text-paper/70">
-                Send a paragraph or a 40-page spec — either works. You'll get a
+                Send a paragraph or a 40-page spec. Either works. You'll get a
                 real reply from an engineer within one business day, and a
                 no-obligation scoping call if it looks like a fit.
               </p>

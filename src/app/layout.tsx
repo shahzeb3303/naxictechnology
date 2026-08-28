@@ -19,9 +19,9 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Nexic Technologies — Built to be taken seriously",
+  title: "Nexic Technologies | Built to be taken seriously",
   description:
-    "A marketing agency with a build team inside it. Paid advertising, SEO and content for brands in Pakistan and the UK — plus the websites, apps, video and creative those campaigns depend on.",
+    "A marketing agency with a build team inside it. Paid advertising, SEO and content for brands in Pakistan and the UK, plus the websites, apps, video and creative those campaigns depend on.",
   keywords: [
     "digital marketing agency",
     "paid advertising",
@@ -32,9 +32,9 @@ export const metadata: Metadata = {
     "mobile apps",
   ],
   openGraph: {
-    title: "Nexic Technologies — Built to be taken seriously",
+    title: "Nexic Technologies | Built to be taken seriously",
     description:
-      "A marketing agency with a build team inside it. Advertising, SEO and content — plus the websites, apps and creative behind them.",
+      "A marketing agency with a build team inside it. Advertising, SEO and content, plus the websites, apps and creative behind them.",
     type: "website",
   },
 };

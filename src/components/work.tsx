@@ -10,7 +10,7 @@ function ProjectCard({ project, featured }: { project: Project; featured?: boole
     <article className="group h-full">
       <Link
         href={`/work/${project.id}`}
-        aria-label={`${project.client} — ${project.title}`}
+        aria-label={`${project.client}: ${project.title}`}
         className="flex h-full cursor-pointer flex-col"
       >
         {/* Cover */}
@@ -24,7 +24,7 @@ function ProjectCard({ project, featured }: { project: Project; featured?: boole
               // eslint-disable-next-line @next/next/no-img-element
               <img
                 src={project.cover}
-                alt={`${project.client} — ${project.title}`}
+                alt={`${project.client}: ${project.title}`}
                 className="h-full w-full object-cover"
                 loading="lazy"
               />
@@ -38,7 +38,7 @@ function ProjectCard({ project, featured }: { project: Project; featured?: boole
             {project.year}
           </span>
 
-          {/* "Open case" rides in from the bottom edge on hover — a label
+          {/* "Open case" rides in from the bottom edge on hover, a label
               reads as an invitation where a bare arrow reads as decoration. */}
           <span className="absolute inset-x-4 bottom-4 flex translate-y-3 items-center justify-between rounded-full bg-paper-pure px-5 py-3 opacity-0 transition-all duration-400 ease-[var(--ease-out-soft)] group-hover:translate-y-0 group-hover:opacity-100">
             <span className="btn-label text-ink">Open case</span>
@@ -66,7 +66,7 @@ function ProjectCard({ project, featured }: { project: Project; featured?: boole
             {project.summary}
           </p>
 
-          {/* Headline metric — the reason the case study exists */}
+          {/* Headline metric, the reason the case study exists */}
           <div className="mt-6 flex items-end gap-3 border-t border-line pt-5">
             <span className="tnum font-display text-[2rem] leading-none tracking-tight">
               {project.metric.value}
@@ -112,7 +112,7 @@ export function Work({ showHead = true }: { showHead?: boolean } = {}) {
           <SectionHead
             eyebrow="Selected work"
             title="Our best work"
-            lede="Four pieces that show the range — paid social that moved revenue, a storefront, and a product build. The rest are on the work page."
+            lede="Four pieces that show the range: paid social that moved revenue, a storefront, and a product build. The rest are on the work page."
           />
         )}
 

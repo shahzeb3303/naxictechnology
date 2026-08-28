@@ -94,7 +94,7 @@ export function Hero() {
             <Masked as="div" delay={0.36} reduced={reduced}>
               <p className="max-w-[52ch] text-[1.0625rem] leading-relaxed text-paper/75 md:text-lg">
                 {site.name} runs digital marketing, paid advertising and SEO for
-                brands in Pakistan and the UK — and builds the design, video,
+                brands in Pakistan and the UK, and builds the design, video,
                 websites and apps that campaign work depends on. One team, so
                 the ads and the landing page are never arguing with each other.
               </p>

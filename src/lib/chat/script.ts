@@ -39,7 +39,7 @@ export const ROOT_CHIPS = ["services", "pricing", "timeline", "human"];
 
 export const GREETING: ChatAnswer = {
   text: [
-    `Hi — I'm the ${site.short} assistant. Ask me about what we build, what it costs, or how we work.`,
+    `Hi, I'm the ${site.short} assistant. Ask me about what we build, what it costs, or how we work.`,
   ],
 };
 
@@ -53,7 +53,7 @@ export const NODES: ChatNode[] = [
       "video", "ads", "development",
     ],
     answer: {
-      text: ["Eight disciplines, all in-house — no handoffs between agencies:"],
+      text: ["Eight disciplines, all in-house, with no handoffs between agencies:"],
       bullets: [
         "Websites & web applications",
         "Mobile app development (iOS and Android)",
@@ -81,10 +81,10 @@ export const NODES: ChatNode[] = [
         "It depends on scope, but here are the real ranges rather than a dodge:",
       ],
       bullets: [
-        "Template-based marketing site — $3,000 to $8,000, two to four weeks",
-        "Custom site with a CMS — $15,000 to $45,000, six to ten weeks",
-        "Web application with accounts or integrations — from $60,000",
-        "A focused AI agent, including its evaluation suite — $30,000 to $80,000",
+        "Template-based marketing site: $3,000 to $8,000, two to four weeks",
+        "Custom site with a CMS: $15,000 to $45,000, six to ten weeks",
+        "Web application with accounts or integrations: from $60,000",
+        "A focused AI agent, including its evaluation suite: $30,000 to $80,000",
       ],
       cta: {
         label: "Read the full pricing breakdown",
@@ -121,10 +121,10 @@ export const NODES: ChatNode[] = [
     answer: {
       text: ["Four stages, designed so expensive surprises surface early:"],
       bullets: [
-        "Frame the problem — a short paid discovery, week one",
-        "Prove the risky part — build the thing that might not work first",
-        "Build in the open — two-week cycles, you get commit access day one",
-        "Hand over properly — runbooks, architecture notes, a paired handover",
+        "Frame the problem, a short paid discovery, week one",
+        "Prove the risky part: build the thing that might not work first",
+        "Build in the open: two-week cycles, you get commit access day one",
+        "Hand over properly: runbooks, architecture notes, a paired handover",
       ],
       cta: { label: "See the full process", href: "/about" },
     },
@@ -159,10 +159,10 @@ export const NODES: ChatNode[] = [
         `We've delivered ${stats.projects} projects for ${stats.clients} clients. A few with numbers attached:`,
       ],
       bullets: [
-        "BabyFits — orders up 256% and sales up 163% through paid social",
-        "Trusting Hands — Flutter donation platform on iOS and Android, with an admin dashboard behind it",
-        "Xebayi — skincare storefront with order tracking and a full catalogue dashboard",
-        "MyNaviLife and Offshore Minds — Flutter apps, both live on the stores",
+        "BabyFits: orders up 256% and sales up 163% through paid social",
+        "Trusting Hands: Flutter donation platform on iOS and Android, with an admin dashboard behind it",
+        "Xebayi: skincare storefront with order tracking and a full catalogue dashboard",
+        "MyNaviLife and Offshore Minds: Flutter apps, both live on the stores",
       ],
       cta: { label: "Read the case studies", href: "/work" },
     },
@@ -178,7 +178,7 @@ export const NODES: ChatNode[] = [
     ],
     answer: {
       text: [
-        `Two offices — ${offices.map((o) => `${o.city}, ${o.country}`).join(" and ")}.`,
+        `Two offices: ${offices.map((o) => `${o.city}, ${o.country}`).join(" and ")}.`,
         "Projects are staffed from whichever office overlaps most with your working hours, never fewer than four shared hours a day.",
       ],
       cta: { label: "Full contact details", href: "/contact" },
@@ -212,7 +212,7 @@ export const NODES: ChatNode[] = [
     ],
     answer: {
       text: [
-        "We build agents that do work, not chatbots bolted onto a homepage — tool use, retrieval grounded in your own documents, and human escalation when confidence drops.",
+        "We build agents that do work, not chatbots bolted onto a homepage. That means tool use, retrieval grounded in your own documents, and human escalation when confidence drops.",
         "Every build ships with an evaluation suite that runs on each change, so quality regressions surface in CI rather than in front of a customer.",
       ],
       cta: { label: "What is agentic AI?", href: "/blog/what-is-agentic-ai" },
@@ -241,7 +241,7 @@ export const NODES: ChatNode[] = [
 /** Shown when free text matches nothing — never guesses. */
 export const FALLBACK: ChatAnswer = {
   text: [
-    "I don't have a scripted answer for that one yet — I'd rather send you to someone who can answer properly than guess.",
+    "I don't have a scripted answer for that one yet. I'd rather send you to someone who can answer properly than guess.",
   ],
   bullets: [`Email: ${site.email}`, `Phone: ${site.phone}`],
   cta: { label: "Send a brief", href: "/contact" },

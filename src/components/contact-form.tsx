@@ -94,7 +94,7 @@ export function ContactForm() {
           <Check className="h-6 w-6 text-ink" strokeWidth={2.5} aria-hidden="true" />
         </span>
         <h3 className="mt-7 font-display text-[1.75rem] leading-tight tracking-tight">
-          Thanks — that came through.
+          Thanks, that came through.
         </h3>
         <p className="mt-4 max-w-[48ch] text-[0.9375rem] leading-relaxed text-ink-muted">
           An engineer will read it and reply to{" "}

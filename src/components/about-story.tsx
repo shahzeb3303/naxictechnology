@@ -40,9 +40,9 @@ export function AboutStory() {
     <section className="bg-paper-pure py-24 md:py-32">
       <div className="shell">
         <SectionHead
-          eyebrow="How we got here"
+          eyebrow="Our story"
           title="How we got here"
-          lede="We have turned down more work than we have taken. That is the whole strategy — stay small enough that senior people are on every project rather than supervising from a distance."
+          lede="We have turned down more work than we have taken. That is the whole strategy: stay small enough that senior people are on every project rather than supervising from a distance."
         />
 
         <div className="mt-16 grid gap-14 lg:grid-cols-12 lg:gap-16">

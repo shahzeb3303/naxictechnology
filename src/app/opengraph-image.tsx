@@ -12,7 +12,7 @@ export const runtime = "nodejs";
 const MARK = `data:image/png;base64,${readFileSync(
   join(process.cwd(), "public", "brand", "mark.png")
 ).toString("base64")}`;
-export const alt = `${site.name} — ${site.tagline}`;
+export const alt = `${site.name} | ${site.tagline}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

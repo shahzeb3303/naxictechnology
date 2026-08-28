@@ -81,7 +81,7 @@ export const posts: Post[] = [
     slug: "how-much-does-a-website-cost",
     title: "How much does a business website cost in 2026?",
     excerpt:
-      "A straight answer with real ranges — what sits behind a $3,000 site, a $30,000 site, and a $150,000 platform, and how to tell which one you actually need.",
+      "A straight answer with real ranges, covering what sits behind a $3,000 site, a $30,000 site, and a $150,000 platform, and how to tell which one you actually need.",
     category: "Marketing",
     tags: ["Pricing", "Web Development", "Budgeting"],
     authorId: "umar",
@@ -93,7 +93,7 @@ export const posts: Post[] = [
       "A template-based marketing site typically costs $3,000–$8,000 and takes two to four weeks.",
       "A custom marketing site with a CMS runs $15,000–$45,000 over six to ten weeks.",
       "A web application with accounts, payments, or integrations starts around $60,000 and rises with scope.",
-      "The largest cost driver is rarely design — it is the number of systems the site has to talk to.",
+      "The largest cost driver is rarely design. It is the number of systems the site has to talk to.",
     ],
     body: [
       {
@@ -108,7 +108,7 @@ export const posts: Post[] = [
       },
       {
         type: "p",
-        text: "A well-chosen theme, your branding applied, your copy poured in, and a contact form wired to an inbox. Two to four weeks. This is the right answer far more often than agencies admit — if you need five pages that look professional and load quickly, paying for custom design is spending money on something your customers will not notice.",
+        text: "A well-chosen theme, your branding applied, your copy poured in, and a contact form wired to an inbox. Two to four weeks. This is the right answer far more often than agencies admit. If you need five pages that look professional and load quickly, paying for custom design is spending money on something your customers will not notice.",
       },
       {
         type: "p",
@@ -134,11 +134,11 @@ export const posts: Post[] = [
       },
       {
         type: "p",
-        text: "The moment your site has user accounts, takes payments, or synchronises with a system of record — a CRM, an ERP, a booking engine — you are no longer buying a website. You are buying software, and software is priced by complexity rather than by page count.",
+        text: "The moment your site has user accounts, takes payments, or synchronises with a system of record (a CRM, an ERP, a booking engine) you are no longer buying a website. You are buying software, and software is priced by complexity rather than by page count.",
       },
       {
         type: "callout",
-        text: "A useful test: if you can describe your site as a set of pages, it is a website. If you have to describe it as a set of things users can do, it is an application — and the budget changes accordingly.",
+        text: "A useful test: if you can describe your site as a set of pages, it is a website. If you have to describe it as a set of things users can do, it is an application, and the budget changes accordingly.",
       },
       { type: "h2", id: "cost-drivers", text: "What actually drives the price up" },
       {
@@ -146,7 +146,7 @@ export const posts: Post[] = [
         text: "In our experience the cost of a project correlates far more strongly with integration count than with page count. A twelve-page site with no integrations is cheap. A four-page site that has to authenticate against your legacy identity provider, pull inventory from an ERP, and write leads into a CRM is not.",
       },
       { type: "ol", items: [
-        "Integrations with systems you do not control — each one is a negotiation with someone else's API and someone else's uptime.",
+        "Integrations with systems you do not control. Each one is a negotiation with someone else's API and someone else's uptime.",
         "Content migration, especially from a CMS with inconsistent historical data.",
         "Compliance requirements: accessibility conformance, data residency, audit logging.",
         "Approval layers. Every additional stakeholder adds review cycles, and review cycles are billable time.",
@@ -154,14 +154,14 @@ export const posts: Post[] = [
       { type: "h2", id: "hidden-costs", text: "The costs quotes usually omit" },
       { type: "ul", items: [
         "Hosting and infrastructure, typically $20–$400 per month depending on traffic.",
-        "Content — someone has to write it, and 'the client will supply copy' is the single most common reason projects slip.",
+        "Content, because someone has to write it, and 'the client will supply copy' is the single most common reason projects slip.",
         "Photography or illustration, if you do not already have a library.",
         "Ongoing maintenance: dependency updates, security patches, and small fixes. Budget 10–20% of build cost annually.",
       ]},
       { type: "h2", id: "how-to-choose", text: "How to decide which tier you need" },
       {
         type: "p",
-        text: "Ask what the site has to accomplish in the next eighteen months. If the honest answer is 'look credible and collect enquiries', buy the cheapest thing that does that well and spend the difference on marketing. If the answer involves a workflow your business runs on, do not buy a website — commission software, and expect to pay accordingly.",
+        text: "Ask what the site has to accomplish in the next eighteen months. If the honest answer is 'look credible and collect enquiries', buy the cheapest thing that does that well and spend the difference on marketing. If the answer involves a workflow your business runs on, do not buy a website. Commission software, and expect to pay accordingly.",
       },
       {
         type: "quote",
@@ -205,7 +205,7 @@ export const posts: Post[] = [
       "An AI agent is a system that can take actions in other software, not just generate text.",
       "The practical difference from a chatbot is tool use: an agent can query a database, file a ticket, or send an email.",
       "Agents work well on high-volume, well-bounded tasks with a clear definition of correct.",
-      "They fail on tasks where being wrong is expensive and hard to detect — which is why evaluation matters more than the model.",
+      "They fail on tasks where being wrong is expensive and hard to detect, which is why evaluation matters more than the model.",
     ],
     body: [
       {
@@ -215,7 +215,7 @@ export const posts: Post[] = [
       { type: "h2", id: "how-agents-differ", text: "How an agent differs from a chatbot" },
       {
         type: "p",
-        text: "A chatbot receives text and returns text. An agent receives a goal, decides which tools to call, calls them, reads the results, and repeats until it believes the goal is met. Those tools are ordinary software functions — a database query, an API call, a calendar write.",
+        text: "A chatbot receives text and returns text. An agent receives a goal, decides which tools to call, calls them, reads the results, and repeats until it believes the goal is met. Those tools are ordinary software functions, a database query, an API call, a calendar write.",
       },
       {
         type: "p",
@@ -225,7 +225,7 @@ export const posts: Post[] = [
       { type: "ul", items: [
         "Triage and routing: reading an incoming request, classifying it, and putting it in the right queue with the right context attached.",
         "Research and summarisation across your own documents, with citations back to the source.",
-        "First-draft generation for repetitive artefacts — job descriptions, release notes, RFP responses.",
+        "First-draft generation for repetitive artefacts: job descriptions, release notes, RFP responses.",
         "Data entry between systems that have no integration and are unlikely to get one.",
       ]},
       {
@@ -248,7 +248,7 @@ export const posts: Post[] = [
       },
       {
         type: "p",
-        text: "On one clinical project we shipped a 340-case evaluation suite alongside the feature. It has since caught two quality regressions introduced by upstream model updates — neither of which would have been visible until users complained.",
+        text: "On one clinical project we shipped a 340-case evaluation suite alongside the feature. It has since caught two quality regressions introduced by upstream model updates, neither of which would have been visible until users complained.",
       },
       { type: "h2", id: "getting-started", text: "A sensible way to start" },
       { type: "ol", items: [
@@ -266,7 +266,7 @@ export const posts: Post[] = [
       },
       {
         q: "What is the difference between an AI agent and a chatbot?",
-        a: "A chatbot receives text and returns text. An agent can act — querying a database, filing a ticket, or sending an email. The practical consequence is that a chatbot's mistakes produce wrong answers, while an agent's mistakes produce wrong actions.",
+        a: "A chatbot receives text and returns text. An agent can act: querying a database, filing a ticket, or sending an email. The practical consequence is that a chatbot's mistakes produce wrong answers, while an agent's mistakes produce wrong actions.",
       },
       {
         q: "Is agentic AI safe to use in production?",
@@ -293,7 +293,7 @@ export const posts: Post[] = [
     takeaways: [
       "Paid ads buy traffic immediately and stop the moment you stop paying.",
       "SEO compounds but rarely produces meaningful volume inside six months.",
-      "If you have not yet validated that people want the thing, start with ads — they answer that question fastest.",
+      "If you have not yet validated that people want the thing, start with ads, because they answer that question fastest.",
       "If demand is proven and margins are thin, SEO is usually the better long-term allocation.",
     ],
     body: [
@@ -308,7 +308,7 @@ export const posts: Post[] = [
       },
       {
         type: "p",
-        text: "Search optimisation is closer to construction. Nothing much happens for months, then a page starts ranking and continues delivering traffic with no marginal cost. The asset persists — until a competitor outbuilds it or an algorithm update reshuffles the deck.",
+        text: "Search optimisation is closer to construction. Nothing much happens for months, then a page starts ranking and continues delivering traffic with no marginal cost. The asset persists until a competitor outbuilds it or an algorithm update reshuffles the deck.",
       },
       { type: "h2", id: "start-with-ads", text: "Start with ads when demand is unproven" },
       {
