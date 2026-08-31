@@ -32,7 +32,10 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const url = `${site.url}/blog/${post.slug}`;
 
   return {
-    title: `${post.title} | ${site.name}`,
+    // Post titles are question-shaped and already carry the query; the brand
+    // suffix pushed all three past the ~60 char display limit, cutting the
+    // question itself. Google appends the site name in results anyway.
+    title: post.title,
     description: post.excerpt,
     keywords: post.tags,
     alternates: { canonical: url },
