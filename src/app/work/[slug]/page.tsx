@@ -4,7 +4,8 @@ import { CaseStudy } from "@/components/case-study";
 import { ContactCta } from "@/components/contact-cta";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { projects, site } from "@/lib/data";
+import { BreadcrumbLd, CaseStudyLd } from "@/components/jsonld";
+import { clampDescription, mediumLabels, projects, site } from "@/lib/data";
 
 type Params = { params: Promise<{ slug: string }> };
 
@@ -19,8 +20,11 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   if (!project) return { title: `Work | ${site.name}` };
 
   return {
-    title: `${project.client}: ${project.title} | ${site.name}`,
-    description: project.summary,
+    // Was `client: full title | brand`, which ran to 103 characters and was
+    // cut off in results. Client plus discipline keeps every one under 60.
+    title: `${project.client}: ${mediumLabels[project.medium]} case study | ${site.name}`,
+    description: clampDescription(project.summary),
+    alternates: { canonical: `${site.url}/work/${project.id}` },
   };
 }
 
@@ -33,6 +37,14 @@ export default async function CaseStudyPage({ params }: Params) {
 
   return (
     <>
+      <CaseStudyLd project={project} />
+      <BreadcrumbLd
+        trail={[
+          { name: "Home", path: "/" },
+          { name: "Work", path: "/work" },
+          { name: project.client, path: `/work/${project.id}` },
+        ]}
+      />
       <SiteHeader />
       <main id="main">
         <CaseStudy project={project} />

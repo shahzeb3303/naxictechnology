@@ -6,6 +6,7 @@ import { Offices } from "@/components/offices";
 import { Reveal } from "@/components/reveal";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { BreadcrumbLd, LocalBusinessLd } from "@/components/jsonld";
 import { process, site } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -18,6 +19,13 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
+      <LocalBusinessLd />
+      <BreadcrumbLd
+        trail={[
+          { name: "Home", path: "/" },
+          { name: "Contact", path: "/contact" },
+        ]}
+      />
       <SiteHeader />
       <main id="main">
         <ContactHero />

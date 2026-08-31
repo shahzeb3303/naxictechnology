@@ -1398,3 +1398,15 @@ export const capabilities = [
   "Automation",
   "Agentic AI",
 ] as const;
+
+/**
+ * Meta descriptions are cut off around 160 characters in results, and a
+ * sentence that ends mid-word reads as neglect. Trims at the last word
+ * boundary inside the limit instead.
+ */
+export function clampDescription(text: string, limit = 155): string {
+  if (text.length <= limit) return text;
+  const cut = text.slice(0, limit);
+  const at = cut.lastIndexOf(" ");
+  return (at > 0 ? cut.slice(0, at) : cut).replace(/[,;:.]$/, "") + "...";
+}

@@ -5,6 +5,7 @@ import { SiteHeader } from "@/components/site-header";
 import { Ticker } from "@/components/ticker";
 import { WorkFilter } from "@/components/work-filter";
 import { Reveal } from "@/components/reveal";
+import { BreadcrumbLd } from "@/components/jsonld";
 import { projects, site, stats } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -17,6 +18,12 @@ export const metadata: Metadata = {
 export default function WorkPage() {
   return (
     <>
+      <BreadcrumbLd
+        trail={[
+          { name: "Home", path: "/" },
+          { name: "Work", path: "/work" },
+        ]}
+      />
       <SiteHeader />
       <main id="main">
         <section className="grain relative overflow-hidden bg-ink pt-[4.5rem] text-paper">

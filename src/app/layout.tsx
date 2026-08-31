@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   title: "Nexic Technologies | Built to be taken seriously",
   description:
-    "A marketing agency with a build team inside it. Paid advertising, SEO and content for brands in Pakistan and the UK, plus the websites, apps, video and creative those campaigns depend on.",
+    "A marketing agency with a build team inside it. Paid advertising, SEO and content, plus the websites, apps, video and creative behind them.",
   keywords: [
     "digital marketing agency",
     "paid advertising",

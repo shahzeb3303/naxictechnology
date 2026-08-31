@@ -7,18 +7,26 @@ import { ServicesHero } from "@/components/services-hero";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { Ticker } from "@/components/ticker";
+import { BreadcrumbLd, ServicesLd } from "@/components/jsonld";
 import { site } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: `Services | ${site.name}`,
   description:
-    "Web and mobile development, agentic AI, digital and social marketing, paid advertising, graphic design, and video production, from one team in Islamabad and Manchester.",
+    "Digital marketing, SEO, paid advertising, social media, design and video, plus websites and apps. One team across Islamabad and Manchester.",
   alternates: { canonical: `${site.url}/services` },
 };
 
 export default function ServicesPage() {
   return (
     <>
+      <ServicesLd />
+      <BreadcrumbLd
+        trail={[
+          { name: "Home", path: "/" },
+          { name: "Services", path: "/services" },
+        ]}
+      />
       <SiteHeader />
       <main id="main">
         <ServicesHero />
