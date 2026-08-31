@@ -93,7 +93,9 @@ export default function OpengraphImage() {
           <div style={{ display: "flex" }}>
             {stats.projects} projects · {stats.clients} clients · {stats.disciplines} disciplines
           </div>
-          <div style={{ display: "flex", color: "#ff5a1f" }}>nexic.tech</div>
+          <div style={{ display: "flex", color: "#ff5a1f" }}>
+            {site.url.replace("https://", "")}
+          </div>
         </div>
       </div>
     ),

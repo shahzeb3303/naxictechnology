@@ -94,7 +94,10 @@ export function Offices() {
           ))}
         </ul>
 
-        {/* Routed inboxes */}
+        {/* Routed inboxes. Hidden while there is a single mailbox: three
+            cards carrying the same address under a heading that promises
+            routing reads as broken. */}
+        {contactChannels.length > 0 && (
         <Reveal>
           <div className="mt-20 border-t border-line pt-12">
             <p className="eyebrow text-ink-muted">Or write to the right inbox</p>
@@ -118,6 +121,7 @@ export function Offices() {
             </ul>
           </div>
         </Reveal>
+        )}
       </div>
     </section>
   );

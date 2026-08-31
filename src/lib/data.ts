@@ -13,8 +13,8 @@ export const site = {
   /** Canonical origin. Drives sitemap, robots, and structured data URLs. */
   url: "https://www.nexictechnologies.com",
   tagline: "Built to be taken seriously",
-  email: "hello@nexic.tech",
-  phone: "+92 51 555 0142",
+  email: "info@nexictechnologies.com",
+  phone: "+92 331 757 5999",
   address: "Nawaz Arcade, First Floor, Office #4, National Police Foundation, Block A, Islamabad",
   founded: 2026,
 } as const;
@@ -1325,8 +1325,8 @@ export const offices: Office[] = [
       "National Police Foundation, Block A",
       "Islamabad",
     ],
-    phone: "+92 51 555 0142",
-    email: "pk@nexic.tech",
+    phone: "+92 331 757 5999",
+    email: "info@nexictechnologies.com",
     hours: "09:00 – 18:00 PKT",
   },
   {
@@ -1334,33 +1334,25 @@ export const offices: Office[] = [
     city: "Manchester",
     country: "United Kingdom",
     address: ["33 Cheetham Hill Road", "Manchester, M8 0PF"],
-    phone: "+44 161 555 0173",
-    email: "uk@nexic.tech",
+    phone: "+44 7576 808443",
+    email: "info@nexictechnologies.com",
     hours: "09:00 – 18:00 GMT",
   },
 
 ];
 
-export const contactChannels = [
-  {
-    id: "new-business",
-    label: "New business",
-    detail: "Scoping a project or asking for an estimate.",
-    email: "hello@nexic.tech",
-  },
-  {
-    id: "careers",
-    label: "Careers",
-    detail: "Engineers and designers read every one.",
-    email: "jobs@nexic.tech",
-  },
-  {
-    id: "press",
-    label: "Press & speaking",
-    detail: "Interviews, conference talks, and podcasts.",
-    email: "press@nexic.tech",
-  },
-] as const;
+/**
+ * Empty by design. Nexic runs a single mailbox, so routed inboxes would be
+ * three cards carrying the same address under a heading that promises
+ * routing. Offices renders nothing while this is empty; add entries if
+ * separate addresses are ever created.
+ */
+export const contactChannels: {
+  id: string;
+  label: string;
+  detail: string;
+  email: string;
+}[] = [];
 
 export const projectTypes = [
   "Product engineering",
