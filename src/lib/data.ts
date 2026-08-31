@@ -11,7 +11,7 @@ export const site = {
   name: "Nexic Technologies",
   short: "Nexic",
   /** Canonical origin. Drives sitemap, robots, and structured data URLs. */
-  url: "https://nexic.tech",
+  url: "https://www.nexictechnologies.com",
   tagline: "Built to be taken seriously",
   email: "hello@nexic.tech",
   phone: "+92 51 555 0142",

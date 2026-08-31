@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: `Work | ${site.name}`,
   description:
     "Selected case studies from Nexic Technologies: paid social, social campaigns, brand design, e-commerce storefronts, and Flutter apps.",
+  alternates: { canonical: `${site.url}/work` },
 };
 
 export default function WorkPage() {

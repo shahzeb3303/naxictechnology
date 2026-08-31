@@ -25,7 +25,7 @@ export function OrganizationLd() {
         "@type": "Organization",
         name: site.name,
         url: site.url,
-        logo: `${site.url}/icon.svg`,
+        logo: `${site.url}/icon.png`,
         email: site.email,
         telephone: site.phone,
         foundingDate: String(site.founded),
@@ -102,7 +102,7 @@ export function ArticleLd({ post }: { post: Post }) {
         publisher: {
           "@type": "Organization",
           name: site.name,
-          logo: { "@type": "ImageObject", url: `${site.url}/icon.svg` },
+          logo: { "@type": "ImageObject", url: `${site.url}/icon.png` },
         },
         // Points answer engines at the summary block rather than the intro prose
         speakable: {

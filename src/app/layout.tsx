@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { site } from "@/lib/data";
 import { ChatWidget } from "@/components/chat/chat-widget";
 import { OrganizationLd } from "@/components/jsonld";
 import { Archivo, Space_Grotesk } from "next/font/google";
@@ -19,6 +20,10 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
+  // Absolute base for OG and twitter image URLs. Without it Next falls
+  // back to localhost at build time and social previews break.
+  metadataBase: new URL(site.url),
+  alternates: { canonical: "/" },
   title: "Nexic Technologies | Built to be taken seriously",
   description:
     "A marketing agency with a build team inside it. Paid advertising, SEO and content for brands in Pakistan and the UK, plus the websites, apps, video and creative those campaigns depend on.",

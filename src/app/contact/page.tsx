@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   title: `Contact | ${site.name}`,
   description:
     "Start a project with Nexic Technologies. Offices in Islamabad and Manchester. A reply from an engineer within one business day.",
+  alternates: { canonical: `${site.url}/contact` },
 };
 
 export default function ContactPage() {
