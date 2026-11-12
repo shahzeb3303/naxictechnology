@@ -15,7 +15,7 @@ export const site = {
   tagline: "Built to be taken seriously",
   email: "info@nexictechnologies.com",
   phone: "+92 331 757 5999",
-  address: "Nawaz Arcade, First Floor, Office #4, National Police Foundation, Block A, Islamabad",
+  address: "Third Floor, 1 East Rd, Block H, Naval Anchorage, Islamabad",
   founded: 2026,
 } as const;
 
@@ -1321,8 +1321,8 @@ export const offices: Office[] = [
     city: "Islamabad",
     country: "Pakistan",
     address: [
-      "Nawaz Arcade, First Floor, Office #4",
-      "National Police Foundation, Block A",
+      "Third Floor, 1 East Rd",
+      "Block H, Naval Anchorage",
       "Islamabad",
     ],
     phone: "+92 331 757 5999",
