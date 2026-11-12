@@ -1046,6 +1046,79 @@ export const projects: Project[] = [
     ],
   },
   {
+    id: "velprints",
+    client: "VelPrints",
+    title: "A print shop that quotes before it charges",
+    category: "Custom Printing · Web",
+    year: "2026",
+    medium: "web",
+    summary:
+      "A DTF printing site for an Islamabad shop with no minimum order, built so a single lighter and a thousand-shirt corporate run start from the same two-minute form.",
+    metric: { value: "1", label: "piece minimum order" },
+    stack: ["Static site", "Order intake", "Artwork upload", "WhatsApp handoff"],
+    tone: "paper",
+    art: 1,
+    cover: "/work/velprints/cover.jpg",
+    website: { label: "velprints.pk", url: "https://velprints.pk/" },
+    industry: "Custom Printing & Merchandise",
+    expertise: ["Web Development", "Conversion Design", "Technical SEO", "Content Design"],
+    platform: "Web · Mobile-first",
+    overviewTitle: "Ten services, one form",
+    overview:
+      "VelPrints prints DTF transfers onto t-shirts, hoodies, mugs, lighters, caps and almost anything else, from a single piece upward, out of Islamabad and delivering across Pakistan. The site had to sell ten different services to buyers who mostly do not know what DTF is, and take an order precise enough to quote against.",
+    challenge:
+      "Custom printing loses people at two points. First, the method: a buyer who has never heard of direct-to-film cannot judge whether it suits a black hoodie or a metal lighter, and a shop that cannot explain it competes on price alone. Second, the order itself. Printing needs artwork at the right resolution, a print size and a garment colour before anyone can quote, and asking for all of that up front is exactly how a casual enquiry gets abandoned.",
+    approach:
+      "The ten services each get their own page, so someone searching for lighter printing lands on lighter printing rather than a catalogue. A nine-section guide answers the method questions before the sale: what DTF is, how it compares to screen and vinyl, which fabrics take it, what artwork to send, how to press it and how to wash it. The order form then asks only what a quote actually needs, with print sizes offered as presets (left chest, adult front, full back, sleeve) rather than as a measurement the customer has to guess, and artwork accepted as PNG, PDF, AI, PSD or SVG up to 25MB. Nothing is charged at submission: the form produces a request, the shop confirms price and timeline, and the conversation moves to WhatsApp, which is where this market already buys.",
+    outcome:
+      "A shop that can be found for the specific thing someone wants printed, explain its own method without a phone call, and take a quotable order in about two minutes without asking for payment first.",
+    results: [
+      { value: "10", label: "Services, each its own landing page" },
+      { value: "1", label: "Piece minimum order" },
+      { value: "9", label: "Guide sections answering pre-sale questions" },
+      { value: "0", label: "Payment taken before the quote is confirmed" },
+    ],
+    gallery: [
+      {
+        src: "/work/velprints/cover.jpg",
+        alt: "Homepage hero: Print bold, press vivid, wear forever, over a full-colour floral transfer being lifted from a white tee",
+        width: 1440,
+        height: 900,
+        wide: true,
+      },
+      {
+        src: "/work/velprints/01.jpg",
+        alt: "Discover Our Services: each service introduced with the product it prints rather than the process behind it",
+        width: 1440,
+        height: 900,
+      },
+      {
+        src: "/work/velprints/02.jpg",
+        alt: "Choose a service: ten printing services as a grid, each tagged DTF, UV DTF or UV printing",
+        width: 1440,
+        height: 900,
+      },
+      {
+        src: "/work/velprints/03.jpg",
+        alt: "Order form beside a What happens next panel, with no payment taken until the quote is confirmed",
+        width: 1440,
+        height: 900,
+      },
+      {
+        src: "/work/velprints/04.jpg",
+        alt: "What is DTF printing: the guide that answers method questions before the sale rather than after it",
+        width: 1440,
+        height: 900,
+      },
+      {
+        src: "/work/velprints/05.jpg",
+        alt: "Lighter printing service page, with the four-step process from artwork to checked and packed",
+        width: 1440,
+        height: 900,
+      },
+    ],
+  },
+  {
     id: "short-form-video",
     client: "Nexic Technologies",
     title: "Short-form edits built for the first two seconds",
