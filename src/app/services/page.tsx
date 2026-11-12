@@ -7,8 +7,8 @@ import { ServicesHero } from "@/components/services-hero";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { Ticker } from "@/components/ticker";
-import { BreadcrumbLd, ServicesLd } from "@/components/jsonld";
-import { site } from "@/lib/data";
+import { BreadcrumbLd, FaqLd, ServicesLd } from "@/components/jsonld";
+import { faqs, site } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: `Services | ${site.name}`,
@@ -33,6 +33,7 @@ export default function ServicesPage() {
         <Ticker />
         <ServiceBlocks />
         <Process />
+        <FaqLd faqs={faqs} />
         <Faq />
         <ContactCta />
       </main>

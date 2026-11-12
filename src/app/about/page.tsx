@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { AboutHero } from "@/components/about-hero";
 import { AboutStats, AboutStory, AboutValues } from "@/components/about-story";
 import { ContactCta } from "@/components/contact-cta";
-import { BreadcrumbLd } from "@/components/jsonld";
+import { BreadcrumbLd, TeamLd } from "@/components/jsonld";
 import { Offices } from "@/components/offices";
 import { Process } from "@/components/process";
 import { SiteFooter } from "@/components/site-footer";
@@ -25,6 +25,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
+      <TeamLd />
       <BreadcrumbLd
         trail={[
           { name: "Home", path: "/" },

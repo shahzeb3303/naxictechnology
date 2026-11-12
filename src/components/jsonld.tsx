@@ -1,5 +1,5 @@
 import { authors, type Post } from "@/lib/blog";
-import { offices, services, site, type Project } from "@/lib/data";
+import { offices, services, site, team, type Project } from "@/lib/data";
 
 /**
  * Structured data. This is the machine-readable half of SEO and the main
@@ -219,6 +219,36 @@ export function CaseStudyLd({ project }: { project: Project }) {
         about: project.industry,
         keywords: project.expertise.join(", "),
         creator: { "@type": "Organization", name: site.name, url: site.url },
+      }}
+    />
+  );
+}
+
+/**
+ * The people behind the work. Answer engines and Google's E-E-A-T signals
+ * both favour named, attributable humans over an anonymous brand, and the
+ * team was rendered as faces and job titles with nothing machine-readable
+ * tying them to the organisation.
+ */
+export function TeamLd() {
+  if (!team.length) return null;
+
+  return (
+    <Ld
+      data={{
+        "@context": "https://schema.org",
+        "@graph": team.map((person) => ({
+          "@type": "Person",
+          "@id": `${site.url}/about#${person.id}`,
+          name: person.name,
+          jobTitle: person.role,
+          ...(person.photo ? { image: `${site.url}${person.photo}` } : {}),
+          worksFor: {
+            "@type": "Organization",
+            name: site.name,
+            url: site.url,
+          },
+        })),
       }}
     />
   );

@@ -81,7 +81,7 @@ export const posts: Post[] = [
     slug: "how-much-does-a-website-cost",
     title: "How much does a business website cost in 2026?",
     excerpt:
-      "A straight answer with real ranges, covering what sits behind a $3,000 site, a $30,000 site, and a $150,000 platform, and how to tell which one you actually need.",
+      "Real ranges for what sits behind a $3,000 site, a $30,000 site and a $150,000 platform, and how to tell which one you need.",
     category: "Marketing",
     tags: ["Pricing", "Web Development", "Budgeting"],
     authorId: "umar",
@@ -190,7 +190,7 @@ export const posts: Post[] = [
 
   {
     slug: "what-is-agentic-ai",
-    title: "What is agentic AI, and what can it actually do for a business?",
+    title: "What is agentic AI, and what can it do for a business?",
     excerpt:
       "Agents differ from chatbots in one specific way: they take actions. Here is what that changes, where it works today, and where it still fails.",
     category: "AI",

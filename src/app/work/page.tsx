@@ -11,7 +11,7 @@ import { projects, site, stats } from "@/lib/data";
 export const metadata: Metadata = {
   title: `Work | ${site.name}`,
   description:
-    "Selected case studies from Nexic Technologies: paid social, social campaigns, brand design, e-commerce storefronts, and Flutter apps.",
+    "Case studies from Nexic Technologies: paid social and LinkedIn campaigns, brand and social design, e-commerce storefronts, and Flutter apps.",
   alternates: { canonical: `${site.url}/work` },
 };
 

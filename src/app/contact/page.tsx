@@ -6,8 +6,8 @@ import { Offices } from "@/components/offices";
 import { Reveal } from "@/components/reveal";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { BreadcrumbLd, LocalBusinessLd } from "@/components/jsonld";
-import { process, site } from "@/lib/data";
+import { BreadcrumbLd, FaqLd, LocalBusinessLd } from "@/components/jsonld";
+import { faqs, process, site } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: `Contact | ${site.name}`,
@@ -90,6 +90,7 @@ export default function ContactPage() {
         </section>
 
         <Offices />
+        <FaqLd faqs={faqs} />
         <Faq />
       </main>
       <SiteFooter />

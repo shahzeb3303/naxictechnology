@@ -1,5 +1,7 @@
 import { ContactCta } from "@/components/contact-cta";
 import { Faq } from "@/components/faq";
+import { FaqLd } from "@/components/jsonld";
+import { faqs } from "@/lib/data";
 import { Hero } from "@/components/hero";
 import { Process } from "@/components/process";
 import { Services } from "@/components/services";
@@ -29,6 +31,7 @@ export default function HomePage() {
         <Team />
         <Testimonial />
         <Trust />
+        <FaqLd faqs={faqs} />
         <Faq />
         <ContactCta />
       </main>
