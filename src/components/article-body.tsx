@@ -1,4 +1,38 @@
+import Image from "next/image";
+import Link from "next/link";
 import type { Block } from "@/lib/blog";
+
+/**
+ * Resolves [text](url) inside a block's plain text. Keeping the markup out of
+ * the content file means a post stays readable as data, and an author does not
+ * have to write JSX to cite a source.
+ */
+function withLinks(text: string) {
+  const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g);
+  return parts.map((part, i) => {
+    const m = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    if (!m) return part;
+    const [, label, href] = m;
+    const external = /^https?:/.test(href);
+    const className =
+      "cursor-pointer font-medium text-flare-ink underline underline-offset-4 decoration-flare/40 transition-colors duration-200 hover:decoration-flare";
+    return external ? (
+      <a
+        key={i}
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={className}
+      >
+        {label}
+      </a>
+    ) : (
+      <Link key={i} href={href} className={className}>
+        {label}
+      </Link>
+    );
+  });
+}
 
 /**
  * Renders a post's typed blocks. Headings emit stable ids so the table of
@@ -38,7 +72,7 @@ export function ArticleBody({ body }: { body: Block[] }) {
                 key={i}
                 className="mt-5 text-[1.0625rem] leading-[1.75] text-ink-muted md:text-[1.125rem]"
               >
-                {block.text}
+                {withLinks(block.text)}
               </p>
             );
 
@@ -102,6 +136,27 @@ export function ArticleBody({ body }: { body: Block[] }) {
               >
                 <p className="text-[1rem] leading-[1.7] text-ink">{block.text}</p>
               </aside>
+            );
+
+          case "figure":
+            return (
+              /* Breaks the 68ch measure on purpose: a dashboard screenshot is
+                 unreadable at body width. */
+              <figure key={i} className="mt-10 lg:-mx-16 xl:-mx-24">
+                <Image
+                  src={block.src}
+                  alt={block.alt}
+                  width={block.width}
+                  height={block.height}
+                  className="w-full rounded-2xl border border-line"
+                  sizes="(min-width: 1280px) 60rem, (min-width: 1024px) 52rem, 100vw"
+                />
+                {block.caption && (
+                  <figcaption className="mt-3 text-[0.875rem] leading-relaxed text-ink-muted">
+                    {block.caption}
+                  </figcaption>
+                )}
+              </figure>
             );
 
           default:

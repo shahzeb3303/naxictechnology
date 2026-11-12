@@ -20,7 +20,16 @@ export type Block =
   | { type: "ul"; items: string[] }
   | { type: "ol"; items: string[] }
   | { type: "quote"; text: string; cite?: string }
-  | { type: "callout"; text: string };
+  | { type: "callout"; text: string }
+  /** A real screenshot. Evidence inside the article, not decoration. */
+  | {
+      type: "figure";
+      src: string;
+      alt: string;
+      caption?: string;
+      width: number;
+      height: number;
+    };
 
 export type Author = {
   id: string;
@@ -77,6 +86,146 @@ export const categories = [
 ] as const;
 
 export const posts: Post[] = [
+  {
+    slug: "too-many-meta-ad-sets",
+    title: "What happens when you run 89 Meta ad sets at once",
+    excerpt:
+      "An account spending across 89 ad sets, what the numbers looked like after we cut it back, and how we decided which ones were worth keeping.",
+    category: "Marketing",
+    tags: ["Meta Ads", "Paid Social", "E-commerce"],
+    authorId: "umar",
+    publishedAt: "2026-11-12",
+    readMinutes: 6,
+    tone: "flare",
+    cover: "/work/baby-fits/meta-ads-babyfits.jpg",
+    takeaways: [
+      "Spreading a budget across 89 ad sets meant no single set collected enough purchases to prove anything.",
+      "Cost per purchase varied by roughly five times between sets, and almost none of that gap was real signal.",
+      "After consolidating onto broad audiences, the strongest ad set produced 113 purchases at PKR 635.61 each over 30 days.",
+      "On the store side, orders rose 256% and total sales rose 163% against the previous period.",
+    ],
+    body: [
+      {
+        type: "p",
+        text: "BabyFits sells baby clothing in Pakistan through Shopify. When we opened their Meta account, Ads Manager listed 89 ad sets. Spend across the account had reached PKR 437,229. The campaigns were not broken in any obvious way. Ads were running, impressions were piling up, and the reporting looked busy. It just was not possible to say which part of it was producing orders.",
+      },
+      {
+        type: "p",
+        text: "This is a common way for an account to end up stuck, and it rarely looks like a problem from the inside. Every ad set was created for a sensible reason. Someone wanted to test a new interest, or separate men from women, or try a different placement. None of those decisions is wrong on its own. Together they split one budget into 89 pieces.",
+      },
+      { type: "h2", id: "why-it-stalls", text: "Why a split budget stalls" },
+      {
+        type: "p",
+        text: "Meta needs conversions inside an ad set before it can optimise delivery for that ad set. Not clicks, not reach, conversions. Meta documents this as [the learning phase](https://www.facebook.com/business/help/112167992830700) in its own help centre, and an ad set that never gathers enough events stays in a limited state where delivery does not improve.",
+      },
+      {
+        type: "p",
+        text: "The arithmetic is unforgiving. If a store is doing a few hundred orders in a period and those orders are distributed across 89 ad sets, the average set is sitting on a handful of purchases. A handful is not a sample. It is noise.",
+      },
+      {
+        type: "callout",
+        text: "In the BabyFits account, cost per purchase differed by about five times between the cheapest and most expensive ad sets. That looks like a dramatic finding until you notice most sets had too few purchases for the number to mean anything.",
+      },
+      {
+        type: "p",
+        text: "There is a second cost that is easier to miss. Creative fatigue never showed up in the reporting, because no single ad ran long enough or wide enough to fatigue. The account had no way of learning which creative held up over time, because nothing was given the chance to.",
+      },
+      { type: "h2", id: "what-we-changed", text: "What we actually changed" },
+      {
+        type: "p",
+        text: "We moved to broad audiences instead of stacked interest targeting, with fewer ad sets and enough daily budget in each one to reach a usable number of purchases. Broad targeting gets argued about a lot, and it is not automatically right. It happened to suit this account, because the product has wide appeal, the creative was strong, and the catalogue was not so niche that Meta needed help finding buyers.",
+      },
+      {
+        type: "p",
+        text: "The harder part was not the setup. It was turning things off. Switching off an ad set that has been running for weeks feels like throwing away work, particularly when it has some orders attached to it. Most of those orders would have happened anyway.",
+      },
+      {
+        type: "p",
+        text: "We judged winners on cost per purchase, and only on cost per purchase. Click-through rate and reach are useful for diagnosing why something is not working, but they are not the thing you are buying. A cheap click that does not convert is just a cheap click.",
+      },
+      {
+        type: "figure",
+        src: "/work/baby-fits/meta-ads-babyfits.jpg",
+        alt: "Meta Ads Manager for BabyFits showing 89 ad sets, PKR 437,229 spent, 1.53 million impressions and 708,501 people reached, with the leading broad ad set at 113 purchases",
+        caption:
+          "The account view: 89 ad sets, 1.53M impressions and 708,501 people reached. The leading broad ad set delivered 113 purchases at PKR 635.61 each over the 30 days to 18 August 2026.",
+        width: 1920,
+        height: 1080,
+      },
+      { type: "h2", id: "the-numbers", text: "The numbers" },
+      {
+        type: "p",
+        text: "Over the 30 days to 18 August 2026, the strongest broad ad set delivered 113 website purchases at PKR 635.61 each. Across the account in that window, the ads reached 708,501 people against 1.53 million impressions.",
+      },
+      {
+        type: "p",
+        text: "The platform figures only matter if the store agrees with them, so we read both. Between 1 July and 19 August 2026, Shopify recorded PKR 1.05 million in total sales from 770 orders, which was 163% and 256% above the preceding period respectively. Average order value sat at PKR 1,806.",
+      },
+      {
+        type: "figure",
+        src: "/work/baby-fits/shopify-babyfits.jpg",
+        alt: "Shopify dashboard for BabyFits covering 1 July to 19 August 2026, showing PKR 1.05M total sales up 163%, 770 orders up 256% and average order value of PKR 1,806",
+        caption:
+          "The Shopify side for the same window. We check the store rather than trusting Ads Manager alone, because attribution and actual revenue rarely agree exactly.",
+        width: 1920,
+        height: 1080,
+      },
+      {
+        type: "p",
+        text: "Worth being straight about what these numbers are. They cover one store, one category and one market, over about seven weeks. The restructure was not the only thing that changed in that period, and a growing account tends to improve for several reasons at once. We would not claim the ad set count explains all of it.",
+      },
+      { type: "h2", id: "how-many", text: "So how many ad sets should you run?" },
+      {
+        type: "p",
+        text: "There is no universal number, and anyone giving you one without asking about your conversion volume is guessing. The question to ask is the other way round. Start from how many purchases you get in a week, then work out how many ad sets that volume can support while leaving each one with enough events to be read.",
+      },
+      {
+        type: "ul",
+        items: [
+          "If the store does 50 orders a week, a handful of ad sets is already stretching it.",
+          "If it does 500, you have room to test properly.",
+          "If you cannot say how many orders came from each ad set, fix conversion tracking before touching the structure.",
+        ],
+      },
+      {
+        type: "p",
+        text: "That last point is the one people skip. We do not launch anything until the purchase event fires correctly, because every decision after that is guesswork otherwise. It is the first thing we check on any [paid advertising](/services#ads) engagement. Restructuring an account on top of broken tracking just produces confident conclusions from bad data.",
+      },
+      { type: "h2", id: "doing-this-yourself", text: "If you want to try this on your own account" },
+      {
+        type: "ol",
+        items: [
+          "Check the purchase event actually fires, and that the number in Ads Manager is close to the number in your store.",
+          "Count your weekly purchases, then count your active ad sets. If the first number divided by the second is in single digits, that is your problem.",
+          "Pick the sets with the lowest cost per purchase and genuine volume behind them, not just a flattering rate on four orders.",
+          "Turn the rest off, move the budget, and leave it alone long enough to gather data. The temptation to intervene on day two is strong and usually wrong.",
+          "Read the store, not only the ad platform.",
+        ],
+      },
+      {
+        type: "p",
+        text: "The full [BabyFits case study](/work/babyfits), with the dashboards and a longer write up of the approach, sits alongside the rest of [our work](/work).",
+      },
+    ],
+    faqs: [
+      {
+        q: "How many Meta ad sets should I run?",
+        a: "There is no fixed number. Work back from your weekly purchase volume: each ad set needs enough conversions for Meta to optimise delivery, so a store doing 50 orders a week can support far fewer ad sets than one doing 500. If your weekly purchases divided by your active ad sets lands in single digits, you have too many.",
+      },
+      {
+        q: "Why do my Meta ad sets stay in the learning phase?",
+        a: "Usually because the ad set is not gathering enough optimisation events, which most often comes down to budget being spread too thinly or the audience being too narrow. Meta describes the learning phase in its Business Help Centre. Consolidating budget into fewer ad sets is the most direct fix.",
+      },
+      {
+        q: "Is broad targeting better than interest targeting on Meta?",
+        a: "Not automatically. Broad targeting suited BabyFits because the product has wide appeal and the creative was strong enough to do the selecting. A niche product with a specific buyer can still do better with defined audiences. The deciding factor is whether you have enough conversion volume for Meta to learn from.",
+      },
+      {
+        q: "Should I trust Ads Manager or my store for revenue numbers?",
+        a: "Read both and expect them to disagree. Ads Manager reports attributed conversions using its own window; your store reports money actually received. We treat the store as the source of truth for revenue and use Ads Manager to compare ad sets against each other.",
+      },
+    ],
+  },
   {
     slug: "how-much-does-a-website-cost",
     title: "How much does a business website cost in 2026?",
