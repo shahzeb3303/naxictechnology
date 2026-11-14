@@ -140,9 +140,15 @@ export function ArticleBody({ body }: { body: Block[] }) {
 
           case "figure":
             return (
-              /* Breaks the 68ch measure on purpose: a dashboard screenshot is
-                 unreadable at body width. */
-              <figure key={i} className="mt-10 lg:-mx-16 xl:-mx-24">
+              /* Breaks the 68ch measure on purpose, because a dashboard
+                 screenshot is unreadable at body width.
+                 Right side only: the article sits in a 9 of 12 column beside a
+                 sticky table of contents, so a negative left margin runs
+                 underneath it.
+                 From xl, not lg: at 1024px the column already reaches the
+                 viewport edge, so pulling right there causes a horizontal
+                 scrollbar instead of a wider image. */
+              <figure key={i} className="mt-10 xl:-mr-16 2xl:-mr-24">
                 <Image
                   src={block.src}
                   alt={block.alt}
