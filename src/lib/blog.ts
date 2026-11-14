@@ -87,6 +87,198 @@ export const categories = [
 
 export const posts: Post[] = [
   {
+    slug: "ranking-in-ai-search",
+    title: "What Google actually says about ranking in AI search",
+    excerpt:
+      "Most advice about AI Overviews is invented. Google publishes its own guidance, and it contradicts a lot of what agencies are selling.",
+    category: "AI",
+    tags: ["AI Search", "AI Overviews", "SEO", "GEO"],
+    authorId: "itrat",
+    publishedAt: "2026-11-14",
+    readMinutes: 8,
+    tone: "ink",
+    cover: "/blog/ai-search/mythbusting.jpg",
+    takeaways: [
+      "Google states there are no additional technical requirements for appearing in AI Overviews beyond being indexed and eligible for a snippet.",
+      "Google says structured data is not required for generative AI search, and that you do not need llms.txt or any other AI specific file.",
+      "Publishing large volumes of pages to influence AI answers is covered by Google's scaled content abuse policy.",
+      "ChatGPT uses a different crawler from the one that trains models, so blocking the wrong one removes you from ChatGPT search results.",
+      "Search Console has a Generative AI performance report, which is the only first party measurement available.",
+    ],
+    body: [
+      {
+        type: "p",
+        text: "If you search for how to rank in AI Overviews you will find a great deal of confident advice and very little agreement. One guide says 81% of cited sources come from the top 10 organic results. Another says 36.7% of cited URLs do not rank in the top 100 at all. Recommended answer length ranges from 40 words to 167 words depending on who is writing. These numbers come from vendor studies with methodologies you cannot inspect.",
+      },
+      {
+        type: "p",
+        text: "Google publishes its own guidance on this. It is shorter and less exciting than the agency version, and worth reading before you pay anyone for AI search optimisation.",
+      },
+      {
+        type: "h2",
+        id: "what-google-says",
+        text: "What the documentation actually says",
+      },
+      {
+        type: "p",
+        text: "Google's [guide to optimising for generative AI features](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide) puts the position plainly. In its own words, \u201coptimizing for generative AI search is optimizing for the search experience, and thus still SEO\u201d. There is no separate discipline being described here.",
+      },
+      {
+        type: "p",
+        text: "The eligibility rule is equally direct. To appear as a supporting link in AI Overviews or AI Mode, [a page must be indexed](https://developers.google.com/search/docs/appearance/ai-features) and eligible to be shown in Google Search with a snippet. Google adds that there are no additional technical requirements.",
+      },
+      {
+        type: "figure",
+        src: "/blog/ai-search/ai-features.jpg",
+        alt: "Google Search Central documentation stating that a page must be indexed and eligible to be shown with a snippet, with no additional technical requirements for AI features",
+        caption:
+          "Google's AI features documentation. The technical bar is the same bar as ordinary Search, and meeting it still guarantees nothing.",
+        width: 1440,
+        height: 900,
+      },
+      {
+        type: "h2",
+        id: "what-you-do-not-need",
+        text: "The things you have probably been sold",
+      },
+      {
+        type: "p",
+        text: "Google runs a section of that guide titled Mythbusting generative AI search, listing what you do not need to do. Three of its entries are worth quoting because they contradict common paid advice.",
+      },
+      {
+        type: "p",
+        text: "On AI specific files: \u201cYou don\u2019t need to create new machine readable files, AI text files, markup, or Markdown to appear in Google Search\u201d. It names llms.txt directly and says Google Search does not use it.",
+      },
+      {
+        type: "p",
+        text: "On structured data: \u201cStructured data isn\u2019t required for generative AI search\u201d. Schema markup remains useful for rich results in ordinary Search, which is a separate reason to have it, but it is not an AI search lever.",
+      },
+      {
+        type: "p",
+        text: "On rewriting for machines: there is no requirement to chop content into small chunks, and no need to write in a particular style for AI systems. Google states there is no ideal page length for generative AI search.",
+      },
+      {
+        type: "figure",
+        src: "/blog/ai-search/mythbusting.jpg",
+        alt: "Google Search Central Mythbusting generative AI search section, covering llms.txt files, content chunking, and rewriting content specifically for AI systems",
+        caption:
+          "The Mythbusting section. Google does say keeping an llms.txt file is fine and will neither harm nor help your rankings, which is a reasonable summary of its current value.",
+        width: 1440,
+        height: 900,
+      },
+      {
+        type: "callout",
+        text: "This site publishes an llms.txt file. We keep it because Perplexity and several smaller crawlers read it, not because Google does. That distinction is the whole point: a file can be worth having for one engine and irrelevant to another.",
+      },
+      {
+        type: "h2",
+        id: "volume-warning",
+        text: "The warning most people skip",
+      },
+      {
+        type: "p",
+        text: "The same guide addresses publishing volume. Creating many pages primarily to influence rankings or AI responses \u201cviolates Google\u2019s scaled content abuse spam policy\u201d, and it adds that \u201ca high quantity of pages doesn\u2019t make a website higher quality or more relevant to users\u201d.",
+      },
+      {
+        type: "p",
+        text: "This matters because the standard response to AI search anxiety is to publish more. If an agency proposes forty articles a month to capture AI citations, they are proposing the exact pattern that policy describes.",
+      },
+      {
+        type: "h2",
+        id: "other-engines",
+        text: "ChatGPT and Perplexity work differently",
+      },
+      {
+        type: "p",
+        text: "Google is one engine. The others have their own crawlers and their own rules, and this is where real technical mistakes happen.",
+      },
+      {
+        type: "p",
+        text: "OpenAI [documents three separate bots](https://developers.openai.com/api/docs/bots). GPTBot crawls content that may train foundation models. OAI-SearchBot surfaces sites in ChatGPT search. ChatGPT-User handles user initiated fetches, such as when someone asks ChatGPT to open a specific page.",
+      },
+      {
+        type: "p",
+        text: "The practical consequence is that these are different decisions. A publisher who blocks GPTBot to keep their writing out of model training has not removed themselves from ChatGPT search. A site that blocks OAI-SearchBot has, and OpenAI states those sites will not appear in ChatGPT search answers.",
+      },
+      {
+        type: "ul",
+        items: [
+          "GPTBot: training. Block it if you object to your content training models.",
+          "OAI-SearchBot: ChatGPT search results. Blocking it removes you from ChatGPT answers.",
+          "ChatGPT-User: fetches a page because a user asked for it.",
+          "Google-Extended: governs Gemini training and grounding, separate from Google Search indexing.",
+        ],
+      },
+      {
+        type: "p",
+        text: "We have seen sites block all AI user agents in one sweep, usually added by a developer acting on a general instruction to keep AI out. If you sell to people who research through ChatGPT, that setting quietly removes you from the shortlist.",
+      },
+      {
+        type: "h2",
+        id: "measuring",
+        text: "How to measure any of this",
+      },
+      {
+        type: "p",
+        text: "Search Console carries a Generative AI performance report covering generative AI features in Search and Discover. It is the only first party data on this that exists. Analytics will not separate an AI Overview click from an ordinary organic click, and third party AI visibility trackers are sampling prompts rather than observing your traffic.",
+      },
+      {
+        type: "p",
+        text: "Google also added a generative AI control in Search Console. The default includes your site. If you want out of AI features specifically, that is the switch, and it is worth knowing it exists before someone flips it without telling you.",
+      },
+      {
+        type: "h2",
+        id: "what-we-do",
+        text: "What we do instead",
+      },
+      {
+        type: "p",
+        text: "Nothing here argues that AI search is unimportant. It argues that the work is ordinary technical and content work, and that most AI specific optimisation being sold is either unnecessary or unverifiable.",
+      },
+      {
+        type: "ol",
+        items: [
+          "Make sure pages are crawlable and indexable, including through any CDN or firewall sitting in front of the site.",
+          "Check which AI user agents robots.txt allows, and confirm the decision was deliberate rather than inherited.",
+          "Answer the actual question early on the page, in text, because text is what gets quoted.",
+          "Keep schema for rich results and for non Google engines, without expecting it to buy AI citations.",
+          "Publish less and make it worth citing. One page with original data outperforms twenty summarising other people.",
+          "Watch the Generative AI report in Search Console rather than a vendor dashboard.",
+        ],
+      },
+      {
+        type: "p",
+        text: "That last point is the one that actually separates sites in AI answers. An engine quoting a page needs something on it worth quoting. If a page restates what twenty others already say, there is no reason to cite it over any of them.",
+      },
+      {
+        type: "p",
+        text: "If you want help with the technical side of this, it sits inside our [SEO work](/services#seo). If you are weighing it against paid channels, we wrote about [that trade off separately](/blog/seo-or-paid-ads-first).",
+      },
+    ],
+    faqs: [
+      {
+        q: "Do I need an llms.txt file to rank in AI search?",
+        a: "Not for Google. Google's documentation states you do not need to create machine readable files, AI text files, markup or Markdown to appear in Google Search, and names llms.txt specifically as something Google Search does not use. Google does say keeping one is fine and will neither harm nor help your rankings. Some other services, including Perplexity, do read it, so the file has value outside Google.",
+      },
+      {
+        q: "Does schema markup help you appear in AI Overviews?",
+        a: "Google states that structured data is not required for generative AI search. Schema is still worth having, because it drives rich results in ordinary Search and is used by engines other than Google, but it should not be sold to you as an AI Overviews lever.",
+      },
+      {
+        q: "Will blocking GPTBot remove me from ChatGPT search?",
+        a: "No. OpenAI uses separate crawlers. GPTBot crawls content that may train foundation models, while OAI-SearchBot is what surfaces sites in ChatGPT search. Blocking GPTBot keeps your content out of training. Blocking OAI-SearchBot is what removes you from ChatGPT search answers.",
+      },
+      {
+        q: "How do I track traffic from AI Overviews?",
+        a: "Use the Generative AI performance report in Google Search Console, which covers generative AI features in Search and Discover. It is the only first party measurement available. Analytics cannot reliably separate an AI Overview click from an ordinary organic click.",
+      },
+      {
+        q: "Should I publish more articles to get cited by AI?",
+        a: "Volume alone works against you. Google's guidance says creating many pages mainly to influence rankings or AI responses violates its scaled content abuse spam policy, and that a high quantity of pages does not make a site higher quality or more relevant. A smaller number of pages carrying original information is the better strategy.",
+      },
+    ],
+  },
+  {
     slug: "too-many-meta-ad-sets",
     title: "What happens when you run 89 Meta ad sets at once",
     excerpt:
