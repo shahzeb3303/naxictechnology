@@ -87,6 +87,221 @@ export const categories = [
 
 export const posts: Post[] = [
   {
+    slug: "core-web-vitals-2026",
+    title: "Core Web Vitals 2026: real thresholds and the 2027 change",
+    excerpt:
+      "The thresholds did not change this year. Something else did, it lands in May 2027, and it will move your scores without you touching the site.",
+    category: "SEO",
+    tags: ["Core Web Vitals", "Page Speed", "Technical SEO", "INP"],
+    authorId: "itrat",
+    publishedAt: "2026-11-15",
+    readMinutes: 9,
+    tone: "ink",
+    cover: "/blog/core-web-vitals/thresholds.jpg",
+    takeaways: [
+      "The thresholds are unchanged: LCP at or under 2.5 seconds, INP at or under 200 milliseconds, CLS at or under 0.1, measured at the 75th percentile.",
+      "Claims that Google tightened INP to 150 milliseconds or LCP to 2.0 seconds this year appear in several published guides and in none of Google\u2019s documentation.",
+      "In October 2026, 56.3% of the 18 million origins Google tracks passed all three Core Web Vitals. LCP is the metric most sites fail, not INP.",
+      "Chrome plans to include soft navigations in Core Web Vitals from May 2027, which would lift the share of origins with good LCP from 68.8% to 73.6% on current data.",
+      "We measured our own site for this article and found two real problems, including a 3.35 MB video loading on mobile.",
+    ],
+    body: [
+      {
+        type: "p",
+        text: "Just over half the web passes Core Web Vitals. Google\u2019s own October 2026 figures put it at 56.3% of the 18,070,207 origins it tracks, which means roughly eight million sites do not pass. If yours is one of them, the useful question is which metric is failing and why, and that is where most of the advice currently in circulation stops being helpful.",
+      },
+      {
+        type: "p",
+        text: "Search for guidance on this and you will find confident claims that the thresholds tightened this year. One widely syndicated version says INP moved to 150 milliseconds in January 2026. Another says Google cut the good LCP threshold from 2.5 seconds to 2.0 seconds in March. Neither appears anywhere in Google\u2019s documentation. The thresholds are the same ones Google set years ago, and the real change of 2026 is something else entirely, with a date attached to it.",
+      },
+      {
+        type: "h2",
+        id: "the-thresholds",
+        text: "The thresholds, from the source",
+      },
+      {
+        type: "p",
+        text: "There are three Core Web Vitals, and [web.dev documents all of them](https://web.dev/articles/vitals) in one place. Largest Contentful Paint measures loading, Interaction to Next Paint measures responsiveness, and Cumulative Layout Shift measures visual stability.",
+      },
+      {
+        type: "ul",
+        items: [
+          "LCP: good at or under 2.5 seconds, needs improvement up to 4.0 seconds, poor above that.",
+          "INP: good at or under 200 milliseconds, needs improvement up to 500 milliseconds, poor above that.",
+          "CLS: good at or under 0.1, needs improvement up to 0.25, poor above that.",
+        ],
+      },
+      {
+        type: "p",
+        text: "The number that matters is not your average. Google says \u201ca good threshold to measure is the 75th percentile of page loads, segmented across mobile and desktop devices\u201d. Three visitors in four need a good experience, counted separately for phones and computers. A fast desktop median hides a slow mobile 75th percentile, and mobile is usually where the failure is.",
+      },
+      {
+        type: "figure",
+        src: "/blog/core-web-vitals/thresholds.jpg",
+        alt: "Google web.dev documentation showing the Core Web Vitals thresholds for LCP at 2.5 and 4.0 seconds, INP at 200 and 500 milliseconds, and CLS at 0.1 and 0.25, with a note that the 75th percentile is the threshold to measure",
+        caption:
+          "The thresholds as web.dev publishes them. The second number on each bar is the boundary between needs improvement and poor, which the shorter guides tend to leave out.",
+        width: 1440,
+        height: 900,
+      },
+      {
+        type: "p",
+        text: "On whether any of this is about to move, the same page is explicit: \u201cStable Core Web Vitals metrics won\u2019t change more than once per year\u201d, and developers \u201cshould expect the definitions and thresholds of the Core Web Vitals to be stable\u201d. Changes get announced before they take effect. If a guide tells you a threshold changed and cannot point at the announcement, there was no announcement.",
+      },
+      {
+        type: "h2",
+        id: "what-changed-2026",
+        text: "What actually changed in 2026",
+      },
+      {
+        type: "p",
+        text: "The real change is in what gets measured rather than what counts as good, and it concerns single page applications. When someone clicks through a React, Next.js, Vue or Angular site and the URL changes without a full page load, that is a soft navigation. Until recently none of it was measured. Core Web Vitals captured the first load and then stopped, so a site where the landing page was fast and every subsequent view was slow looked perfect in the data.",
+      },
+      {
+        type: "p",
+        text: "Chrome now [detects these navigations](https://developer.chrome.com/docs/web-platform/soft-navigations-experiment). It counts one when three things hold: the navigation is initiated by a user action, it results in a visible URL change, and the interaction results in a visible paint. Detection is on by default from Chrome 151, and it works only in Chromium based browsers, so Safari and Firefox contribute nothing here.",
+      },
+      {
+        type: "figure",
+        src: "/blog/core-web-vitals/soft-navigations.jpg",
+        alt: "Chrome CrUX release notes for October 2026 listing 18,070,207 origins, 68.8% with good LCP, 81.6% with good CLS, 85.2% with good INP, 56.3% with good Core Web Vitals, and the projected figures with soft navigations included from May 2027",
+        caption:
+          "The CrUX release notes carry monthly figures for the whole web, and the projection for what soft navigations will do to them. This is public and free, and almost nobody reads it.",
+        width: 1440,
+        height: 900,
+      },
+      {
+        type: "p",
+        text: "The dates are in the [CrUX release notes](https://developer.chrome.com/docs/crux/release-notes). Soft navigation metrics arrived as experimental variants in September 2026 and were extended in October to cover First Contentful Paint and navigation types. Chrome plans to include them in the main Core Web Vitals figures from May 2027.",
+      },
+      {
+        type: "callout",
+        text: "If you run a single page application, your scores will move in May 2027 whether or not you touch the site. Google has published the direction: on October 2026 data, including soft navigations takes origins with good LCP from 68.8% to 73.6%, and good CLS from 81.6% to 85.0%. Most sites improve on paper. The ones that get worse are the ones whose in app views are slower than their landing pages, which is the common pattern.",
+      },
+      {
+        type: "h2",
+        id: "how-the-web-performs",
+        text: "Which metric is actually failing",
+      },
+      {
+        type: "p",
+        text: "The October 2026 figures are worth keeping in mind before you spend a budget, because they show where the problem usually is not.",
+      },
+      {
+        type: "ul",
+        items: [
+          "85.2% of origins have good INP.",
+          "81.6% of origins have good CLS.",
+          "68.8% of origins have good LCP.",
+          "56.3% of origins pass all three together.",
+        ],
+      },
+      {
+        type: "p",
+        text: "INP attracts the most anxiety and is the metric fewest sites fail. LCP is the one that fails, by a wide margin, and it is mostly a question of how much weight the page ships before it can paint something. That is unglamorous work: images, fonts, video, and whatever the tag manager is loading. It is also the work with the clearest payoff, because the gap between 68.8% and 85.2% is where most of the eight million failing sites sit.",
+      },
+      {
+        type: "h2",
+        id: "what-we-measured",
+        text: "What we measured on our own site",
+      },
+      {
+        type: "p",
+        text: "Rather than repeat someone else\u2019s benchmark study, we measured this site while writing the article. The method was a 390 pixel wide mobile viewport with the CPU throttled to a quarter of desktop speed, which approximates a mid range Android phone, three runs per page with the median reported. These are lab numbers from one location in Islamabad, not field data, and the difference matters below.",
+      },
+      {
+        type: "ul",
+        items: [
+          "Home: LCP 2.42 seconds, CLS 0.000, longest blocking task 788 ms.",
+          "Services: LCP 2.01 seconds, CLS 0.000, longest blocking task 878 ms.",
+          "Work: LCP 1.91 seconds, CLS 0.000, longest blocking task 845 ms.",
+          "Blog article: LCP 1.81 seconds, CLS 0.000, longest blocking task 845 ms.",
+          "Contact: LCP 1.56 seconds, CLS 0.000, longest blocking task 815 ms.",
+        ],
+      },
+      {
+        type: "p",
+        text: "Zero layout shift across every page, and LCP inside the threshold everywhere. Then the measurement found two things that no amount of looking at the site would have surfaced.",
+      },
+      {
+        type: "p",
+        text: "The home page loads a 3.35 MB video on mobile. It is the single heaviest resource on the site by a factor of thirteen, it is being sent to phones that will never benefit from it, and it is the reason the home page sits at 2.42 seconds while the contact page sits at 1.56. It is comfortably the worst thing on this site and it had been invisible to us.",
+      },
+      {
+        type: "p",
+        text: "The second is smaller and more embarrassing. Article cards render their cover image with a plain img tag rather than the framework\u2019s image component, so they bypass resizing entirely. One card on this page was downloading a 696 KB original to display it at roughly 400 pixels wide. Both are now on our list, which is the honest status rather than a claim that we fixed them before publishing.",
+      },
+      {
+        type: "quote",
+        text: "You cannot reason your way to a 3 MB video. You find it by measuring, or you do not find it.",
+      },
+      {
+        type: "h2",
+        id: "lab-vs-field",
+        text: "Why your test score is not the one Google uses",
+      },
+      {
+        type: "p",
+        text: "This is the distinction that wastes the most money. A test you run yourself, in PageSpeed Insights or Lighthouse or a script like ours, is lab data: one simulated device, one connection, one moment. Google ranks on field data, which is what real Chrome users on real devices actually experienced over the preceding 28 days, collected into the Chrome User Experience Report.",
+      },
+      {
+        type: "p",
+        text: "The practical consequences are easy to miss. A lab score can be perfect while the field data fails, usually because real visitors are on slower phones and worse connections than your test. Field data needs enough traffic before it exists at all, so smaller sites may have none and have to work from lab numbers alone. And because the field window is 28 days, a fix you ship today will not show up for weeks. Teams routinely ship a fix, check the following morning, see no movement and ship something else.",
+      },
+      {
+        type: "p",
+        text: "Use the Core Web Vitals report in Search Console for the number that counts, and use lab tools for diagnosis, which is what they are good at. Lab tools tell you what is slow. Field data tells you whether it mattered.",
+      },
+      {
+        type: "h2",
+        id: "what-to-do",
+        text: "What to do about it",
+      },
+      {
+        type: "ol",
+        items: [
+          "Open the Core Web Vitals report in Search Console and find which of the three is failing, on mobile, before changing anything.",
+          "If it is LCP, find the heaviest thing loading before first paint. It is usually an image, a video, or a font. Measure the page weight rather than guessing at it.",
+          "If it is CLS, look for images and embeds without reserved dimensions, and for banners that push content down after load.",
+          "If it is INP, look for long JavaScript tasks blocking the main thread on interaction, not for page weight.",
+          "Check what your card and listing components do with images. Bypassing the framework image pipeline with a plain img tag is common and invisible until measured.",
+          "If you run a single page application, treat May 2027 as a real date and find out now whether your in app views are slower than your landing pages.",
+          "Re measure after four weeks, not the next morning.",
+        ],
+      },
+      {
+        type: "p",
+        text: "None of this is exotic, and that is rather the point. The thresholds are published, the monthly data for the entire web is published, and the schedule for the one genuine change is published. The work is reading the primary sources and then measuring your own site instead of assuming it resembles the benchmark in someone\u2019s blog post.",
+      },
+      {
+        type: "p",
+        text: "This sits inside our [SEO work](/services#seo), usually alongside the build itself. If you are wondering how any of this interacts with AI search, we looked at [what Google actually documents about that](/blog/ranking-in-ai-search) separately, and the short answer is that the same technical groundwork does the job.",
+      },
+    ],
+    faqs: [
+      {
+        q: "Did Google change the Core Web Vitals thresholds in 2026?",
+        a: "No. LCP is good at or under 2.5 seconds, INP at or under 200 milliseconds, and CLS at or under 0.1, all measured at the 75th percentile. Several published guides claim INP tightened to 150 milliseconds or LCP to 2.0 seconds during 2026, and neither claim appears in Google\u2019s documentation. Google states that stable Core Web Vitals metrics will not change more than once per year and that changes are announced in advance.",
+      },
+      {
+        q: "What is a soft navigation and why does it matter in 2027?",
+        a: "A soft navigation is a page change inside a single page application where the URL changes without a full page load. Chrome counts one when the navigation is initiated by a user action, results in a visible URL change, and produces a visible paint. These views were previously not measured at all. Chrome plans to include soft navigations in Core Web Vitals from May 2027, so scores for single page applications will move then without any code change.",
+      },
+      {
+        q: "Which Core Web Vital do most sites fail?",
+        a: "LCP. Google\u2019s October 2026 data covering 18,070,207 origins shows 68.8% with good LCP, 81.6% with good CLS and 85.2% with good INP, and 56.3% passing all three. INP receives the most attention but is the metric fewest sites fail.",
+      },
+      {
+        q: "Why does PageSpeed Insights show a good score when Search Console says the page fails?",
+        a: "They measure different things. PageSpeed Insights can run a lab test on a simulated device, while Search Console reports field data from real Chrome users over the previous 28 days. Real visitors are often on slower devices and connections than the simulation, so a page can pass in the lab and fail in the field. Google ranks on the field data.",
+      },
+      {
+        q: "How long after fixing a problem do Core Web Vitals scores improve?",
+        a: "Field data is collected over a rolling 28 day window, so a fix takes several weeks to be fully reflected in Search Console. Movement usually starts appearing within a couple of weeks and settles after about a month. Checking the day after a deployment and concluding the fix did not work is a common mistake.",
+      },
+    ],
+  },
+  {
     slug: "ranking-in-ai-search",
     title: "What Google actually says about ranking in AI search",
     excerpt:
