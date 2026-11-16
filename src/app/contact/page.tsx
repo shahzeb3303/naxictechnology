@@ -12,7 +12,7 @@ import { faqs, process, site } from "@/lib/data";
 export const metadata: Metadata = {
   title: `Contact | ${site.name}`,
   description:
-    "Start a project with Nexic Technologies. Offices in Islamabad and Manchester. A reply from an engineer within one business day.",
+    "Start a project with Nexic Technologies. Offices in Islamabad and Manchester. A reply from a real person within one business day.",
   alternates: { canonical: `${site.url}/contact` },
 };
 
@@ -69,7 +69,7 @@ export default function ContactPage() {
                         </span>
                         <span className="mt-1 block text-[0.875rem] leading-relaxed text-ink-muted">
                           {i === 0
-                            ? "Within one business day, from an engineer."
+                            ? "Within one business day, from a person who does the work."
                             : i === 1
                               ? "No pitch deck. We ask questions and push back."
                               : "Scope, price, and timeline in writing before anything starts."}

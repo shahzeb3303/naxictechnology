@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { ArrowUpRight, Check, Loader2 } from "lucide-react";
-import { budgetRanges, projectTypes, timelines } from "@/lib/data";
+import { budgetRanges, projectTypes, timelines, site } from "@/lib/data";
 
 type Fields = {
   name: string;
@@ -45,7 +45,11 @@ export function ContactForm() {
   const [values, setValues] = useState<Fields>(EMPTY);
   const [errors, setErrors] = useState<Errors>({});
   const [touched, setTouched] = useState<Partial<Record<keyof Fields, boolean>>>({});
-  const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
+  const [status, setStatus] = useState<
+    "idle" | "sending" | "sent" | "error"
+  >("idle");
+  /** Filled only by bots. Submitted as `companyUrl` and discarded server side. */
+  const [trap, setTrap] = useState("");
   const formRef = useRef<HTMLFormElement>(null);
 
   const set = (key: keyof Fields) => (v: string) => {
@@ -79,9 +83,19 @@ export function ContactForm() {
     }
 
     setStatus("sending");
-    // No endpoint yet — see the note under the form.
-    await new Promise((r) => setTimeout(r, 900));
-    setStatus("sent");
+
+    // Only ever show the receipt on a 2xx. A failed send that reports success
+    // loses the enquiry silently, which is worse than showing an error.
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...values, companyUrl: trap }),
+      });
+      setStatus(res.ok ? "sent" : "error");
+    } catch {
+      setStatus("error");
+    }
   }
 
   if (status === "sent") {
@@ -97,7 +111,7 @@ export function ContactForm() {
           Thanks, that came through.
         </h3>
         <p className="mt-4 max-w-[48ch] text-[0.9375rem] leading-relaxed text-ink-muted">
-          An engineer will read it and reply to{" "}
+          We will read it and reply to{" "}
           <span className="text-ink">{values.email}</span> within one business
           day. If it is urgent, call the studio directly.
         </p>
@@ -122,8 +136,42 @@ export function ContactForm() {
       ref={formRef}
       onSubmit={onSubmit}
       noValidate
-      className="rounded-3xl border border-line bg-paper-pure p-6 md:p-10"
+      className="relative rounded-3xl border border-line bg-paper-pure p-6 md:p-10"
     >
+      {/* Honeypot. Hidden from sight, from screen readers and from the tab
+          order, so only an automated filler ever puts anything in it. */}
+      <div aria-hidden="true" className="absolute left-[-9999px] h-px w-px overflow-hidden">
+        <label htmlFor="companyUrl">Do not fill this in</label>
+        <input
+          id="companyUrl"
+          name="companyUrl"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          value={trap}
+          onChange={(e) => setTrap(e.target.value)}
+        />
+      </div>
+
+      {status === "error" && (
+        <div
+          role="alert"
+          className="mb-8 rounded-2xl border border-line bg-flare-wash p-5 md:p-6"
+        >
+          <p className="text-[0.9375rem] leading-relaxed text-ink">
+            That did not send. Rather than lose what you wrote, copy it and
+            email us at{" "}
+            <a
+              href={`mailto:${site.email}`}
+              className="cursor-pointer font-medium underline underline-offset-4"
+            >
+              {site.email}
+            </a>
+            , or call {site.phone}. Your message is still in the form below.
+          </p>
+        </div>
+      )}
+
       <div className="grid gap-6 sm:grid-cols-2">
         <Field
           name="name"

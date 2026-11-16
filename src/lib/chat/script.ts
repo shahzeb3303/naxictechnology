@@ -229,7 +229,7 @@ export const NODES: ChatNode[] = [
     ],
     answer: {
       text: [
-        "Happy to hand you over. You'll get a reply from an engineer, not a sales rep, within one business day.",
+        "Happy to hand you over. You'll get a reply from someone who does the work, not a sales rep, within one business day.",
       ],
       bullets: [`Email: ${site.email}`, `Phone: ${site.phone}`],
       cta: { label: "Send a brief", href: "/contact" },
